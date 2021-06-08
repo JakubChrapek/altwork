@@ -11,8 +11,8 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Scroll from "./locomotiveScroll"
 import Header from "./header"
-import "./layout.css"
-import "./locomotive-scroll.css"
+import "../styles/layout.scss"
+import "../styles/locomotive-scroll.scss"
 
 // This `location` prop will serve as a callback on route change
 const Layout = ({ children, location }) => {
