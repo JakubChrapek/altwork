@@ -1,0 +1,63 @@
+import React from "react"
+import styled from "styled-components"
+
+const LogoStyles = styled.svg`
+  width: 176px;
+`
+
+export const Logo = () => (
+  <LogoStyles
+    id="Component_10_11"
+    data-name="Component 10 – 11"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 350.519 227.989"
+  >
+    <text
+      id="alt:"
+      transform="translate(0 112)"
+      font-size="124"
+      font-family="Diagramm-Bold, Diagramm"
+      font-weight="700"
+    >
+      <tspan x="0" y="0">
+        alt:
+      </tspan>
+    </text>
+    <text
+      id="w_rk"
+      data-name="w   rk"
+      transform="translate(1.519 190.989)"
+      font-size="123"
+      font-family="Diagramm-Bold, Diagramm"
+      font-weight="700"
+    >
+      <tspan x="0" y="0">
+        w{" "}
+      </tspan>
+      <tspan y="0" letter-spacing="0.14em">
+        {" "}
+      </tspan>
+      <tspan y="0" letter-spacing="0.2em">
+        {" "}
+      </tspan>
+      <tspan y="0">rk</tspan>
+    </text>
+    <rect
+      id="Rectangle_3"
+      data-name="Rectangle 3"
+      width="110.198"
+      height="65.514"
+      rx="32.757"
+      transform="translate(109.468 127.811)"
+    />
+    <rect
+      id="Rectangle_4"
+      data-name="Rectangle 4"
+      width="65.515"
+      height="65.515"
+      rx="32.757"
+      transform="translate(154.427 127.811)"
+      fill="#03df07"
+    />
+  </LogoStyles>
+)
