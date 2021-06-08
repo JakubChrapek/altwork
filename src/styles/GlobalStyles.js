@@ -7,14 +7,19 @@ const GlobalStyles = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
     }
-
     html {
       font-family: "Diagramm", sans-serif;
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
+      --color-black: #000;
+      --color-white: #fff;
+      --color-accent: #03DF07;
+      --color-accent-circle: #02E745;
+      --color-gray: #707070;
     }
     body {
-  font-family: "Diagramm", sans-serif;
+      font-family: "Diagramm", sans-serif;
+      color: var(--color-black);
       margin: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
