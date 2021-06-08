@@ -1,18 +1,11 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Scroll from "./locomotiveScroll"
-import Header from "./header"
-import "../styles/layout.scss"
-import "../styles/locomotive-scroll.scss"
+import Scroll from "./LocomotiveScroll"
+import Header from "./Header"
+import GlobalStyles from '../styles/GlobalStyles'
+// import "../styles/layout.scss"
+// import "../styles/locomotive-scroll.scss"
 
 // This `location` prop will serve as a callback on route change
 const Layout = ({ children, location }) => {
@@ -28,6 +21,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
+      <GlobalStyles />
       <Header siteTitle={data.site.siteMetadata.title} />
 
       {/* Here we pass the callbacks to the component. Anything that impacts the innerHeight, for example: Font Loaded */}
@@ -50,10 +44,6 @@ const Layout = ({ children, location }) => {
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

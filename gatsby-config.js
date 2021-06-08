@@ -1,13 +1,47 @@
+const siteConfig = require('./config/site-config');
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
-    title: `Alt:work`,
-    description: `Alt:work to spotkanie służące wymianie myśli, doświadczeń i refleksji na temat zmieniającej się na naszych oczach podstawowej formy aktywności człowieka: pracy`,
-    author: `@kuba.chrapek`,
+    ...siteConfig,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: siteConfig.sitemapPath,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: siteConfig.siteUrl,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: siteConfig.siteUrl,
+        sitemap: `${siteConfig.siteUrl}${siteConfig.sitemapPath}`,
+      },
+    },
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     trackingId: process.env.GA_ID,
+    //   },
+    // },
+    {
+      resolve: 'gatsby-source-datocms',
+      options: {
+        apiToken: process.env.DATO_CMS_KEY,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

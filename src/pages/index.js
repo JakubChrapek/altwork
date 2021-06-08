@@ -1,13 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Collapsible from "../components/collapsible"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import Collapsible from "../components/Collapsible"
+import Seo from "../components/Seo"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
+    <Seo meta={data.datoCmsPageHome.seoMetaTags} />
     <h1>Hi people</h1>
     <p>Welcome to my quick Locomotive scroll starter.</p>
     <h2>Locomotive Scroll and innerHeight</h2>
@@ -30,5 +30,15 @@ const IndexPage = () => (
     <Link to="/page-2/">Go to page 2</Link> <br />
   </Layout>
 )
+
+export const homeQuery = graphql`
+  {
+    datoCmsPageHome {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
+  }
+`
 
 export default IndexPage

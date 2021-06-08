@@ -1,0 +1,7 @@
+module.exports = {
+  siteUrl: 'https://gatsby-datocms-starter.netlify.com',
+  sitemapPath: '/sitemap.xml',
+  title: 'Alt:work',
+  description: 'Alt:work to spotkanie służące wymianie myśli, doświadczeń i refleksji na temat zmieniającej się na naszych oczach podstawowej formy aktywności człowieka: pracy',
+  author: '@kuba.chrapek',
+};
