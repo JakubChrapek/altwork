@@ -16,6 +16,24 @@ const GlobalStyles = createGlobalStyle`
       --color-accent: #03DF07;
       --color-accent-circle: #02E745;
       --color-gray: #707070;
+
+      --font-18: 1.13rem;
+      --font-20: 1.25rem;
+      --font-24: 1.5rem;
+      --font-32: 2rem;
+      --font-40: 2.5rem;
+      --font-50: 3.13rem;
+      --font-64: 4rem;
+      --font-80: 5rem;
+      --font-18-pt: var(--font-24);
+      --font-24-pt: var(--font-32);
+      --font-28-pt: 2.33rem;
+      --font-32-pt: 2.67rem;
+      --font-40-pt: 3.33rem;
+      --font-45-pt: 3.75rem;
+
+      --content-max-width-desktop: 85.38rem;
+      --content-max-width-mobile: 23.44rem;
     }
     body {
       font-family: "Diagramm", sans-serif;

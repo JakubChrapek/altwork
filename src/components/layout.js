@@ -7,8 +7,12 @@ import styled from 'styled-components'
 
 const PageWrapper = styled.div`
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: var(--content-max-width-desktop);
   padding: 10.875rem 2.25rem 0;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `
 
 // This `location` prop will serve as a callback on route change
