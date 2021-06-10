@@ -2,8 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Scroll from "./LocomotiveScroll"
 import Header from "./Header"
-import GlobalStyles from '../styles/GlobalStyles'
-import styled from 'styled-components'
+import GlobalStyles from "../styles/GlobalStyles"
+import styled from "styled-components"
 
 const PageWrapper = styled.div`
   margin: 0 auto;
@@ -35,9 +35,7 @@ const Layout = ({ children, location }) => {
       {/* Here we pass the callbacks to the component. Anything that impacts the innerHeight, for example: Font Loaded */}
       <Scroll callbacks={location} />
 
-      <PageWrapper
-        id="container"
-      >
+      <PageWrapper data-scroll-container id="container">
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

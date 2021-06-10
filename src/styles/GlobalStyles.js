@@ -1,13 +1,18 @@
 import { createGlobalStyle } from "styled-components"
 // import "./global.css"
-import DiagrammRegularWoff from '../fonts/Diagramm-Regular.woff';
+import font from '../fonts/Diagramm-Regular.woff';
+import fontBold from "../fonts/Diagramm-Bold.woff"
 import DiagrammRegularWoff2 from "../fonts/Diagramm-Regular.woff2"
 
 const GlobalStyles = createGlobalStyle`
     @font-face {
-      font-family: 'Diagramm';
-      src: url(${DiagrammRegularWoff2}) format('woff2'),
-          url(${DiagrammRegularWoff}) format('woff');
+      font-family: Diagramm;
+      src: url(${font});
+    }
+    @font-face {
+      font-family: Diagramm;
+      src: url(${fontBold});
+      font-weight: bold;
     }
     *, * + * {
       margin: 0;
@@ -15,7 +20,6 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
     }
     html {
-      font-family: "Diagramm", sans-serif;
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
       --color-black: #000;
@@ -43,16 +47,16 @@ const GlobalStyles = createGlobalStyle`
       --content-max-width-mobile: 23.44rem;
     }
     body {
-      font-family: "Diagramm", sans-serif;
+      font-family: Poppins, sans-serif;
       color: var(--color-black);
       margin: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    html[data-direction="down"] .header {
+    ${'' /* html[data-direction="down"] .header {
       transform: translateY(-100%);
-    }
+    } */}
 
     .Collapse {
       background: none;
