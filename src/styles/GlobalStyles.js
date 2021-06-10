@@ -1,7 +1,14 @@
 import { createGlobalStyle } from "styled-components"
-import "./typography.scss"
+// import "./global.css"
+import DiagrammRegularWoff from '../fonts/Diagramm-Regular.woff';
+import DiagrammRegularWoff2 from "../fonts/Diagramm-Regular.woff2"
 
 const GlobalStyles = createGlobalStyle`
+    @font-face {
+      font-family: 'Diagramm';
+      src: url(${DiagrammRegularWoff2}) format('woff2'),
+          url(${DiagrammRegularWoff}) format('woff');
+    }
     *, * + * {
       margin: 0;
       padding: 0;
@@ -45,9 +52,6 @@ const GlobalStyles = createGlobalStyle`
 
     html[data-direction="down"] .header {
       transform: translateY(-100%);
-    }
-    h1 {
-      font-family: "Diagramm", sans-serif;
     }
 
     .Collapse {

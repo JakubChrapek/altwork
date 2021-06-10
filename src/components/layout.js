@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const PageWrapper = styled.div`
   margin: 0 auto;
   max-width: var(--content-max-width-desktop);
-  padding: 10.875rem 2.25rem 0;
+  padding: 15.375rem 8.75rem 0;
 
   @media (max-width: 600px) {
     max-width: 100%;
