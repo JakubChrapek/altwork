@@ -51,24 +51,28 @@ const ImageWrapper = styled(motion.div)``
 
 const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
   const [toggleState, setToggleState] = useState(false)
-
+  const transition = { ease: [0.6, 0.01, -0.05, 0.95], duration: 1 }
   return (
     <ToggleStyles>
       <div>
-        <AnimatePresence>
+        <AnimatePresence initial={false} exitBeforeEnter>
           {toggleState ? (
             <ImageWrapper
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 2 } }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+              transition={transition}
+              key="armchair-off"
             >
               <Armchair image={armchairoff.gatsbyImageData} off />
             </ImageWrapper>
           ) : (
             <ImageWrapper
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 2 } }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+              transition={transition}
+              key="armchair-on"
             >
               <Armchair image={armchairon.gatsbyImageData} off />
             </ImageWrapper>
@@ -76,16 +80,20 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
           {toggleState ? (
             <ImageWrapper
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 2 } }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+              transition={transition}
+              key="armchair-off"
             >
               <Chair image={chairon.gatsbyImageData} off />
             </ImageWrapper>
           ) : (
             <ImageWrapper
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 2 } }}
+              exit={{ opacity: 0, transition: { duration: 2 } }}
+              transition={transition}
+              key="armchair-on"
             >
               <Chair image={chairoff.gatsbyImageData} off />
             </ImageWrapper>
@@ -95,9 +103,10 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
           <motion.span
             initial={{ x: 0 }}
             animate={toggleState ? { x: "8.813rem" } : { x: 0 }}
-            transition={{ ease: [0.25, 0.68, 0.5, 0.98] }}
+            transition={transition}
           />
         </Toggler>
+        },
       </div>
     </ToggleStyles>
   )
