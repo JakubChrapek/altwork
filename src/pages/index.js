@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import SEO from "../components/SEO"
 import HeroSection from "../components/HeroSection"
 import VideoSection from "../components/VideoSection"
 import AboutSection from "../components/AboutSection"
@@ -41,7 +41,7 @@ const IndexPage = ({ data }) => {
   } = data
   return (
     <Layout>
-      <Seo meta={data.datoCmsPageHome.seoMetaTags} />
+      <SEO meta={data.datoCmsPageHome.seoMetaTags} />
       <HeroSection
         emptyCircleText={emptyCircleContent}
         filledCircleText={filledCircleContent}

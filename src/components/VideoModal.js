@@ -3,7 +3,7 @@ import styled from "styled-components"
 import ReactModal from "react-modal"
 import { AnimatePresence, motion } from "framer-motion"
 import { GrClose } from "react-icons/gr"
-import VideoPlayer from "./videoPlayer"
+import VideoPlayer from "./VideoPlayer"
 
 const ExitButtonStyles = styled(motion.button)`
   background-color: transparent;

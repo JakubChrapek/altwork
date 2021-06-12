@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Scroll from "./LocomotiveScroll"
+// import Scroll from "./LocomotiveScroll"
 import Header from "./Header"
 import GlobalStyles from "../styles/GlobalStyles"
 import styled from "styled-components"
