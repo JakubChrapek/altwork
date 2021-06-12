@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import { Logo, IconFB, IconYT } from "./Icons"
+import { Logo, IconFB, IconYT } from "./icons"
 
 const HeaderWrapper = styled.header`
   width: 100%;

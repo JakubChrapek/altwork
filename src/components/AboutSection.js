@@ -1,7 +1,7 @@
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
-import { ClaimStyles } from "./Typography"
+import { ClaimStyles } from "./typography"
 
 const AboutSectionStyles = styled.section`
   margin-top: 7.125rem;

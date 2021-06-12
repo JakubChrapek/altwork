@@ -1,8 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 // import Scroll from "./LocomotiveScroll"
-import Header from "./Header"
-import GlobalStyles from "../styles/GlobalStyles"
+import Header from "./header"
+import GlobalStyles from "../styles/globalStyles"
 import styled from "styled-components"
 
 const PageWrapper = styled.div`

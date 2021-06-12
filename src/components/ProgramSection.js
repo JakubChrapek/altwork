@@ -1,9 +1,9 @@
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
-import { ClaimStyles, SectionTitle } from "./Typography"
-import { RichArrowDown } from "./Icons"
-import Circles from "./Circles"
+import { ClaimStyles, SectionTitle } from "./typography"
+import { RichArrowDown } from "./icons"
+import Circles from "./circles"
 
 const ProgramSectionStyles = styled.section`
   margin-top: 11rem;

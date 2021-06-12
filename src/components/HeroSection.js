@@ -1,8 +1,8 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { StructuredText } from "react-datocms"
-import { ClaimStyles } from "./Typography"
-import Circles from "./Circles"
+import { ClaimStyles } from "./typography"
+import Circles from "./circles"
 
 const SectionStyles = styled.section``
 
