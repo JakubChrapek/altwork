@@ -39,7 +39,6 @@ const IndexPage = ({ data }) => {
     armchairoff,
     armchairon,
   } = data
-  console.log(data)
   return (
     <Layout>
       <Seo meta={data.datoCmsPageHome.seoMetaTags} />
