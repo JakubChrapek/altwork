@@ -50,7 +50,7 @@ const QuestionsWrapper = styled.div`
 const AboutSection = ({ aboutWhatTitle, shortQuestions, longerQuestions }) => {
   return (
     <AboutSectionStyles>
-      <ClaimStyles>
+      <ClaimStyles maxWidth="48rem">
         <StructuredText data={aboutWhatTitle} />
       </ClaimStyles>
       <QuestionsWrapper>

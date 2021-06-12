@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import GSAP from "gsap"
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useTransform } from "framer-motion"
 
 const LogoStyles = styled.svg`
   width: 25.4vw;
@@ -124,4 +124,335 @@ export const IconPlay = ({ variant = "light" }) => (
       fill={variant === "dark" ? "#000" : "#fff"}
     />
   </svg>
+)
+
+export const RichArrowRight = () => {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <motion.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="308.551"
+      height="184"
+      viewBox="0 0 308.551 184"
+      overflow="visible"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <motion.g
+        id="richArrowRight"
+        data-name="richArrowRight"
+        transform="translate(0 184) rotate(-90)"
+      >
+        <motion.rect
+          initial={{ y: 0 }}
+          animate={hovered ? { y: "100%" } : { y: 0 }}
+          transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.3 }}
+          id="richArrowRight-circle"
+          data-name="richArrowRight-circle"
+          width="184"
+          height="184"
+          rx="90"
+          transform="translate(184) rotate(90)"
+          fill="#03df07"
+          a
+        />
+        <g
+          id="Group_69"
+          data-name="Group 69"
+          transform="translate(4485.512 -269.195) rotate(90)"
+        >
+          <g
+            id="Group_33"
+            data-name="Group 33"
+            transform="translate(577.746 4320.808) rotate(90)"
+          >
+            <path
+              id="anonymousPath"
+              data-name="anonymousPath"
+              d="M0,0"
+              transform="translate(75.89 40.085)"
+              fill="none"
+              stroke="#000"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+            <line
+              id="richArrowRight-straightLine"
+              data-name="richArrowRight-straightLine"
+              y2="216.508"
+              transform="translate(71.69 0.043)"
+              fill="none"
+              stroke="#000"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+            <path
+              id="richArrowRight-bottomLine"
+              data-name="richArrowRight-bottomLine"
+              d="M71.674,73.876C32.09,73.876,0,40.8,0,0"
+              transform="translate(71.647 0)"
+              fill="none"
+              stroke="#000"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+            <path
+              id="richArrowRight-topLine"
+              data-name="richArrowRight-topLine"
+              d="M71.674,0C71.674,40.8,39.585,73.876,0,73.876"
+              transform="translate(0 0)"
+              fill="none"
+              stroke="#000"
+              stroke-miterlimit="10"
+              stroke-width="2"
+            />
+          </g>
+        </g>
+      </motion.g>
+    </motion.svg>
+  )
+}
+
+export const RichArrowDown = () => {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <motion.svg
+      id="richArrowDownWrapper"
+      data-name="richArrowDownWrapper"
+      xmlns="http://www.w3.org/2000/svg"
+      width="184"
+      height="308.551"
+      viewBox="0 0 184 308.551"
+      overflow="visible"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <motion.rect
+        initial={{ y: 0 }}
+        animate={hovered ? { y: 184 } : { y: 0 }}
+        transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.3 }}
+        id="richArrowDownWrapper-circle"
+        data-name="richArrowDownWrapper-circle"
+        width="184"
+        height="184"
+        rx="90"
+        transform="translate(184) rotate(90)"
+        fill="#03df07"
+      />
+      <g
+        id="Group_69"
+        data-name="Group 69"
+        transform="translate(4485.512 -269.195) rotate(90)"
+      >
+        <g
+          id="Group_33"
+          data-name="Group 33"
+          transform="translate(577.746 4320.808) rotate(90)"
+        >
+          <path
+            id="Path_4"
+            data-name="Path 4"
+            d="M0,0"
+            transform="translate(75.89 40.085)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <line
+            id="richArrowDownWrapper-straightLine"
+            data-name="richArrowDownWrapper-straightLine"
+            y2="216.508"
+            transform="translate(71.69 0.043)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <path
+            id="richArrowDownWrapper-leftCurve"
+            data-name="richArrowDownWrapper-leftCurve"
+            d="M71.674,73.876C32.09,73.876,0,40.8,0,0"
+            transform="translate(71.647 0)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <path
+            id="richArrowDownWrapper-rightCurve"
+            data-name="richArrowDownWrapper-rightCurve"
+            d="M71.674,0C71.674,40.8,39.585,73.876,0,73.876"
+            transform="translate(0 0)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+        </g>
+      </g>
+    </motion.svg>
+  )
+}
+
+export const LeftArrow = () => (
+  <motion.svg
+    whileHover={{ scale: 1.08 }}
+    whileTap={{ scale: 0.92 }}
+    transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.3 }}
+    xmlns="http://www.w3.org/2000/svg"
+    width="81"
+    height="81"
+    viewBox="0 0 81 81"
+  >
+    <g
+      id="Component_4_5"
+      data-name="Component 4 – 5"
+      transform="translate(0.5 0.5)"
+    >
+      <rect
+        id="Rectangle_49"
+        data-name="Rectangle 49"
+        width="80"
+        height="80"
+        rx="40"
+        fill="none"
+        stroke="#000"
+        stroke-width="1"
+      />
+      <g
+        id="Group_65"
+        data-name="Group 65"
+        transform="translate(60.455 49.105) rotate(180)"
+      >
+        <g
+          id="Group_33"
+          data-name="Group 33"
+          transform="translate(40.958) rotate(90)"
+        >
+          <path
+            id="Path_4"
+            data-name="Path 4"
+            d="M0,0"
+            transform="translate(10.132 5.352)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+          <line
+            id="Line_5"
+            data-name="Line 5"
+            y2="40.952"
+            transform="translate(9.572 0.006)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+          <path
+            id="Path_5"
+            data-name="Path 5"
+            d="M9.569,9.863A9.72,9.72,0,0,1,0,0"
+            transform="translate(9.566)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+          <path
+            id="Path_6"
+            data-name="Path 6"
+            d="M9.569,0A9.72,9.72,0,0,1,0,9.863"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+        </g>
+      </g>
+    </g>
+  </motion.svg>
+)
+
+export const RightArrow = () => (
+  <motion.svg
+    whileHover={{ scale: 1.08 }}
+    whileTap={{ scale: 0.92 }}
+    transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 0.3 }}
+    xmlns="http://www.w3.org/2000/svg"
+    width="81"
+    height="81"
+    viewBox="0 0 81 81"
+  >
+    <g
+      id="Component_4_6"
+      data-name="Component 4 – 6"
+      transform="translate(80.5 80.5) rotate(180)"
+    >
+      <rect
+        id="Rectangle_49"
+        data-name="Rectangle 49"
+        width="80"
+        height="80"
+        rx="40"
+        fill="none"
+        stroke="#000"
+        stroke-width="1"
+      />
+      <g
+        id="Group_65"
+        data-name="Group 65"
+        transform="translate(60.455 49.105) rotate(180)"
+      >
+        <g
+          id="Group_33"
+          data-name="Group 33"
+          transform="translate(40.958) rotate(90)"
+        >
+          <path
+            id="Path_4"
+            data-name="Path 4"
+            d="M0,0"
+            transform="translate(10.132 5.352)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+          <line
+            id="Line_5"
+            data-name="Line 5"
+            y2="40.952"
+            transform="translate(9.572 0.006)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+          <path
+            id="Path_5"
+            data-name="Path 5"
+            d="M9.569,9.863A9.72,9.72,0,0,1,0,0"
+            transform="translate(9.566)"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+          <path
+            id="Path_6"
+            data-name="Path 6"
+            d="M9.569,0A9.72,9.72,0,0,1,0,9.863"
+            fill="none"
+            stroke="#000"
+            stroke-miterlimit="10"
+            stroke-width="1"
+          />
+        </g>
+      </g>
+    </g>
+  </motion.svg>
 )
