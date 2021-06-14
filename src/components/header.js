@@ -5,9 +5,9 @@ import { Logo, IconFB, IconYT } from "./icons"
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
+  left: 0; */
   z-index: 2;
 `
 
@@ -97,80 +97,79 @@ const AnchorColumn = styled(SocialColumn)`
 `
 
 const Header = () => {
-  // const data = useStaticQuery(graphql`
-  //   query headerQuery {
-  //     datoCmsHeader {
-  //       logo {
-  //         gatsbyImageData(width: 200, placeholder: BLURRED)
-  //       }
-  //       headerLinks {
-  //         linkText
-  //         linkUrl
-  //       }
-  //       headerSocialLinks {
-  //         socialLink
-  //         socialImage {
-  //           alt
-  //           gatsbyImageData
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
+  const data = useStaticQuery(graphql`
+    query headerQuery {
+      datoCmsHeader {
+        logo {
+          gatsbyImageData(width: 200, placeholder: BLURRED)
+        }
+        headerLinks {
+          linkText
+          linkUrl
+        }
+        headerSocialLinks {
+          socialLink
+          socialImage {
+            alt
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  `)
 
-  // const {
-  //   datoCmsHeader: { headerLinks, headerSocialLinks },
-  // } = data
+  const {
+    datoCmsHeader: { headerLinks, headerSocialLinks },
+  } = data
 
   return (
-    <p>header</p>
-    // <HeaderWrapper
-    //   data-scroll
-    //   data-scroll-sticky
-    //   data-scroll-target="#container"
-    // >
-    //   <HeaderContainer className="header">
-    //     <HeaderStyles>
-    //       <h1>
-    //         <Link to="/">
-    //           <Logo />
-    //         </Link>
-    //       </h1>
-    //       <NavigationWrapper>
-    //         <SocialColumn>
-    //           {headerSocialLinks.map((headerSocialLink, i) => (
-    //             <li>
-    //               <a
-    //                 rel="noopener noreferrer"
-    //                 target="_blank"
-    //                 href={headerSocialLink.socialLink}
-    //               >
-    //                 {i === 0 ? (
-    //                   <IconFB variant="dark" />
-    //                 ) : (
-    //                   <IconYT variant="dark" />
-    //                 )}
-    //               </a>
-    //             </li>
-    //           ))}
-    //         </SocialColumn>
-    //         <AnchorColumn>
-    //           {headerLinks.map((headerLink, iterator) => (
-    //             <Link
-    //               activeClassName="active"
-    //               className={
-    //                 iterator === headerLinks.length - 1 && "link--accent"
-    //               }
-    //               to={headerLink.linkUrl}
-    //             >
-    //               <li>{headerLink.linkText}</li>
-    //             </Link>
-    //           ))}
-    //         </AnchorColumn>
-    //       </NavigationWrapper>
-    //     </HeaderStyles>
-    //   </HeaderContainer>
-    // </HeaderWrapper>
+    <HeaderWrapper
+      data-scroll
+      data-scroll-sticky
+      data-scroll-target="#container"
+    >
+      <HeaderContainer className="header">
+        <HeaderStyles>
+          <h1>
+            <Link to="/">
+              <Logo />
+            </Link>
+          </h1>
+          <NavigationWrapper>
+            <SocialColumn>
+              {headerSocialLinks.map((headerSocialLink, i) => (
+                <li>
+                  <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={headerSocialLink.socialLink}
+                  >
+                    {i === 0 ? (
+                      <IconFB variant="dark" />
+                    ) : (
+                      <IconYT variant="dark" />
+                    )}
+                  </a>
+                </li>
+              ))}
+            </SocialColumn>
+            <AnchorColumn>
+              {headerLinks.map((headerLink, iterator) => (
+                <Link
+                  activeClassName="active"
+                  className={
+                    iterator === headerLinks.length - 1 && "link--accent"
+                  }
+                  to={headerLink.linkUrl}
+                >
+                  <li>{headerLink.linkText}</li>
+                </Link>
+              ))}
+            </AnchorColumn>
+          </NavigationWrapper>
+        </HeaderStyles>
+      </HeaderContainer>
+    </HeaderWrapper>
   )
 }
 

@@ -1,4 +1,7 @@
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
+import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { IconFB, IconYT, Logo } from "./icons"
 import { Wrapper } from "./wrapper"
@@ -30,21 +33,116 @@ const SocialWrapper = styled.div`
 
 const BrandingRow = styled.div`
   display: flex;
+  margin-top: 3rem;
+
   > p {
-    flex: 1 1 10rem;
+    /* flex: 1 1 20%; */
     padding-right: 2.5rem;
-    border: 2px solid white;
+    width: 11.25rem;
+    font-size: var(--font-18);
+    line-height: 1.55;
+    color: var(--color-white);
+    margin-top: 0.65rem;
   }
-  > div {
-    flex: 1 1 100%;
-    border: 2px solid white;
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 80%;
+    list-style-type: none;
+    border-bottom: 1px solid var(--color-white);
+    padding-bottom: 1.6rem;
+    > li {
+      margin-right: 2rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    .gatsby-image-wrapper {
+      max-height: 5rem !important;
+      > div,
+      img,
+      picture {
+        object-fit: contain !important;
+      }
+    }
   }
 `
-const OrganisersRow = styled(BrandingRow)``
+const OrganisersRow = styled(BrandingRow)`
+  margin-top: 3.625rem;
+`
 const PartnersRow = styled(BrandingRow)``
 const ContentPartnersRow = styled(BrandingRow)``
 
+const CopyrightsRow = styled.div`
+  display: flex;
+  margin-top: 6rem;
+  justify-content: space-between;
+  > p {
+    font-size: var(--font-18);
+    color: var(--color-white);
+  }
+`
+const LinksList = styled.ul`
+  list-style-type: none;
+  display: flex;
+  > li {
+    margin-right: 2.5rem;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    a {
+      text-decoration: underline;
+      font-size: var(--font-18);
+      color: var(--color-white);
+    }
+  }
+`
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    query footerQuery {
+      datoCmsFooter {
+        footerContentPartnersTitle {
+          value
+        }
+        footerOrganisersTitle {
+          value
+        }
+        footerPartnersTitle {
+          value
+        }
+        organisersLogos {
+          grafikaLogo {
+            gatsbyImageData
+          }
+          partnerPageSlug
+        }
+        partnersLogos {
+          grafikaLogo {
+            gatsbyImageData
+          }
+          partnerPageSlug
+        }
+        contentPartnersLogos {
+          grafikaLogo {
+            gatsbyImageData
+          }
+          partnerPageSlug
+        }
+      }
+    }
+  `)
+
+  const {
+    datoCmsFooter: {
+      footerContentPartnersTitle,
+      footerOrganisersTitle,
+      footerPartnersTitle,
+      organisersLogos,
+      partnersLogos,
+      contentPartnersLogos,
+    },
+  } = data
+
   return (
     <FooterStyles>
       <FooterWrapper>
@@ -56,10 +154,55 @@ const Footer = () => {
           </SocialWrapper>
         </LogoRow>
         <OrganisersRow>
-          <p>Organizatorzy</p>
+          <StructuredText data={footerOrganisersTitle} />
+          <ul>
+            {organisersLogos.map(logo => (
+              <li>
+                <Link to={logo.partnerPageSlug}>
+                  <GatsbyImage image={logo.grafikaLogo.gatsbyImageData} />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </OrganisersRow>
-        <PartnersRow></PartnersRow>
-        <ContentPartnersRow></ContentPartnersRow>
+        <PartnersRow>
+          <StructuredText data={footerPartnersTitle} />
+          <ul>
+            {partnersLogos.map(logo => (
+              <li>
+                <Link to={logo.partnerPageSlug}>
+                  <GatsbyImage image={logo.grafikaLogo.gatsbyImageData} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </PartnersRow>
+        <ContentPartnersRow>
+          <StructuredText data={footerContentPartnersTitle} />
+          <ul>
+            {contentPartnersLogos.map(logo => (
+              <li>
+                <Link to={logo.partnerPageSlug}>
+                  <GatsbyImage image={logo.grafikaLogo.gatsbyImageData} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </ContentPartnersRow>
+        <CopyrightsRow>
+          <LinksList>
+            <li>
+              <Link to="/polityka-prywatnosci">Polityka prywatności</Link>
+            </li>
+            <li>
+              <Link to="/polityka-cookies">Polityka Cookies</Link>
+            </li>
+            <li>
+              <Link to="/regulamin">Regulamin</Link>
+            </li>
+          </LinksList>
+          <p>&copy; {new Date().getFullYear()} Alt:work</p>
+        </CopyrightsRow>
       </FooterWrapper>
     </FooterStyles>
   )
