@@ -1,7 +1,7 @@
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
-import { ClaimStyles, SectionTitle } from "./typography"
+import { SectionTitle } from "./typography"
 import { RichArrowDown } from "./icons"
 import Circles from "./circles"
 

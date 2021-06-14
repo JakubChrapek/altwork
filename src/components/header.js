@@ -1,13 +1,11 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
+import HamburgerMenu from "./HamburgerMenu"
 import { Logo, IconFB, IconYT } from "./icons"
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  /* position: fixed;
-  top: 0;
-  left: 0; */
   z-index: 2;
 `
 
@@ -96,28 +94,7 @@ const AnchorColumn = styled(SocialColumn)`
   }
 `
 
-const Header = () => {
-  const data = useStaticQuery(graphql`
-    query headerQuery {
-      datoCmsHeader {
-        logo {
-          gatsbyImageData(width: 200, placeholder: BLURRED)
-        }
-        headerLinks {
-          linkText
-          linkUrl
-        }
-        headerSocialLinks {
-          socialLink
-          socialImage {
-            alt
-            gatsbyImageData
-          }
-        }
-      }
-    }
-  `)
-
+const Header = ({ data }) => {
   const {
     datoCmsHeader: { headerLinks, headerSocialLinks },
   } = data
@@ -130,6 +107,7 @@ const Header = () => {
     >
       <HeaderContainer className="header">
         <HeaderStyles>
+          <HamburgerMenu />
           <h1>
             <Link to="/">
               <Logo />
@@ -173,4 +151,32 @@ const Header = () => {
   )
 }
 
-export default Header
+const MyHeader = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query newQuery {
+          datoCmsHeader {
+            logo {
+              gatsbyImageData(width: 200, placeholder: BLURRED)
+            }
+            headerLinks {
+              linkText
+              linkUrl
+            }
+            headerSocialLinks {
+              socialLink
+              socialImage {
+                alt
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      `}
+      render={data => <Header data={data} />}
+    />
+  )
+}
+
+export default MyHeader

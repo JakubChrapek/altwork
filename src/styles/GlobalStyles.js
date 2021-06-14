@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components"
-// import "./global.css"
-import font from '../fonts/Diagramm-Regular.woff';
+import font from "../fonts/Diagramm-Regular.woff"
 import fontBold from "../fonts/Diagramm-Bold.woff"
-import DiagrammRegularWoff2 from "../fonts/Diagramm-Regular.woff2"
 
 const GlobalStyles = createGlobalStyle`
     @font-face {
@@ -54,9 +52,11 @@ const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
     }
 
-    ${'' /* html[data-direction="down"] .header {
+    ${
+      "" /* html[data-direction="down"] .header {
       transform: translateY(-100%);
-    } */}
+    } */
+    }
 
     .Collapse {
       background: none;

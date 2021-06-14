@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import GSAP from "gsap"
-import { motion, useMotionValue, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 
 const LogoStyles = styled.svg`
   width: 25.4vw;
@@ -17,18 +17,18 @@ const LogoStyles = styled.svg`
 `
 
 export const Logo = ({ maxWidth, variant = "dark" }) => {
+  const [toggle, setToggle] = useState(false)
+
+  const handleChangeToggle = () => {
+    setToggle(!toggle)
+  }
+
   useEffect(() => {
     GSAP.to("#toggle-circle", {
       duration: 1,
       attr: { x: 100 },
     })
   }, [toggle])
-
-  const [toggle, setToggle] = useState(false)
-
-  const handleChangeToggle = () => {
-    setToggle(!toggle)
-  }
 
   return (
     <LogoStyles

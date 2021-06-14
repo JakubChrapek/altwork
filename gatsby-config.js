@@ -1,7 +1,7 @@
-const siteConfig = require('./config/site-config');
-require('dotenv').config({
+const siteConfig = require("./config/site-config")
+require("dotenv").config({
   path: `.env`,
-});
+})
 
 module.exports = {
   siteMetadata: {
@@ -11,20 +11,21 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: "gatsby-plugin-sitemap",
       options: {
         output: siteConfig.sitemapPath,
       },
     },
     {
-      resolve: 'gatsby-plugin-canonical-urls',
+      resolve: "gatsby-plugin-canonical-urls",
       options: {
         siteUrl: siteConfig.siteUrl,
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
         host: siteConfig.siteUrl,
         sitemap: `${siteConfig.siteUrl}${siteConfig.sitemapPath}`,
@@ -37,7 +38,7 @@ module.exports = {
     //   },
     // },
     {
-      resolve: 'gatsby-source-datocms',
+      resolve: "gatsby-source-datocms",
       options: {
         apiToken: process.env.DATO_CMS_KEY,
       },

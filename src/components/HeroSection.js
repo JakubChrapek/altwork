@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { StructuredText } from "react-datocms"
 import { ClaimStyles } from "./typography"
 import Circles from "./circles"

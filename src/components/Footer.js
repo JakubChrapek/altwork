@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { StructuredText } from "react-datocms"
@@ -97,41 +97,7 @@ const LinksList = styled.ul`
     }
   }
 `
-const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query footerQuery {
-      datoCmsFooter {
-        footerContentPartnersTitle {
-          value
-        }
-        footerOrganisersTitle {
-          value
-        }
-        footerPartnersTitle {
-          value
-        }
-        organisersLogos {
-          grafikaLogo {
-            gatsbyImageData
-          }
-          partnerPageSlug
-        }
-        partnersLogos {
-          grafikaLogo {
-            gatsbyImageData
-          }
-          partnerPageSlug
-        }
-        contentPartnersLogos {
-          grafikaLogo {
-            gatsbyImageData
-          }
-          partnerPageSlug
-        }
-      }
-    }
-  `)
-
+const Footer = ({ data }) => {
   const {
     datoCmsFooter: {
       footerContentPartnersTitle,
@@ -208,4 +174,45 @@ const Footer = () => {
   )
 }
 
-export default Footer
+const MyFooter = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query footerQuery {
+          datoCmsFooter {
+            footerContentPartnersTitle {
+              value
+            }
+            footerOrganisersTitle {
+              value
+            }
+            footerPartnersTitle {
+              value
+            }
+            organisersLogos {
+              grafikaLogo {
+                gatsbyImageData
+              }
+              partnerPageSlug
+            }
+            partnersLogos {
+              grafikaLogo {
+                gatsbyImageData
+              }
+              partnerPageSlug
+            }
+            contentPartnersLogos {
+              grafikaLogo {
+                gatsbyImageData
+              }
+              partnerPageSlug
+            }
+          }
+        }
+      `}
+      render={data => <Footer data={data} />}
+    />
+  )
+}
+
+export default MyFooter
