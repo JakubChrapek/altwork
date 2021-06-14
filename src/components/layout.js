@@ -1,22 +1,23 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 // import Scroll from "./LocomotiveScroll"
 import Header from "./header"
 import GlobalStyles from "../styles/globalStyles"
 import styled from "styled-components"
-
-const PageWrapper = styled.div`
-  margin: 0 auto;
-  max-width: var(--content-max-width-desktop);
-  padding: 15.375rem 8.75rem 0;
-
-  @media (max-width: 600px) {
-    max-width: 100%;
-  }
-`
+import Footer from "./footer"
+import { Wrapper } from "./wrapper"
 
 // This `location` prop will serve as a callback on route change
 const Layout = ({ children, location }) => {
+  const [hasMounted, setHasMounted] = useState(false)
+  // useEffect(() => {
+  //   setRouteChange(!routeChange)
+  //   setPanelComplete(false)
+  // }, [pathname])
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,6 +27,9 @@ const Layout = ({ children, location }) => {
       }
     }
   `)
+  if (!hasMounted) {
+    return null
+  }
 
   return (
     <>
@@ -35,14 +39,10 @@ const Layout = ({ children, location }) => {
       {/* Here we pass the callbacks to the component. Anything that impacts the innerHeight, for example: Font Loaded */}
       {/* <Scroll callbacks={location} /> */}
 
-      <PageWrapper data-scroll-container id="container">
+      <Wrapper data-scroll-container id="container">
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </PageWrapper>
+      </Wrapper>
+      <Footer />
     </>
   )
 }

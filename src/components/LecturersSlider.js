@@ -61,7 +61,7 @@ const TextWrapper = styled.div`
     margin-top: 1.5rem;
     font-size: var(--font-20);
     font-weight: bold;
-    color: var(--colors-black);
+    color: var(--color-black);
     line-height: 1.4;
   }
 `
