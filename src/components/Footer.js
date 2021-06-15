@@ -4,7 +4,7 @@ import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { IconFB, IconYT, Logo } from "./icons"
-import { Wrapper } from "./wrapper"
+import { Wrapper } from "./Wrapper"
 
 const FooterStyles = styled.footer`
   background-color: var(--color-black);
@@ -26,7 +26,7 @@ const SocialWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-self: flex-end;
-  > svg:last-of-type {
+  > a:last-of-type {
     margin-left: 1rem;
   }
 `
@@ -107,6 +107,7 @@ const Footer = ({ data }) => {
       partnersLogos,
       contentPartnersLogos,
     },
+    datoCmsHeader: { headerSocialLinks },
   } = data
 
   return (
@@ -115,8 +116,20 @@ const Footer = ({ data }) => {
         <LogoRow>
           <Logo maxWidth="10.25rem" variant="light" />
           <SocialWrapper>
-            <IconFB variant="light" />
-            <IconYT variant="light" />
+            {headerSocialLinks.map((headerSocialLink, i) => (
+              <a
+                key={`${headerSocialLink.socialLink}-footer`}
+                rel="noopener noreferrer"
+                target="_blank"
+                href={headerSocialLink.socialLink}
+              >
+                {i === 0 ? (
+                  <IconFB variant="light" />
+                ) : (
+                  <IconYT variant="light" />
+                )}
+              </a>
+            ))}
           </SocialWrapper>
         </LogoRow>
         <OrganisersRow>
@@ -206,6 +219,15 @@ const MyFooter = () => {
                 gatsbyImageData
               }
               partnerPageSlug
+            }
+          }
+          datoCmsHeader {
+            headerSocialLinks {
+              socialLink
+              socialImage {
+                alt
+                gatsbyImageData
+              }
             }
           }
         }
