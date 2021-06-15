@@ -1,14 +1,23 @@
 import { createGlobalStyle } from "styled-components"
-import "./typography.scss"
+import font from "../fonts/Diagramm-Regular.woff"
+import fontBold from "../fonts/Diagramm-Bold.woff"
 
 const GlobalStyles = createGlobalStyle`
+    @font-face {
+      font-family: Diagramm;
+      src: url(${font});
+    }
+    @font-face {
+      font-family: Diagramm;
+      src: url(${fontBold});
+      font-weight: bold;
+    }
     *, * + * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     html {
-      font-family: "Diagramm", sans-serif;
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
       --color-black: #000;
@@ -16,20 +25,38 @@ const GlobalStyles = createGlobalStyle`
       --color-accent: #03DF07;
       --color-accent-circle: #02E745;
       --color-gray: #707070;
+
+      --font-18: 1.13rem;
+      --font-20: 1.25rem;
+      --font-24: 1.5rem;
+      --font-32: 2rem;
+      --font-40: 2.5rem;
+      --font-50: 3.13rem;
+      --font-60: 3.75rem;
+      --font-64: 4rem;
+      --font-80: 5rem;
+      --font-18-pt: var(--font-24);
+      --font-24-pt: var(--font-32);
+      --font-28-pt: 2.33rem;
+      --font-32-pt: 2.67rem;
+      --font-40-pt: 3.33rem;
+      --font-45-pt: 3.75rem;
+
+      --content-max-width-desktop: 85.38rem;
+      --content-max-width-mobile: 23.44rem;
     }
     body {
-      font-family: "Diagramm", sans-serif;
+      font-family: Poppins, sans-serif;
       color: var(--color-black);
       margin: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    html[data-direction="down"] .header {
+    ${
+      "" /* html[data-direction="down"] .header {
       transform: translateY(-100%);
-    }
-    h1 {
-      font-family: "Diagramm", sans-serif;
+    } */
     }
 
     .Collapse {
