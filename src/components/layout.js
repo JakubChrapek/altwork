@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 // import Scroll from "./LocomotiveScroll"
 import Header from "./Header"
-import GlobalStyles from "../styles/globalStyles"
-import Footer from "./footer"
-import { Wrapper } from "./wrapper"
+import GlobalStyles from "../styles/GlobalStyles"
+import Footer from "./Footer"
+import { Wrapper } from "./Wrapper"
 
 // This `location` prop will serve as a callback on route change
 const Layout = ({ children, location }) => {

@@ -3,13 +3,13 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import HeroSection from "../components/heroSection"
-import VideoSection from "../components/videoSection"
-import AboutSection from "../components/aboutSection"
-import ToggleSection from "../components/toggleSection"
-import WhyWorthItSection from "../components/whyWorthItSection"
-import LecturersSection from "../components/lecturersSection"
-import ProgramSection from "../components/programSection"
+import HeroSection from "../components/HeroSection"
+import VideoSection from "../components/VideoSection"
+import AboutSection from "../components/AboutSection"
+import ToggleSection from "../components/ToggleSection"
+import WhyWorthItSection from "../components/WhyWorthItSection"
+import LecturersSection from "../components/LecturersSection"
+import ProgramSection from "../components/ProgramSection"
 
 const IndexPage = ({ data }) => {
   const {
