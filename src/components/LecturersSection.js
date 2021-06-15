@@ -12,7 +12,7 @@ const LecturersTitle = styled(SectionTitle)`
 
 const LecturersSection = ({ lecturersTitle, lecturers }) => {
   return (
-    <LecturersSectionStyles>
+    <LecturersSectionStyles id="prelegenci">
       <LecturersTitle>{lecturersTitle}</LecturersTitle>
       <LecturersSlider lecturersTitle={lecturersTitle} lecturers={lecturers} />
     </LecturersSectionStyles>

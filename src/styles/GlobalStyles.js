@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
       --font-32: 2rem;
       --font-40: 2.5rem;
       --font-50: 3.13rem;
+      --font-60: 3.75rem;
       --font-64: 4rem;
       --font-80: 5rem;
       --font-18-pt: var(--font-24);

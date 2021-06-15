@@ -90,7 +90,7 @@ const ProgramSection = ({
   additionalInfoCtaText,
 }) => {
   return (
-    <ProgramSectionStyles>
+    <ProgramSectionStyles id="program">
       <SectionTitle>{programTitle}</SectionTitle>
       <ContentWrapper>
         <IconColumn>
@@ -112,7 +112,7 @@ const ProgramSection = ({
           </li>
         ))}
       </SessionsWrapper>
-      <AdditionalInfoWrapper>
+      <AdditionalInfoWrapper id="kontakt">
         <CtaWrapper>
           <StructuredText data={additionalFirstColText} />
           <StructuredText data={additionalSecondColText} />

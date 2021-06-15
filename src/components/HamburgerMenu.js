@@ -36,11 +36,14 @@ const HamburgerButtonStyles = styled.button`
     opened &&
     css`
       background-color: var(--color-white);
+      span {
+        height: 0.45rem;
+      }
       span:first-of-type {
-        transform: translateY(0.3rem) rotate(-45deg);
+        transform: translateY(0.4rem) scale(0.6) rotate(-45deg);
       }
       span:last-of-type {
-        transform: translateY(-0.3rem) rotate(45deg);
+        transform: translateY(-0.4rem) scale(0.6) rotate(45deg);
       }
     `}
 `
@@ -62,6 +65,7 @@ const HamburgerMenuContainer = styled.div`
   background-color: var(--color-accent);
   width: 100%;
   z-index: 4;
+  padding: 0 0 5.5rem;
 `
 
 const MenuOpenedWrapper = styled(Wrapper)`
@@ -81,6 +85,7 @@ const LogoRow = styled.div`
 const MainMenuWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 4.625rem;
   > * {
     flex: 1 1 50%;
   }
@@ -91,18 +96,83 @@ const LinksColumn = styled.ul`
   flex-direction: column;
   list-style: none;
   padding: 0;
+  max-width: 536px;
+
+  a {
+    text-decoration: none;
+    color: var(--color-black);
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-black);
+    > li {
+      --minFontSize: var(--font-32);
+      --maxFontSize: var(--font-60);
+      --scaler: 4.392vw;
+      font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
+      /* font-size: 4.392vw; */
+      line-height: 1;
+      padding: 1rem 0 1.25rem;
+    }
+    &:first-of-type {
+      > li {
+        padding: 0 0 0.5rem;
+      }
+    }
+    &:last-of-type {
+      border-bottom: 0;
+      > li {
+        padding-left: 4.8rem;
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 3.75rem;
+          height: 3.75rem;
+          background-color: var(--color-white);
+          border-radius: 3.75rem;
+        }
+      }
+    }
+  }
 `
 
-const ContactAndPartnersColumn = styled.div``
-const SocialWrapper = styled.ul``
-const PartnersWrapper = styled.ul``
+const ContactAndPartnersColumn = styled.div`
+  padding-left: 6.75rem;
+  > p {
+    font-size: var(--font-20);
+    font-weight: bold;
+    line-height: 1;
+  }
+  > a {
+    font-size: var(--font-32);
+    font-weight: bold;
+    color: var(--color-black);
+    margin-top: 1rem;
+    line-height: 1;
+    display: inline-block;
+  }
+`
+const SocialWrapper = styled.ul`
+  display: flex;
+  list-style-type: none;
+  margin-top: 2.25rem;
+  > li {
+    &:first-of-type {
+      margin-right: 1rem;
+    }
+  }
+`
+const PartnersWrapper = styled(SocialWrapper)`
+  margin-top: 6.25rem;
+  > li {
+    &:first-of-type {
+      margin-right: 4.25rem;
+    }
+  }
+`
 
 const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
   const [menuOpened, setMenuOpened] = useState(false)
-  const handleToggle = () => {
-    console.log("CLICK")
-    setMenuOpened(!menuOpened)
-  }
 
   const filteredLinks = headerLinks.filter(
     link => !link.linkText.toLowerCase().includes("kontakt")
@@ -134,13 +204,14 @@ const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
                       iterator === filteredLinks.length - 1 && "link--accent"
                     }
                     to={headerLink.linkUrl}
+                    onClick={() => setMenuOpened(false)}
                   >
                     <li>{headerLink.linkText}</li>
                   </Link>
                 ))}
               </LinksColumn>
               <ContactAndPartnersColumn>
-                Skontaktuj się:
+                <p>Skontaktuj się:</p>
                 <a href="mailto:altwork@lodz.digital">altwork@lodz.digital</a>
                 <SocialWrapper>
                   {headerSocialLinks.map((headerSocialLink, i) => (
@@ -162,7 +233,7 @@ const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
                   ))}
                 </SocialWrapper>
                 <PartnersWrapper>
-                  <li>Łódź kreuje</li>
+                  <li>Łódź kreuje (logo pls 😅)</li>
                   <li>Igrzyska Wolności</li>
                 </PartnersWrapper>
               </ContactAndPartnersColumn>
