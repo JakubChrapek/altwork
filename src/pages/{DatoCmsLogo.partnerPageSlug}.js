@@ -2,7 +2,6 @@ import { graphql } from "gatsby"
 import React from "react"
 
 const PartnerPage = props => {
-  console.log(props)
   return <div></div>
 }
 

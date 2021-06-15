@@ -23,7 +23,6 @@ export const Logo = ({ maxWidth, variant = "dark", circleFillColor }) => {
   const [toggle, setToggle] = useState(false)
 
   const handleChangeToggle = () => {
-    console.log("TEST")
     setToggle(!toggle)
   }
 

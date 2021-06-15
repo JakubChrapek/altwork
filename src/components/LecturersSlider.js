@@ -130,7 +130,6 @@ const LecturersSlider = ({ lecturers }) => {
 
   const handleNext = () => {
     sliderRef.current.slickNext()
-    console.log(sliderRef.current)
   }
 
   const handlePrev = () => {
