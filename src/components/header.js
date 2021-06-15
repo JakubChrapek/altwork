@@ -7,18 +7,21 @@ import { Logo, IconFB, IconYT } from "./icons"
 const HeaderWrapper = styled.header`
   width: 100%;
   z-index: 2;
+  background-color: var(--color-white);
 `
 
 const HeaderContainer = styled.div`
   transition: transform 0.3s;
-`
-
-const HeaderStyles = styled.div`
   margin: 0 auto;
   max-width: var(--content-max-width-desktop);
   padding: 3.75rem 8.75rem 0;
   height: 15.375rem;
+  position: relative;
+  background-color: var(--color-white);
+  z-index: 3;
+`
 
+const HeaderStyles = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -100,54 +103,58 @@ const Header = ({ data }) => {
   } = data
 
   return (
-    <HeaderWrapper
-      data-scroll
-      data-scroll-sticky
-      data-scroll-target="#container"
-    >
-      <HeaderContainer className="header">
-        <HeaderStyles>
-          <HamburgerMenu />
-          <h1>
-            <Link to="/">
+    <>
+      <HamburgerMenu
+        headerLinks={headerLinks}
+        headerSocialLinks={headerSocialLinks}
+      />
+      <HeaderWrapper
+        data-scroll
+        data-scroll-sticky
+        data-scroll-target="#container"
+      >
+        <HeaderContainer className="header">
+          <HeaderStyles>
+            <h1>
               <Logo />
-            </Link>
-          </h1>
-          <NavigationWrapper>
-            <SocialColumn>
-              {headerSocialLinks.map((headerSocialLink, i) => (
-                <li>
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href={headerSocialLink.socialLink}
+            </h1>
+            <NavigationWrapper>
+              <SocialColumn>
+                {headerSocialLinks.map((headerSocialLink, i) => (
+                  <li key={headerSocialLink.socialLink}>
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={headerSocialLink.socialLink}
+                    >
+                      {i === 0 ? (
+                        <IconFB variant="dark" />
+                      ) : (
+                        <IconYT variant="dark" />
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </SocialColumn>
+              <AnchorColumn>
+                {headerLinks.map((headerLink, iterator) => (
+                  <Link
+                    key={headerLink.linkText}
+                    activeClassName="active"
+                    className={
+                      iterator === headerLinks.length - 1 && "link--accent"
+                    }
+                    to={headerLink.linkUrl}
                   >
-                    {i === 0 ? (
-                      <IconFB variant="dark" />
-                    ) : (
-                      <IconYT variant="dark" />
-                    )}
-                  </a>
-                </li>
-              ))}
-            </SocialColumn>
-            <AnchorColumn>
-              {headerLinks.map((headerLink, iterator) => (
-                <Link
-                  activeClassName="active"
-                  className={
-                    iterator === headerLinks.length - 1 && "link--accent"
-                  }
-                  to={headerLink.linkUrl}
-                >
-                  <li>{headerLink.linkText}</li>
-                </Link>
-              ))}
-            </AnchorColumn>
-          </NavigationWrapper>
-        </HeaderStyles>
-      </HeaderContainer>
-    </HeaderWrapper>
+                    <li>{headerLink.linkText}</li>
+                  </Link>
+                ))}
+              </AnchorColumn>
+            </NavigationWrapper>
+          </HeaderStyles>
+        </HeaderContainer>
+      </HeaderWrapper>
+    </>
   )
 }
 
