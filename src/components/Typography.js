@@ -7,6 +7,9 @@ export const ClaimStyles = styled.div`
     line-height: 1.12;
     font-weight: bold;
     max-width: ${({ maxWidth }) => maxWidth};
+    @media (max-width: 1283px) {
+      max-width: ${({ maxWidth }) => maxWidth && "35rem"};
+    }
     > em {
       font-family: Playfair Display;
       line-height: 0.9;

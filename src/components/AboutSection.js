@@ -21,6 +21,12 @@ const QuestionsWrapper = styled.div`
       margin: 0 0 0 2.406rem;
       flex: 1 1 55.5%;
     }
+    @media (max-width: 1047px) {
+      margin-right: 1.7rem;
+      &:last-of-type {
+        margin: 0 0 0 1.7rem;
+      }
+    }
   }
   li {
     --list-indent: 4rem;

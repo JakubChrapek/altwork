@@ -39,7 +39,7 @@ const AnswersWrapper = styled.div`
 const WhyWorthItSection = ({ whyWorthItTitle, whyWorthItAnswers }) => {
   return (
     <WhyWorthItSectionStyles>
-      <ClaimStyles maxWidth="40rem">
+      <ClaimStyles maxWidth="37rem">
         <StructuredText data={whyWorthItTitle} />
       </ClaimStyles>
       <ContentWrapper>

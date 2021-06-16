@@ -6,6 +6,9 @@ import styled from "styled-components"
 const ToggleStyles = styled.section`
   margin-top: 10.5rem;
   padding: 10.063rem 0 18.125rem;
+  @media (max-width: 1283px) {
+    padding: 7rem 0 14.125rem;
+  }
   position: relative;
   /* overflow: hidden; */
   .gatsby-image-wrapper {

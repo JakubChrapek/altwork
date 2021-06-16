@@ -10,7 +10,10 @@ import { gsap } from "gsap"
 const SectionStyles = styled.section`
   width: 100%;
   padding-left: 17.188rem;
-  margin-top: -4.4rem;
+  @media (max-width: 1283px) {
+    padding-left: 3.188rem;
+  }
+  margin-top: -0.4rem;
 `
 
 const VideoPreview = styled.div`
@@ -26,6 +29,9 @@ const VideoPreview = styled.div`
   .gatsby-image-wrapper {
     border-radius: 100%;
     pointer-events: none;
+    @media (max-width: 1283px) {
+      max-width: 24rem;
+    }
   }
   button {
     position: absolute;
@@ -46,21 +52,28 @@ const VideoPreview = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: 2.563rem;
+  justify-content: flex-end;
+  margin-top: 5.7rem;
   > p {
     flex: 1 1 50%;
     max-width: 22rem;
     font-size: var(--font-20);
     :first-of-type {
       margin-right: 6.625rem;
+      @media (max-width: 1283px) {
+        margin-right: 3.625rem;
+      }
     }
   }
 `
 
 const CircleBorder = styled(motion.div)`
-  width: 552px;
-  height: 552px;
+  width: 34.5rem;
+  height: 34.5rem;
+  @media (max-width: 1283px) {
+    width: 30rem;
+    height: 30rem;
+  }
   display: inline-block;
   pointer-events: none;
   position: absolute;

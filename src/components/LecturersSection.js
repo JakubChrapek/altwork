@@ -5,6 +5,9 @@ import { SectionTitle } from "./typography"
 
 const LecturersSectionStyles = styled.section`
   margin-top: 14rem;
+  @media (max-width: 1283px) {
+    margin-top: 11rem;
+  }
 `
 const LecturersTitle = styled(SectionTitle)`
   text-align: center;

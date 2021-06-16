@@ -15,6 +15,9 @@ const HeaderContainer = styled.div`
   margin: 0 auto;
   max-width: var(--content-max-width-desktop);
   padding: 3.75rem 8.75rem 0;
+  @media (max-width: 1366px) {
+    padding: 3.75rem 5.75rem 0;
+  }
   height: 15.375rem;
   position: relative;
   background-color: var(--color-white);

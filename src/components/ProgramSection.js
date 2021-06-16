@@ -20,6 +20,11 @@ const IconColumn = styled.div`
   padding-left: 4.75rem;
 `
 const DescriptionWrapper = styled.div`
+  @media (max-width: 1200px) {
+    && {
+      flex: 1 1 65%;
+    }
+  }
   p {
     font-size: var(--font-20);
     color: var(--color-black);

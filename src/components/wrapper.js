@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   max-width: var(--content-max-width-desktop);
   padding: 0 8.75rem 0;
 
+  @media (max-width: 1366px) {
+    padding: 0 5.75rem 0;
+  }
+
   @media (max-width: 600px) {
     max-width: 100%;
   }

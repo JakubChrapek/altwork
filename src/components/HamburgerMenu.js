@@ -7,6 +7,9 @@ import { Wrapper } from "./Wrapper"
 const HamburgerButtonStyles = styled.button`
   position: fixed;
   right: 8.75rem;
+  @media (max-width: 1366px) {
+    right: 5.75rem;
+  }
   position: absolute;
   background-color: transparent;
   border: none;
@@ -58,7 +61,7 @@ const HamburgerWrapper = styled(Wrapper)`
   display: flex;
   padding: 0;
   position: sticky;
-  top: 2.25rem;
+  top: 3.75rem;
   z-index: 2;
 `
 
