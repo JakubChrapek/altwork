@@ -9,6 +9,10 @@ import { Wrapper } from "./Wrapper"
 const FooterStyles = styled.footer`
   background-color: var(--color-black);
   color: var(--color-white);
+
+  a:focus-visible {
+    outline: 2px solid var(--color-white);
+  }
 `
 
 const FooterWrapper = styled(Wrapper)`
@@ -71,7 +75,11 @@ const OrganisersRow = styled(BrandingRow)`
   margin-top: 3.625rem;
 `
 const PartnersRow = styled(BrandingRow)``
-const ContentPartnersRow = styled(BrandingRow)``
+const ContentPartnersRow = styled(BrandingRow)`
+  > ul {
+    border-bottom: 0;
+  }
+`
 
 const CopyrightsRow = styled.div`
   display: flex;
@@ -137,8 +145,8 @@ const Footer = ({ data }) => {
           <ul>
             {organisersLogos.map(logo => (
               <li>
-                <Link to={logo.partnerPageSlug}>
-                  <GatsbyImage image={logo.grafikaLogo.gatsbyImageData} />
+                <Link to={`/${logo.partnerPageSlug}`}>
+                  <GatsbyImage image={logo.logoGraphic.gatsbyImageData} />
                 </Link>
               </li>
             ))}
@@ -149,8 +157,8 @@ const Footer = ({ data }) => {
           <ul>
             {partnersLogos.map(logo => (
               <li>
-                <Link to={logo.partnerPageSlug}>
-                  <GatsbyImage image={logo.grafikaLogo.gatsbyImageData} />
+                <Link to={`/${logo.partnerPageSlug}`}>
+                  <GatsbyImage image={logo.logoGraphic.gatsbyImageData} />
                 </Link>
               </li>
             ))}
@@ -161,8 +169,8 @@ const Footer = ({ data }) => {
           <ul>
             {contentPartnersLogos.map(logo => (
               <li>
-                <Link to={logo.partnerPageSlug}>
-                  <GatsbyImage image={logo.grafikaLogo.gatsbyImageData} />
+                <Link to={`/${logo.partnerPageSlug}`}>
+                  <GatsbyImage image={logo.logoGraphic.gatsbyImageData} />
                 </Link>
               </li>
             ))}
@@ -203,19 +211,19 @@ const MyFooter = () => {
               value
             }
             organisersLogos {
-              grafikaLogo {
+              logoGraphic {
                 gatsbyImageData
               }
               partnerPageSlug
             }
             partnersLogos {
-              grafikaLogo {
+              logoGraphic {
                 gatsbyImageData
               }
               partnerPageSlug
             }
             contentPartnersLogos {
-              grafikaLogo {
+              logoGraphic {
                 gatsbyImageData
               }
               partnerPageSlug

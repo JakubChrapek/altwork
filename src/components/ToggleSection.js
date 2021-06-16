@@ -38,6 +38,10 @@ const Toggler = styled.button`
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
+  &:focus-visible {
+    outline-offset: 4px;
+    outline: 4px solid var(--color-accent);
+  }
   > span {
     width: 13rem;
     height: 13rem;

@@ -61,7 +61,7 @@ const GlobalStyles = createGlobalStyle`
 
     a {
       &:focus-visible {
-        outline-offset: 0.125rem;
+        outline-offset: 4px;
         outline: 2px solid var(--color-black);
       }
     }

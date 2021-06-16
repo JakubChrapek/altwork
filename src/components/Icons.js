@@ -19,7 +19,12 @@ const LogoStyles = styled.svg`
   }
 `
 
-export const Logo = ({ maxWidth, variant = "dark", circleFillColor }) => {
+export const Logo = ({
+  maxWidth,
+  variant = "dark",
+  circleFillColor,
+  onClick,
+}) => {
   const [toggle, setToggle] = useState(false)
 
   const handleChangeToggle = () => {
@@ -35,9 +40,11 @@ export const Logo = ({ maxWidth, variant = "dark", circleFillColor }) => {
 
   return (
     <Link
+      variant={variant}
       to="/"
       onPointerEnter={handleChangeToggle}
       onPointerLeave={handleChangeToggle}
+      onClick={onClick}
     >
       <LogoStyles
         maxWidth={maxWidth}

@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled, { css, keyframes } from "styled-components"
 import { IconFB, IconYT, Logo } from "./icons"
 import { Wrapper } from "./Wrapper"
@@ -21,6 +21,7 @@ const HamburgerButtonStyles = styled.button`
   align-items: center;
   flex-direction: column;
   transition: background-color 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
   span {
     width: 2.5rem;
     height: 0.3rem;
@@ -31,6 +32,10 @@ const HamburgerButtonStyles = styled.button`
     &:last-of-type {
       margin-top: 0.35rem;
     }
+  }
+  &:focus-visible {
+    outline-offset: 4px;
+    outline: 2px solid var(--color-black);
   }
   ${({ opened }) =>
     opened &&
@@ -69,7 +74,7 @@ const HamburgerMenuContainer = styled.div`
 `
 
 const MenuOpenedWrapper = styled(Wrapper)`
-  padding-top: 2.25rem;
+  padding-top: 3.75rem;
   position: relative;
   ${HamburgerButtonStyles} {
     position: relative;
@@ -157,6 +162,7 @@ const SocialWrapper = styled.ul`
   list-style-type: none;
   margin-top: 2.25rem;
   > li {
+    display: flex;
     &:first-of-type {
       margin-right: 1rem;
     }
@@ -177,14 +183,28 @@ const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
   const filteredLinks = headerLinks.filter(
     link => !link.linkText.toLowerCase().includes("kontakt")
   )
+
+  const hamburgerRef = useRef()
+
+  useEffect(() => {
+    menuOpened && hamburgerRef.current.focus()
+  }, [menuOpened])
+
   return (
     <>
       {menuOpened && (
         <HamburgerMenuContainer>
           <MenuOpenedWrapper>
             <LogoRow>
-              <Logo circleFillColor="white" />
+              <Logo
+                onClick={() => {
+                  console.log("MENU")
+                  setMenuOpened(false)
+                }}
+                circleFillColor="white"
+              />
               <HamburgerButtonStyles
+                ref={hamburgerRef}
                 aria-label="Zamknij menu główne"
                 aria-expanded={true}
                 opened
@@ -196,19 +216,21 @@ const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
             </LogoRow>
             <MainMenuWrapper>
               <LinksColumn>
-                {filteredLinks.map((headerLink, iterator) => (
-                  <Link
-                    key={`${headerLink.linkText}-hamburger-variant`}
-                    activeClassName="active"
-                    className={
-                      iterator === filteredLinks.length - 1 && "link--accent"
-                    }
-                    to={headerLink.linkUrl}
-                    onClick={() => setMenuOpened(false)}
-                  >
-                    <li>{headerLink.linkText}</li>
-                  </Link>
-                ))}
+                {filteredLinks.map((headerLink, iterator) => {
+                  const isLast = iterator === filteredLinks.length - 1
+                  return (
+                    <Link
+                      key={`${headerLink.linkText}-hamburger-variant`}
+                      activeClassName="active"
+                      className={isLast && "link--accent"}
+                      to={headerLink.linkUrl}
+                      target={isLast && "_blank"}
+                      onClick={() => setMenuOpened(false)}
+                    >
+                      <li>{headerLink.linkText}</li>
+                    </Link>
+                  )
+                })}
               </LinksColumn>
               <ContactAndPartnersColumn>
                 <p>Skontaktuj się:</p>

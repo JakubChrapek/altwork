@@ -74,7 +74,7 @@ const Slide = ({ slide, index }) => {
       <ImageWrapper>
         <GatsbyImage image={lecturerPhoto.gatsbyImageData} />
         <svg
-          aria-labelledby="green decorative circle"
+          aria-labelledby="zielone dekoracyjne koło"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 200 200"
@@ -107,17 +107,18 @@ const ButtonsWrapper = styled.div`
     border: 0;
     background-color: transparent;
     cursor: pointer;
+    margin-right: 0.5rem;
+    &:last-of-type {
+      margin: 0 0 0 0.5rem;
+    }
     &:focus-visible {
+      outline-offset: 4px;
       outline: 1px solid var(--color-black);
     }
   }
   svg {
     width: 76px;
     height: 76px;
-    margin-right: 0.5rem;
-    &:last-of-type {
-      margin: 0 0 0 0.5rem;
-    }
   }
 `
 

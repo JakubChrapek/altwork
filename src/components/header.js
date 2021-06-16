@@ -137,18 +137,20 @@ const Header = ({ data }) => {
                 ))}
               </SocialColumn>
               <AnchorColumn>
-                {headerLinks.map((headerLink, iterator) => (
-                  <Link
-                    key={headerLink.linkText}
-                    activeClassName="active"
-                    className={
-                      iterator === headerLinks.length - 1 && "link--accent"
-                    }
-                    to={headerLink.linkUrl}
-                  >
-                    <li>{headerLink.linkText}</li>
-                  </Link>
-                ))}
+                {headerLinks.map((headerLink, iterator) => {
+                  const isLast = iterator === headerLinks.length - 1
+                  return (
+                    <Link
+                      key={headerLink.linkText}
+                      activeClassName="active"
+                      className={isLast && "link--accent"}
+                      target={isLast && "_blank"}
+                      to={headerLink.linkUrl}
+                    >
+                      <li>{headerLink.linkText}</li>
+                    </Link>
+                  )
+                })}
               </AnchorColumn>
             </NavigationWrapper>
           </HeaderStyles>

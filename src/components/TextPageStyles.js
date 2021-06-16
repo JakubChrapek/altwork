@@ -3,6 +3,10 @@ import styled from "styled-components"
 export const TextPageStyles = styled.section`
   padding: 5.25rem 0;
   > h1 {
+    font-size: var(--font-80);
+    font-family: Diagramm;
+    font-weight: bold;
+    margin: 0 0 5rem;
     > p {
       font-size: var(--font-80);
       font-family: Diagramm;

@@ -37,6 +37,10 @@ const VideoPreview = styled.div`
     border-radius: 100%;
     border: 0;
     cursor: pointer;
+    &:focus-visible {
+      outline-offset: 4px;
+      outline: 2px solid var(--color-white);
+    }
   }
 `
 
