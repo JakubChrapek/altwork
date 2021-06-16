@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import styled, { css, keyframes } from "styled-components"
 import { IconFB, IconYT, Logo } from "./icons"
-import { Wrapper } from "./wrapper"
+import { Wrapper } from "./Wrapper"
 
 const HamburgerButtonStyles = styled.button`
   position: fixed;

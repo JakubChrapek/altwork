@@ -59,6 +59,13 @@ const GlobalStyles = createGlobalStyle`
     } */
     }
 
+    a {
+      &:focus-visible {
+        outline-offset: 0.125rem;
+        outline: 2px solid var(--color-black);
+      }
+    }
+
     .Collapse {
       background: none;
       border: 2px solid black;
