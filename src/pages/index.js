@@ -167,7 +167,7 @@ export const homeQuery = graphql`
       filter: { id: { eq: "64357852-a7b7-50ec-9106-ac45833571ae" } }
     ) {
       nodes {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED)
         id
       }
     }
@@ -175,7 +175,7 @@ export const homeQuery = graphql`
       filter: { id: { eq: "0f5cb491-5c9a-5c6d-ba01-2dafd720c8b5" } }
     ) {
       nodes {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED)
         id
       }
     }
@@ -183,7 +183,7 @@ export const homeQuery = graphql`
       filter: { id: { eq: "8748fa35-caf8-5313-a56f-5e290080ebaf" } }
     ) {
       nodes {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED)
         id
       }
     }
@@ -191,7 +191,7 @@ export const homeQuery = graphql`
       filter: { id: { eq: "7e9487f2-e1d9-5d25-890b-877077837e19" } }
     ) {
       nodes {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED)
         id
       }
     }

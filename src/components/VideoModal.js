@@ -10,7 +10,7 @@ const ExitButtonStyles = styled(motion.button)`
   background-color: transparent;
   border: 0;
   align-self: flex-end;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   cursor: pointer;
   &:active,
   &:focus {
@@ -18,8 +18,8 @@ const ExitButtonStyles = styled(motion.button)`
   }
 
   &:focus-visible {
-    outline: 2px solid var(--white);
-    outline-offset: 4px;
+    outline: 0.125rem solid var(--white);
+    outline-offset: 0.25rem;
   }
 
   path {

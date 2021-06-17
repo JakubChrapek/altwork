@@ -1,7 +1,7 @@
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
-import { ClaimStyles } from "./typography"
+import { ClaimStyles } from "./Typography"
 
 const AboutSectionStyles = styled.section`
   margin-top: 7.125rem;
@@ -28,12 +28,13 @@ const QuestionsWrapper = styled.div`
       }
     }
   }
+
   li {
     --list-indent: 4rem;
     position: relative;
     font-size: var(--font-20);
     line-height: 1.4;
-    max-width: 380px;
+    max-width: 23.75rem;
     padding: 0 0 1rem 0;
     margin-left: var(--list-indent);
     border-bottom: 1px solid var(--color-gray);
@@ -49,6 +50,30 @@ const QuestionsWrapper = styled.div`
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
+    }
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    > ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1 1 100%;
+      margin-right: 0;
+      &:last-of-type {
+        margin: 3rem 0 0;
+        flex: 1 1 100%;
+      }
+
+      > li {
+        --list-indent: 5rem;
+        font-size: var(--font-28);
+        max-width: 100%;
+        padding: 0 0 1rem 0;
+        :not(:first-of-type) {
+          margin-top: 3rem;
+        }
+      }
     }
   }
 `

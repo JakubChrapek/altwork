@@ -9,6 +9,9 @@ const ToggleStyles = styled.section`
   @media (max-width: 1283px) {
     padding: 7rem 0 14.125rem;
   }
+  @media (max-width: 1024px) {
+    padding: 7rem 0 12.125rem;
+  }
   position: relative;
   /* overflow: hidden; */
   .gatsby-image-wrapper {
@@ -31,8 +34,8 @@ const Chair = styled(GatsbyImage)`
 `
 
 const Toggler = styled.button`
-  width: 21.813rem;
-  height: 13rem;
+  width: clamp(6.369rem, 25.57vw, 21.813rem);
+  height: clamp(3.787rem, 15.227vw, 13rem);
   border: 0;
   background-color: var(--color-black);
   display: flex;
@@ -42,12 +45,12 @@ const Toggler = styled.button`
   transform: translateX(-50%);
   cursor: pointer;
   &:focus-visible {
-    outline-offset: 4px;
-    outline: 4px solid var(--color-accent);
+    outline-offset: 0.25rem;
+    outline: 0.25rem solid var(--color-accent);
   }
   > span {
-    width: 13rem;
-    height: 13rem;
+    width: clamp(3.787rem, 15.227vw, 13rem);
+    height: clamp(3.787rem, 15.227vw, 13rem);
     border-radius: 50%;
     display: inline-block;
     background-color: var(--color-accent);
@@ -109,7 +112,11 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
         <Toggler onClick={() => setToggleState(!toggleState)}>
           <motion.span
             initial={{ x: 0 }}
-            animate={toggleState ? { x: "8.813rem" } : { x: 0 }}
+            animate={
+              toggleState
+                ? { x: "clamp(2.58rem, 10.323vw, 8.813rem)" }
+                : { x: 0 }
+            }
             transition={transition}
           />
         </Toggler>

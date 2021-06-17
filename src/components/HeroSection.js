@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { StructuredText } from "react-datocms"
 import { ClaimStyles } from "./typography"
-import Circles from "./circles"
+import Circles from "./Circles"
 
 const SectionStyles = styled.section``
 

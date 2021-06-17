@@ -6,6 +6,9 @@ import { RichArrowRight } from "./icons"
 
 const WhyWorthItSectionStyles = styled.section`
   margin-top: 8.125rem;
+  @media (max-width: 1024px) {
+    margin-top: 4rem;
+  }
 `
 
 const ContentWrapper = styled.div`
@@ -14,9 +17,22 @@ const ContentWrapper = styled.div`
   > div {
     flex: 1 1 50%;
   }
+  @media (max-width: 1024px) {
+    margin-top: 4rem;
+  }
 `
-const IconColumn = styled.div``
+const IconColumn = styled.div`
+  svg {
+    width: 70%;
+    max-width: 19.284rem;
+  }
+`
 const AnswersWrapper = styled.div`
+  @media (max-width: 1283px) {
+    && {
+      flex: 1 1 65%;
+    }
+  }
   > ul {
     list-style: none;
     padding: 0;

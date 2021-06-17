@@ -17,6 +17,10 @@ const GlobalStyles = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
     }
+    #___gatsby {
+      overflow: hidden;
+    }
+
     html {
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
@@ -29,12 +33,13 @@ const GlobalStyles = createGlobalStyle`
       --font-18: 1.13rem;
       --font-20: 1.25rem;
       --font-24: 1.5rem;
+      --font-28: 1.75rem;
       --font-32: 2rem;
       --font-40: 2.5rem;
       --font-50: 3.13rem;
       --font-60: 3.75rem;
       --font-64: 4rem;
-      --font-80: clamp(2.67rem, 5.857vw, 5rem);
+      --font-80: clamp(3.67rem, 5.857vw, 5rem);
       --font-18-pt: var(--font-24);
       --font-24-pt: var(--font-32);
       --font-28-pt: 2.33rem;
@@ -61,8 +66,8 @@ const GlobalStyles = createGlobalStyle`
 
     a {
       &:focus-visible {
-        outline-offset: 4px;
-        outline: 2px solid var(--color-black);
+        outline-offset: 0.25rem;
+        outline: 0.125rem solid var(--color-black);
       }
     }
 

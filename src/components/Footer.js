@@ -57,6 +57,7 @@ const BrandingRow = styled.div`
     padding-bottom: 1.6rem;
     > li {
       margin-right: 2rem;
+      flex: 1 1 11%;
       &:last-of-type {
         margin-right: 0;
       }

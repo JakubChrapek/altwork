@@ -3,7 +3,7 @@ import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { SectionTitle } from "./typography"
 import { RichArrowDown } from "./icons"
-import Circles from "./circles"
+import Circles from "./Circles"
 
 const ProgramSectionStyles = styled.section`
   margin-top: 11rem;
@@ -18,6 +18,13 @@ const ContentWrapper = styled.div`
 `
 const IconColumn = styled.div`
   padding-left: 4.75rem;
+  @media (max-width: 1024px) {
+    padding-left: 0;
+    svg {
+      width: 42%;
+      height: auto;
+    }
+  }
 `
 const DescriptionWrapper = styled.div`
   @media (max-width: 1200px) {

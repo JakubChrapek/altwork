@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React, { useEffect, useRef, useState } from "react"
-import styled, { css, keyframes } from "styled-components"
+import styled, { css } from "styled-components"
 import { IconFB, IconYT, Logo } from "./icons"
 import { Wrapper } from "./Wrapper"
 
@@ -9,6 +9,9 @@ const HamburgerButtonStyles = styled.button`
   right: 8.75rem;
   @media (max-width: 1366px) {
     right: 5.75rem;
+  }
+  @media (max-width: 1024px) {
+    right: 3.75rem;
   }
   position: absolute;
   background-color: transparent;
@@ -37,8 +40,8 @@ const HamburgerButtonStyles = styled.button`
     }
   }
   &:focus-visible {
-    outline-offset: 4px;
-    outline: 2px solid var(--color-black);
+    outline-offset: 0.25rem;
+    outline: 0.125rem solid var(--color-black);
   }
   ${({ opened }) =>
     opened &&

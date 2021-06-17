@@ -30,12 +30,8 @@ const Circle = styled.span`
   position: absolute;
   left: 0;
   top: 0;
-  width: 14.8vw;
-  min-width: 12.5rem;
-  max-width: 12.5rem;
-  height: 14.8vw;
-  min-height: 12.5rem;
-  max-height: 12.5rem;
+  width: 12.5rem;
+  height: 12.5rem;
   border-radius: 100%;
   z-index: -1;
   ${({ variant }) =>
@@ -76,12 +72,13 @@ const EmptyCircleWrapper = styled(CircleWrapper)`
       line-height: 1.05;
       text-decoration: underline;
       text-decoration-thickness: 3px;
-      /* background-image: linear-gradient(var(--color-black), var(--color-black)),
-        linear-gradient(var(--color-black), var(--color-black)),
-        linear-gradient(var(--color-black), var(--color-black));
-      background-size: 20px 2px, 0 2px, 100% 3px;
-      background-position: calc(100% + 20px) 100%, 100% 100%, 0 calc(100% - 4px);
-      background-repeat: no-repeat; */
+    }
+  }
+  @media (max-width: 1024px) {
+    > p {
+      :not(:first-of-type) {
+        font-size: var(--font-24-pt);
+      }
     }
   }
 `
@@ -96,12 +93,14 @@ const FilledCircleWrapper = styled(CircleWrapper)`
       font-size: var(--font-64);
       line-height: 1;
       text-decoration: underline;
-      /* background-image: linear-gradient(var(--color-black), var(--color-black)),
-        linear-gradient(var(--color-black), var(--color-black)),
-        linear-gradient(var(--color-black), var(--color-black));
-      background-size: 20px 2px, 0 2px, 100% 3px;
-      background-position: calc(100% + 20px) 100%, 100% 100%, 0 calc(100% - 4px);
-      background-repeat: no-repeat; */
+    }
+  }
+
+  @media (max-width: 1024px) {
+    > p {
+      :not(:first-of-type) {
+        font-size: var(--font-32-pt);
+      }
     }
   }
 `

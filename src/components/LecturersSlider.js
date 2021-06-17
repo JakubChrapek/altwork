@@ -11,7 +11,7 @@ import { motion } from "framer-motion"
 const SlideWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 3rem 0 0;
+  margin: 0 5rem 0 0;
   padding-top: 4rem;
   cursor: grab;
 
@@ -19,10 +19,8 @@ const SlideWrapper = styled.div`
   picture,
   img {
     border-radius: 100%;
-    width: 14.6vw;
-    height: 14.6vw;
-    max-width: 12.5rem;
-    max-height: 12.5rem;
+    width: 12.5rem;
+    height: 12.5rem;
     filter: saturate(0) opacity(0.8);
     opacity: 0.1;
     mix-blend-mode: multiply;
@@ -36,9 +34,9 @@ const ImageWrapper = styled.div`
   pointer-events: none;
   svg {
     position: absolute;
-    width: 200px;
-    height: 200px;
     left: 0;
+    width: 12.5rem;
+    height: 12.5rem;
     z-index: -1;
   }
 `
@@ -46,7 +44,6 @@ const ImageWrapper = styled.div`
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 6rem;
   z-index: 1;
   pointer-events: none;
   > h3 {
@@ -56,6 +53,7 @@ const TextWrapper = styled.div`
     color: var(--color-black);
     line-height: 1.08;
     margin-top: -2.8rem;
+    max-width: 22.75rem;
   }
   > p {
     margin-top: 1.5rem;
@@ -112,18 +110,27 @@ const ButtonsWrapper = styled.div`
       margin: 0 0 0 0.5rem;
     }
     &:focus-visible {
-      outline-offset: 4px;
+      outline-offset: 0.25rem;
       outline: 1px solid var(--color-black);
     }
   }
   svg {
-    width: 76px;
-    height: 76px;
+    width: 4.75rem;
+    height: 4.75rem;
   }
 `
 
 const SliderStyles = styled(Slider)`
   margin-top: 5rem;
+  .slick-list {
+    padding: 0 !important;
+    @media (max-width: 1366px) {
+      overflow: visible;
+    }
+  }
+  @media (max-width: 1024px) {
+    margin-top: 1rem;
+  }
 `
 
 const LecturersSlider = ({ lecturers }) => {
@@ -151,13 +158,6 @@ const LecturersSlider = ({ lecturers }) => {
     responsive: [
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,

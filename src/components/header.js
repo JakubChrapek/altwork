@@ -18,6 +18,9 @@ const HeaderContainer = styled.div`
   @media (max-width: 1366px) {
     padding: 3.75rem 5.75rem 0;
   }
+  @media (max-width: 1024px) {
+    padding: 3.75rem 3.75rem 0;
+  }
   height: 15.375rem;
   position: relative;
   background-color: var(--color-white);

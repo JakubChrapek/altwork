@@ -8,6 +8,9 @@ const LecturersSectionStyles = styled.section`
   @media (max-width: 1283px) {
     margin-top: 11rem;
   }
+  @media (max-width: 1024px) {
+    margin-top: 9rem;
+  }
 `
 const LecturersTitle = styled(SectionTitle)`
   text-align: center;

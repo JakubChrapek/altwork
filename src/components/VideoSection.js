@@ -13,6 +13,9 @@ const SectionStyles = styled.section`
   @media (max-width: 1283px) {
     padding-left: 3.188rem;
   }
+  @media (max-width: 1024px) {
+    padding-left: 0;
+  }
   margin-top: -0.4rem;
 `
 
@@ -44,8 +47,8 @@ const VideoPreview = styled.div`
     border: 0;
     cursor: pointer;
     &:focus-visible {
-      outline-offset: 4px;
-      outline: 2px solid var(--color-white);
+      outline-offset: 0.25rem;
+      outline: 0.125rem solid var(--color-white);
     }
   }
 `
@@ -62,6 +65,19 @@ const TextContainer = styled.div`
       margin-right: 6.625rem;
       @media (max-width: 1283px) {
         margin-right: 3.625rem;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    > p {
+      flex: unset;
+      max-width: 100%;
+      :first-of-type {
+        margin-right: 0;
+      }
+      + p {
+        margin-top: 2rem;
       }
     }
   }
