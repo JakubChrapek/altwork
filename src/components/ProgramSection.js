@@ -72,6 +72,21 @@ const SessionsWrapper = styled.ul`
         line-height: 1.4;
       }
     }
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      padding: 3rem 0 1.5rem;
+      max-width: 42rem;
+      > p {
+        max-width: 42rem;
+        :nth-of-type(2) {
+          margin: 1rem 0 0;
+        }
+        :nth-of-type(3) {
+          margin-top: 1rem;
+        }
+      }
+    }
   }
 `
 
@@ -89,6 +104,11 @@ const CtaWrapper = styled.div`
     font-size: var(--font-20);
     line-height: 1.4;
     color: var(--color-black);
+    @media (max-width: 1024px) {
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
   }
 `
 

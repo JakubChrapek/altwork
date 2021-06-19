@@ -4,14 +4,16 @@ import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { IconFB, IconYT, Logo } from "./icons"
+import { BlueRankLogo, HycomLogo, IgrzyskaWolnosciLogo } from "./Logos"
 import { Wrapper } from "./Wrapper"
 
 const FooterStyles = styled.footer`
   background-color: var(--color-black);
   color: var(--color-white);
+  z-index: 6;
 
   a:focus-visible {
-    outline: 2px solid var(--color-white);
+    outline: 0.125rem solid var(--color-white);
   }
 `
 
@@ -47,11 +49,13 @@ const BrandingRow = styled.div`
     line-height: 1.55;
     color: var(--color-white);
     margin-top: 0.65rem;
+    padding-bottom: 1.6rem;
   }
   > ul {
     display: flex;
     flex-wrap: wrap;
     flex: 1 1 80%;
+    align-items: center;
     list-style-type: none;
     border-bottom: 1px solid var(--color-white);
     padding-bottom: 1.6rem;
@@ -74,17 +78,43 @@ const BrandingRow = styled.div`
 `
 const OrganisersRow = styled(BrandingRow)`
   margin-top: 3.625rem;
+  > ul > li {
+    max-width: 11.438rem;
+    @media (max-width: 840px) {
+      max-width: 10.338rem;
+    }
+  }
 `
-const PartnersRow = styled(BrandingRow)``
+const PartnersRow = styled(BrandingRow)`
+  > ul > li {
+    max-width: 12.438rem;
+    @media (max-width: 840px) {
+      max-width: 11.238rem;
+    }
+  }
+`
 const ContentPartnersRow = styled(BrandingRow)`
   > ul {
     border-bottom: 0;
+    > li {
+      margin-right: 2rem;
+      max-width: 7.5rem;
+      @media (max-width: 840px) {
+        max-width: 5rem;
+        svg {
+          max-width: 5rem;
+        }
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
   }
 `
 
 const CopyrightsRow = styled.div`
   display: flex;
-  margin-top: 6rem;
+  margin-top: 4.6rem;
   justify-content: space-between;
   > p {
     font-size: var(--font-18);
@@ -96,6 +126,9 @@ const LinksList = styled.ul`
   display: flex;
   > li {
     margin-right: 2.5rem;
+    @media (max-width: 940px) {
+      margin-right: 2rem;
+    }
     &:last-of-type {
       margin-right: 0;
     }
@@ -147,7 +180,8 @@ const Footer = ({ data }) => {
             {organisersLogos.map(logo => (
               <li>
                 <Link to={`/${logo.partnerPageSlug}`}>
-                  <GatsbyImage image={logo.logoGraphic.gatsbyImageData} />
+                  <HycomLogo />
+                  {/* <GatsbyImage image={logo.logoGraphic.gatsbyImageData} /> */}
                 </Link>
               </li>
             ))}
@@ -159,7 +193,9 @@ const Footer = ({ data }) => {
             {partnersLogos.map(logo => (
               <li>
                 <Link to={`/${logo.partnerPageSlug}`}>
-                  <GatsbyImage image={logo.logoGraphic.gatsbyImageData} />
+                  <IgrzyskaWolnosciLogo />
+
+                  {/* <GatsbyImage image={logo.logoGraphic.gatsbyImageData} /> */}
                 </Link>
               </li>
             ))}
@@ -171,7 +207,9 @@ const Footer = ({ data }) => {
             {contentPartnersLogos.map(logo => (
               <li>
                 <Link to={`/${logo.partnerPageSlug}`}>
-                  <GatsbyImage image={logo.logoGraphic.gatsbyImageData} />
+                  <BlueRankLogo />
+
+                  {/* <GatsbyImage image={logo.logoGraphic.gatsbyImageData} /> */}
                 </Link>
               </li>
             ))}
