@@ -65,6 +65,14 @@ const BrandingRow = styled.div`
       &:last-of-type {
         margin-right: 0;
       }
+      svg {
+        filter: grayscale(100%);
+      }
+      svg,
+      path {
+        fill: #fff;
+        width: 100%;
+      }
     }
     .gatsby-image-wrapper {
       max-height: 5rem !important;
@@ -80,16 +88,28 @@ const OrganisersRow = styled(BrandingRow)`
   margin-top: 3.625rem;
   > ul > li {
     max-width: 11.438rem;
+    svg {
+      max-width: 11.438rem;
+    }
     @media (max-width: 840px) {
       max-width: 10.338rem;
+      svg {
+        max-width: 10.338rem;
+      }
     }
   }
 `
 const PartnersRow = styled(BrandingRow)`
   > ul > li {
     max-width: 12.438rem;
+    svg {
+      max-width: 12.438rem;
+    }
     @media (max-width: 840px) {
       max-width: 11.238rem;
+      svg {
+        max-width: 11.238rem;
+      }
     }
   }
 `
@@ -99,6 +119,9 @@ const ContentPartnersRow = styled(BrandingRow)`
     > li {
       margin-right: 2rem;
       max-width: 7.5rem;
+      svg {
+        max-width: 7.5rem;
+      }
       @media (max-width: 840px) {
         max-width: 5rem;
         svg {
@@ -178,10 +201,9 @@ const Footer = ({ data }) => {
           <StructuredText data={footerOrganisersTitle} />
           <ul>
             {organisersLogos.map(logo => (
-              <li>
+              <li key={`${logo.partnerPageSlug}-organisersLogos`}>
                 <Link to={`/${logo.partnerPageSlug}`}>
-                  <HycomLogo />
-                  {/* <GatsbyImage image={logo.logoGraphic.gatsbyImageData} /> */}
+                  <span dangerouslySetInnerHTML={{ __html: logo.grafikaSvg }} />
                 </Link>
               </li>
             ))}
@@ -191,11 +213,9 @@ const Footer = ({ data }) => {
           <StructuredText data={footerPartnersTitle} />
           <ul>
             {partnersLogos.map(logo => (
-              <li>
+              <li key={`${logo.partnerPageSlug}-ContentPartners`}>
                 <Link to={`/${logo.partnerPageSlug}`}>
-                  <IgrzyskaWolnosciLogo />
-
-                  {/* <GatsbyImage image={logo.logoGraphic.gatsbyImageData} /> */}
+                  <span dangerouslySetInnerHTML={{ __html: logo.grafikaSvg }} />
                 </Link>
               </li>
             ))}
@@ -205,11 +225,9 @@ const Footer = ({ data }) => {
           <StructuredText data={footerContentPartnersTitle} />
           <ul>
             {contentPartnersLogos.map(logo => (
-              <li>
+              <li key={`${logo.partnerPageSlug}-partnersLastRow`}>
                 <Link to={`/${logo.partnerPageSlug}`}>
                   <BlueRankLogo />
-
-                  {/* <GatsbyImage image={logo.logoGraphic.gatsbyImageData} /> */}
                 </Link>
               </li>
             ))}
@@ -254,18 +272,21 @@ const MyFooter = () => {
                 gatsbyImageData
               }
               partnerPageSlug
+              grafikaSvg
             }
             partnersLogos {
               logoGraphic {
                 gatsbyImageData
               }
               partnerPageSlug
+              grafikaSvg
             }
             contentPartnersLogos {
               logoGraphic {
                 gatsbyImageData
               }
               partnerPageSlug
+              grafikaSvg
             }
           }
           datoCmsHeader {

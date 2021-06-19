@@ -5,8 +5,11 @@ import { motion } from "framer-motion"
 import { Link } from "gatsby"
 
 const LogoStyles = styled.svg`
-  width: 25.4vw;
+  width: 21.75rem;
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "21.75rem")};
+  @media (max-width: 1280px) {
+    width: 16.5rem;
+  }
   cursor: pointer;
   #toggle-bg,
   path {
@@ -25,27 +28,8 @@ export const Logo = ({
   circleFillColor,
   onClick,
 }) => {
-  const [toggle, setToggle] = useState(false)
-
-  const handleChangeToggle = () => {
-    setToggle(!toggle)
-  }
-
-  useEffect(() => {
-    GSAP.to("#toggle-circle", {
-      duration: 1,
-      attr: { x: 100 },
-    })
-  }, [toggle])
-
   return (
-    <Link
-      variant={variant}
-      to="/"
-      onPointerEnter={handleChangeToggle}
-      onPointerLeave={handleChangeToggle}
-      onClick={onClick}
-    >
+    <Link variant={variant} to="/" onClick={onClick}>
       <LogoStyles
         maxWidth={maxWidth}
         variant={variant}

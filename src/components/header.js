@@ -32,7 +32,10 @@ const HeaderStyles = styled.div`
   align-items: center;
   justify-content: space-between;
   h1 {
-    margin: 0;
+    margin: 0 4rem 0 0;
+    > a {
+      display: flex;
+    }
   }
   a {
     text-decoration: none;
@@ -105,7 +108,12 @@ const AnchorColumn = styled(SocialColumn)`
 
 const Header = ({ data }) => {
   const {
-    datoCmsHeader: { headerLinks, headerSocialLinks },
+    datoCmsHeader: {
+      headerLinks,
+      headerSocialLinks,
+      headerPartner1Svg,
+      headerPartner2Svg,
+    },
   } = data
 
   return (
@@ -113,6 +121,8 @@ const Header = ({ data }) => {
       <HamburgerMenu
         headerLinks={headerLinks}
         headerSocialLinks={headerSocialLinks}
+        firstPartnerLogo={headerPartner1Svg}
+        secondPartnerLogo={headerPartner2Svg}
       />
       <HeaderWrapper
         data-scroll
@@ -186,6 +196,8 @@ const MyHeader = () => {
                 gatsbyImageData
               }
             }
+            headerPartner1Svg
+            headerPartner2Svg
           }
         }
       `}

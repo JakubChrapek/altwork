@@ -178,14 +178,25 @@ const SocialWrapper = styled.ul`
 `
 const PartnersWrapper = styled(SocialWrapper)`
   margin-top: 6.25rem;
+  display: flex;
   > li {
+    flex: 1 1 50%;
+    max-height: 4.75rem;
     &:first-of-type {
       margin-right: 4.25rem;
+    }
+    svg {
+      width: 100%;
     }
   }
 `
 
-const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
+const HamburgerMenu = ({
+  headerLinks,
+  headerSocialLinks,
+  firstPartnerLogo,
+  secondPartnerLogo,
+}) => {
   const [menuOpened, setMenuOpened] = useState(false)
 
   const filteredLinks = headerLinks.filter(
@@ -206,7 +217,6 @@ const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
             <LogoRow>
               <Logo
                 onClick={() => {
-                  console.log("MENU")
                   setMenuOpened(false)
                 }}
                 circleFillColor="white"
@@ -263,8 +273,16 @@ const HamburgerMenu = ({ headerLinks, headerSocialLinks }) => {
                   ))}
                 </SocialWrapper>
                 <PartnersWrapper>
-                  <li>Łódź kreuje (logo pls 😅)</li>
-                  <li>Igrzyska Wolności</li>
+                  <li>
+                    <span
+                      dangerouslySetInnerHTML={{ __html: firstPartnerLogo }}
+                    />
+                  </li>
+                  <li>
+                    <span
+                      dangerouslySetInnerHTML={{ __html: secondPartnerLogo }}
+                    />
+                  </li>
                 </PartnersWrapper>
               </ContactAndPartnersColumn>
             </MainMenuWrapper>
