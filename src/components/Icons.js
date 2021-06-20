@@ -10,6 +10,9 @@ const LogoStyles = styled.svg`
   @media (max-width: 1280px) {
     width: 16.5rem;
   }
+  @media (max-width: 767px) {
+    width: clamp(9rem, 47vw, 11rem);
+  }
   cursor: pointer;
   #toggle-bg,
   path {

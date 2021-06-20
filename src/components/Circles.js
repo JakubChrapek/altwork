@@ -4,9 +4,16 @@ import styled, { css } from "styled-components"
 
 const CirclesWrapper = styled.div`
   margin: 4.5rem 0 4.813rem;
+
   display: flex;
   > div {
     flex: 1 1 50%;
+  }
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    > div {
+      flex: 1 1 100%;
+    }
   }
   .cta {
     display: flex;
@@ -24,6 +31,13 @@ const CirclesWrapper = styled.div`
       margin-top: 1.2rem;
     }
   }
+  ${({ hero }) =>
+    hero &&
+    css`
+      @media (max-width: 767px) {
+        margin: 2rem -2.25rem 7rem;
+      }
+    `}
 `
 
 const Circle = styled.span`
@@ -38,16 +52,26 @@ const Circle = styled.span`
     variant === "empty"
       ? css`
           border: 1px solid var(--color-black);
+          @media (max-width: 767px) {
+            left: -2.5rem;
+          }
         `
       : css`
           border: 0;
           background-color: var(--color-accent);
         `}
+  @media (max-width: 767px) {
+    width: 17.5rem;
+    height: 17.5rem;
+  }
 `
 
 const CircleWrapper = styled.div`
   position: relative;
   padding: 2.875rem 0 0 2.438rem;
+  @media (max-width: 767px) {
+    padding: 3.75rem 0 0 2.25rem;
+  }
   > p {
     :first-of-type {
       font-size: var(--font-18);
@@ -103,10 +127,19 @@ const FilledCircleWrapper = styled(CircleWrapper)`
       }
     }
   }
+  @media (max-width: 767px) {
+    display: ${({ hide }) => hide && "none"};
+  }
 `
-const Circles = ({ emptyCircleText, plainText, filledCircleText, variant }) => {
+const Circles = ({
+  emptyCircleText,
+  hero,
+  plainText,
+  filledCircleText,
+  variant,
+}) => {
   return (
-    <CirclesWrapper>
+    <CirclesWrapper hero={hero}>
       {variant === "plainText" ? (
         <div className="cta">
           <StructuredText data={plainText} />
@@ -117,7 +150,7 @@ const Circles = ({ emptyCircleText, plainText, filledCircleText, variant }) => {
           <StructuredText data={emptyCircleText} />
         </EmptyCircleWrapper>
       )}
-      <FilledCircleWrapper>
+      <FilledCircleWrapper hide={hero}>
         <Circle variant="accent" />
         <StructuredText data={filledCircleText} />
       </FilledCircleWrapper>

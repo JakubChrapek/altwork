@@ -13,6 +13,9 @@ const HamburgerButtonStyles = styled.button`
   @media (max-width: 1024px) {
     right: 3.75rem;
   }
+  @media (max-width: 767px) {
+    right: 2.25rem;
+  }
   position: absolute;
   background-color: transparent;
   border: none;
@@ -23,6 +26,10 @@ const HamburgerButtonStyles = styled.button`
   border-radius: 50%;
   width: 5.3rem;
   height: 5.3rem;
+  @media (max-width: 767px) {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -32,6 +39,10 @@ const HamburgerButtonStyles = styled.button`
     width: 2.5rem;
     height: 0.3rem;
     border-radius: 2.5rem;
+    @media (max-width: 767px) {
+      width: 1.9rem;
+      height: 0.3rem;
+    }
     background-color: var(--color-black);
     transition: background-color 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045),
       transform 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
@@ -68,6 +79,9 @@ const HamburgerWrapper = styled(Wrapper)`
   margin: 0 auto;
   top: 3.75rem;
   z-index: 3;
+  @media (max-width: 767px) {
+    top: 1.813rem;
+  }
 `
 
 const HamburgerMenuContainer = styled.div`
@@ -83,6 +97,9 @@ const HamburgerMenuContainer = styled.div`
 
 const MenuOpenedWrapper = styled(Wrapper)`
   padding-top: 3.75rem;
+  @media (max-width: 767px) {
+    padding-top: 1.813rem;
+  }
   position: relative;
   ${HamburgerButtonStyles} {
     position: relative;
@@ -101,6 +118,15 @@ const MainMenuWrapper = styled.div`
   margin-top: 4.625rem;
   > * {
     flex: 1 1 50%;
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    > * {
+      flex: 1 1 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    margin-top: 2.531rem;
   }
 `
 
@@ -121,9 +147,14 @@ const LinksColumn = styled.ul`
       --maxFontSize: var(--font-60);
       --scaler: 4.392vw;
       font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
-      /* font-size: 4.392vw; */
       line-height: 1;
       padding: 1rem 0 1.25rem;
+      @media (max-width: 1024px) {
+        --minFontSize: var(--font-50);
+      }
+      @media (max-width: 767px) {
+        font-size: clamp(var(--font-24), 7.5vw, var(--font-28-pt));
+      }
     }
     &:first-of-type {
       > li {
@@ -144,6 +175,14 @@ const LinksColumn = styled.ul`
           background-color: var(--color-white);
           border-radius: 3.75rem;
         }
+        @media (max-width: 767px) {
+          padding-left: 3.313rem;
+          &:after {
+            width: 2.625rem;
+            height: 2.625rem;
+            border-radius: 2.625rem;
+          }
+        }
       }
     }
   }
@@ -151,10 +190,16 @@ const LinksColumn = styled.ul`
 
 const ContactAndPartnersColumn = styled.div`
   padding-left: 6.75rem;
+  @media (max-width: 1080px) {
+    padding-left: 4.5rem;
+  }
   > p {
     font-size: var(--font-20);
     font-weight: bold;
     line-height: 1;
+    @media (max-width: 1024px) {
+      font-size: var(--font-18-pt);
+    }
   }
   > a {
     font-size: var(--font-32);
@@ -163,6 +208,18 @@ const ContactAndPartnersColumn = styled.div`
     margin-top: 1rem;
     line-height: 1;
     display: inline-block;
+    @media (max-width: 1024px) {
+      font-size: var(--font-24-pt);
+    }
+    @media (max-width: 767px) {
+      font-size: clamp(var(--font-18-pt), 7vw, var(--font-24-pt));
+      line-break: anywhere;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding-left: 0;
+    margin-top: 3rem;
   }
 `
 const SocialWrapper = styled.ul`
@@ -182,6 +239,9 @@ const PartnersWrapper = styled(SocialWrapper)`
   > li {
     flex: 1 1 50%;
     max-height: 4.75rem;
+    @media (max-width: 1024px) {
+      flex: unset;
+    }
     &:first-of-type {
       margin-right: 4.25rem;
     }
@@ -289,16 +349,18 @@ const HamburgerMenu = ({
           </MenuOpenedWrapper>
         </HamburgerMenuContainer>
       )}
-      <HamburgerWrapper>
-        <HamburgerButtonStyles
-          aria-label="Otwórz menu główne"
-          aria-expanded={false}
-          onClick={() => setMenuOpened(true)}
-        >
-          <span />
-          <span />
-        </HamburgerButtonStyles>
-      </HamburgerWrapper>
+      <div style={{ margin: "0 auto" }}>
+        <HamburgerWrapper>
+          <HamburgerButtonStyles
+            aria-label="Otwórz menu główne"
+            aria-expanded={false}
+            onClick={() => setMenuOpened(true)}
+          >
+            <span />
+            <span />
+          </HamburgerButtonStyles>
+        </HamburgerWrapper>
+      </div>
     </>
   )
 }

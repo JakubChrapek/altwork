@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const ClaimStyles = styled.div`
   p {
@@ -14,6 +14,13 @@ export const ClaimStyles = styled.div`
       font-family: Playfair Display;
       line-height: 0.9;
     }
+    ${({ hero }) =>
+      hero &&
+      css`
+        @media (max-width: 767px) {
+          font-size: clamp(var(--font-20), 7.2vw, var(--font-28-pt));
+        }
+      `}
   }
 `
 

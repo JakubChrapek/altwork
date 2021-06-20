@@ -13,8 +13,9 @@ const HeroSection = ({ emptyCircleText, filledCircleText, claimText }) => {
         emptyCircleText={emptyCircleText}
         filledCircleText={filledCircleText}
         variant="circles"
+        hero
       />
-      <ClaimStyles>
+      <ClaimStyles hero>
         <StructuredText data={claimText} />
       </ClaimStyles>
     </SectionStyles>

@@ -21,10 +21,18 @@ const HeaderContainer = styled.div`
   @media (max-width: 1024px) {
     padding: 3.75rem 3.75rem 0;
   }
+  @media (max-width: 767px) {
+    padding: 1.813rem 2.25rem 0;
+  }
   height: 15.375rem;
   position: relative;
   background-color: var(--color-white);
   z-index: 3;
+  @media (max-width: 767px) {
+    background-color: transparent;
+    z-index: 0;
+    height: 8.313rem;
+  }
 `
 
 const HeaderStyles = styled.div`
@@ -50,6 +58,9 @@ const HeaderStyles = styled.div`
 const NavigationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 767px) {
+    display: none;
+  }
 `
 
 const SocialColumn = styled.ul`

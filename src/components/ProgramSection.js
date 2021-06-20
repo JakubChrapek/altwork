@@ -76,9 +76,9 @@ const SessionsWrapper = styled.ul`
     @media (max-width: 1024px) {
       flex-direction: column;
       padding: 3rem 0 1.5rem;
-      max-width: 42rem;
+      /* max-width: 42rem; */
       > p {
-        max-width: 42rem;
+        /* max-width: 42rem; */
         :nth-of-type(2) {
           margin: 1rem 0 0;
         }
