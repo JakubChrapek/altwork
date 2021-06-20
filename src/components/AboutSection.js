@@ -5,6 +5,9 @@ import { ClaimStyles } from "./Typography"
 
 const AboutSectionStyles = styled.section`
   margin-top: 7.125rem;
+  @media (max-width: 767px) {
+    margin-top: 5rem;
+  }
 `
 
 const QuestionsWrapper = styled.div`
@@ -12,6 +15,9 @@ const QuestionsWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 5.2rem;
+  @media (max-width: 767px) {
+    margin-top: 2.5rem;
+  }
 
   > ul {
     flex: 1 1 44.5%;
@@ -73,6 +79,16 @@ const QuestionsWrapper = styled.div`
         :not(:first-of-type) {
           margin-top: 3rem;
         }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    > ul > li {
+      --list-indent: 3.5rem;
+      font-size: var(--font-20);
+      :not(:first-of-type) {
+        margin-top: 2.125rem;
       }
     }
   }

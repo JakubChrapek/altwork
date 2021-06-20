@@ -75,6 +75,9 @@ const CircleWrapper = styled.div`
   > p {
     :first-of-type {
       font-size: var(--font-18);
+      @media (max-width: 767px) {
+        font-size: var(--font-20);
+      }
       line-height: var(--font-20);
       font-family: Poppins;
       text-transform: uppercase;
@@ -105,6 +108,13 @@ const EmptyCircleWrapper = styled(CircleWrapper)`
       }
     }
   }
+  @media (max-width: 767px) {
+    > p {
+      :not(:first-of-type) {
+        font-size: var(--font-40);
+      }
+    }
+  }
 `
 
 const FilledCircleWrapper = styled(CircleWrapper)`
@@ -131,6 +141,7 @@ const FilledCircleWrapper = styled(CircleWrapper)`
     display: ${({ hide }) => hide && "none"};
   }
 `
+
 const Circles = ({
   emptyCircleText,
   hero,

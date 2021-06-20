@@ -40,6 +40,9 @@ const GlobalStyles = createGlobalStyle`
       --font-60: 3.75rem;
       --font-64: 4rem;
       --font-80: clamp(3.67rem, 5.857vw, 5rem);
+      @media (max-width: 767px) {
+        --font-80: clamp(40px, 7vw, 80px);
+      }
       --font-18-pt: var(--font-24);
       --font-24-pt: var(--font-32);
       --font-28-pt: 2.33rem;

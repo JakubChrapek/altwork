@@ -17,12 +17,18 @@ const SectionStyles = styled.section`
     padding-left: 0;
   }
   margin-top: -0.4rem;
+  @media (max-width: 767px) {
+    margin-top: 13.5rem;
+  }
 `
 
 const VideoPreview = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  @media (max-width: 767px) {
+    margin-bottom: 10rem;
+  }
   > svg {
     position: absolute;
     left: 50%;
@@ -42,6 +48,14 @@ const VideoPreview = styled.div`
     transform: translateY(-50%);
     width: 6.875rem;
     height: 6.875rem;
+    @media (max-width: 767px) {
+      width: 4.75rem;
+      height: 4.75rem;
+      > svg {
+        width: 4.75rem;
+        height: 4.75rem;
+      }
+    }
     background-color: transparent;
     border-radius: 100%;
     border: 0;
@@ -78,6 +92,14 @@ const TextContainer = styled.div`
       }
       + p {
         margin-top: 2rem;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    > p {
+      line-height: 1.33;
+      + p {
+        margin-top: 0;
       }
     }
   }
@@ -127,11 +149,9 @@ const VideoSection = ({
       },
       "start"
     )
-    console.log("OVER")
   }
 
   const AnimateMouseOut = () => {
-    console.log("OUT")
     tl.reverse()
   }
 
@@ -143,8 +163,8 @@ const VideoSection = ({
         )}
       </AnimatePresence>
       <VideoPreview
-        onMouseOver={() => AnimateMouseOver()}
-        onMouseOut={() => AnimateMouseOut()}
+      // onMouseOver={() => AnimateMouseOver()}
+      // onMouseOut={() => AnimateMouseOut()}
       >
         <CircleBorder ref={circleRef} />
         <GatsbyImage

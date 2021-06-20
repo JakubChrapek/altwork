@@ -12,6 +12,10 @@ const ToggleStyles = styled.section`
   @media (max-width: 1024px) {
     padding: 7rem 0 12.125rem;
   }
+  @media (max-width: 767px) {
+    padding: 4rem 0 4.125rem;
+    margin-top: 6rem;
+  }
   position: relative;
   /* overflow: hidden; */
   .gatsby-image-wrapper {
@@ -24,6 +28,11 @@ const Armchair = styled(GatsbyImage)`
   max-width: 30.375rem;
   left: -8.6rem;
   top: 3.4rem;
+  @media (max-width: 767px) {
+    width: 43.5vw;
+    left: -18vw;
+    top: 1rem;
+  }
 `
 
 const Chair = styled(GatsbyImage)`
@@ -31,6 +40,11 @@ const Chair = styled(GatsbyImage)`
   max-width: 24.688rem;
   right: -5rem;
   top: 0;
+  @media (max-width: 767px) {
+    width: 33.5vw;
+    right: -10vw;
+    /* top: 3.4rem; */
+  }
 `
 
 const Toggler = styled.button`
