@@ -7,7 +7,7 @@ import { RichArrowRight } from "./icons"
 const WhyWorthItSectionStyles = styled.section`
   margin-top: 8.125rem;
   @media (max-width: 1024px) {
-    margin-top: 4rem;
+    margin-top: 30vw;
   }
 `
 
@@ -20,11 +20,17 @@ const ContentWrapper = styled.div`
   @media (max-width: 1024px) {
     margin-top: 4rem;
   }
+  @media (max-width: 767px) {
+    margin-top: 2.75rem;
+  }
 `
 const IconColumn = styled.div`
   svg {
     width: 70%;
     max-width: 19.284rem;
+  }
+  @media (max-width: 767px) {
+    display: none;
   }
 `
 const AnswersWrapper = styled.div`
@@ -42,6 +48,11 @@ const AnswersWrapper = styled.div`
       :not(:first-of-type) {
         margin-top: 2rem;
       }
+      @media (max-width: 767px) {
+        &:nth-last-of-type(2) {
+          border: 0;
+        }
+      }
     }
   }
   p {
@@ -49,6 +60,10 @@ const AnswersWrapper = styled.div`
     color: var(--color-black);
     font-weight: bold;
     line-height: 1.4;
+    @media (max-width: 767px) {
+      font-size: var(--font-18);
+      line-height: 1.33;
+    }
   }
 `
 

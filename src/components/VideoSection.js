@@ -75,6 +75,9 @@ const TextContainer = styled.div`
     flex: 1 1 50%;
     max-width: 22rem;
     font-size: var(--font-20);
+    @media (max-width: 767px) {
+      font-size: var(--font-18);
+    }
     :first-of-type {
       margin-right: 6.625rem;
       @media (max-width: 1283px) {

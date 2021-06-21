@@ -12,8 +12,12 @@ const SlideWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 5rem 0 0;
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
   cursor: grab;
+  @media (max-width: 1024px) {
+    margin: 0 auto;
+    max-width: 20rem;
+  }
 
   > .gatsby-image-wrapper,
   picture,
@@ -21,22 +25,40 @@ const SlideWrapper = styled.div`
     border-radius: 100%;
     width: 12.5rem;
     height: 12.5rem;
+    max-width: 50vw;
+    max-height: 50vw;
     filter: saturate(0) opacity(0.8);
     opacity: 0.1;
     mix-blend-mode: multiply;
+    @media (max-width: 480px) {
+      right: 0;
+      left: unset;
+    }
   }
 `
 
 const ImageWrapper = styled.div`
   position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   padding-left: 6rem;
   overflow: visible;
   pointer-events: none;
+  @media (max-width: 1024px) {
+    overflow: hidden;
+  }
+  @media (max-width: 480px) {
+    padding-left: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
   svg {
     position: absolute;
     left: 0;
     width: 12.5rem;
     height: 12.5rem;
+    max-width: 50vw;
+    max-height: 50vw;
     z-index: -1;
   }
 `
@@ -52,8 +74,19 @@ const TextWrapper = styled.div`
     font-size: var(--font-50);
     color: var(--color-black);
     line-height: 1.08;
-    margin-top: -2.8rem;
+    margin-top: -6.8rem;
     max-width: 22.75rem;
+    @media (max-width: 1024px) {
+      font-size: var(--font-40);
+    }
+    @media (max-width: 767px) {
+      margin-top: -5.2rem;
+      max-width: 16rem;
+    }
+    @media (max-width: 480px) {
+      font-size: var(--font-32);
+      line-height: 1.33;
+    }
   }
   > p {
     margin-top: 1.5rem;
@@ -61,6 +94,10 @@ const TextWrapper = styled.div`
     font-weight: bold;
     color: var(--color-black);
     line-height: 1.4;
+    @media (max-width: 480px) {
+      margin-top: 1rem;
+      font-size: var(--font-18);
+    }
   }
 `
 
@@ -127,6 +164,9 @@ const SliderStyles = styled(Slider)`
     @media (max-width: 1366px) {
       overflow: visible;
     }
+    @media (max-width: 1024px) {
+      overflow: hidden;
+    }
   }
   @media (max-width: 1024px) {
     margin-top: 1rem;
@@ -145,19 +185,24 @@ const LecturersSlider = ({ lecturers }) => {
   }
   var settings = {
     className: "center",
-    focusOnSelect: true,
-    centerMode: true,
     dots: false,
     arrows: false,
     infinite: true,
     speed: 300,
-    slidesToShow: 2,
     swipeToSlide: true,
+    slidesToShow: 2,
     slidesToScroll: 2,
     adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 767,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -165,6 +210,35 @@ const LecturersSlider = ({ lecturers }) => {
       },
     ],
   }
+  // {
+  //   className: "center",
+  //   centerMode: true,
+  //   infinite: true,
+  //   arrows: false,
+  //   dots: false,
+  //   speed: 500,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   initialSlide: 0,
+  //   variableWidth: true,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 767,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //   ],
+  // }
+
   return (
     <>
       <ButtonsWrapper>

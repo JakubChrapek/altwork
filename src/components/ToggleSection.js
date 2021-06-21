@@ -14,7 +14,7 @@ const ToggleStyles = styled.section`
   }
   @media (max-width: 767px) {
     padding: 4rem 0 4.125rem;
-    margin-top: 6rem;
+    margin-top: 4.8rem;
   }
   position: relative;
   /* overflow: hidden; */
@@ -33,6 +33,9 @@ const Armchair = styled(GatsbyImage)`
     left: -18vw;
     top: 1rem;
   }
+  @media (max-width: 427px) {
+    left: -24vw;
+  }
 `
 
 const Chair = styled(GatsbyImage)`
@@ -42,14 +45,14 @@ const Chair = styled(GatsbyImage)`
   top: 0;
   @media (max-width: 767px) {
     width: 33.5vw;
-    right: -10vw;
+    right: -15vw;
     /* top: 3.4rem; */
   }
 `
 
 const Toggler = styled.button`
-  width: clamp(6.369rem, 25.57vw, 21.813rem);
-  height: clamp(3.787rem, 15.227vw, 13rem);
+  width: clamp(5.7rem, 25.57vw, 21.813rem);
+  height: clamp(3.4rem, 15.227vw, 13rem);
   border: 0;
   background-color: var(--color-black);
   display: flex;
@@ -63,8 +66,8 @@ const Toggler = styled.button`
     outline: 0.25rem solid var(--color-accent);
   }
   > span {
-    width: clamp(3.787rem, 15.227vw, 13rem);
-    height: clamp(3.787rem, 15.227vw, 13rem);
+    width: clamp(3.4rem, 15.227vw, 13rem);
+    height: clamp(3.4rem, 15.227vw, 13rem);
     border-radius: 50%;
     display: inline-block;
     background-color: var(--color-accent);

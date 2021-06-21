@@ -7,6 +7,9 @@ import Circles from "./Circles"
 
 const ProgramSectionStyles = styled.section`
   margin-top: 11rem;
+  @media (max-width: 767px) {
+    margin-top: 5rem;
+  }
 `
 
 const ContentWrapper = styled.div`
@@ -25,6 +28,9 @@ const IconColumn = styled.div`
       height: auto;
     }
   }
+  @media (max-width: 767px) {
+    display: none;
+  }
 `
 const DescriptionWrapper = styled.div`
   @media (max-width: 1200px) {
@@ -36,6 +42,10 @@ const DescriptionWrapper = styled.div`
     font-size: var(--font-20);
     color: var(--color-black);
     line-height: 1.4;
+    @media (max-width: 767px) {
+      line-height: 1.33;
+      font-size: var(--font-18);
+    }
     + * {
       margin-top: 1.8rem;
     }
@@ -47,6 +57,9 @@ const SessionsWrapper = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
+  @media (max-width: 767px) {
+    margin-top: 4rem;
+  }
   > li {
     display: flex;
     padding: 2rem 0.75rem;
@@ -76,9 +89,10 @@ const SessionsWrapper = styled.ul`
     @media (max-width: 1024px) {
       flex-direction: column;
       padding: 3rem 0 1.5rem;
-      /* max-width: 42rem; */
+      :nth-of-type(1) {
+        padding-top: 0;
+      }
       > p {
-        /* max-width: 42rem; */
         :nth-of-type(2) {
           margin: 1rem 0 0;
         }
@@ -87,11 +101,28 @@ const SessionsWrapper = styled.ul`
         }
       }
     }
+    @media (max-width: 767px) {
+      flex-direction: column;
+      padding: 2rem 0 1.5rem;
+      > p {
+        :nth-of-type(2) {
+          margin: 1.5rem 0 0;
+          font-size: var(--font-28);
+        }
+        :nth-of-type(3) {
+          margin-top: 1.925rem;
+          font-size: var(--font-18);
+        }
+      }
+    }
   }
 `
 
 const AdditionalInfoWrapper = styled.div`
   margin: 6.063rem 0 7.625rem;
+  @media (max-width: 767px) {
+    margin: 5rem 0;
+  }
 `
 
 const CtaWrapper = styled.div`
@@ -107,6 +138,16 @@ const CtaWrapper = styled.div`
     @media (max-width: 1024px) {
       &:last-of-type {
         margin-right: 0;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    flex-direction: column;
+    > p {
+      margin: 0;
+      font-size: var(--font-18);
+      + p {
+        margin-top: 1.5rem;
       }
     }
   }

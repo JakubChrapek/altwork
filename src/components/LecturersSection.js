@@ -11,9 +11,15 @@ const LecturersSectionStyles = styled.section`
   @media (max-width: 1024px) {
     margin-top: 9rem;
   }
+  @media (max-width: 767px) {
+    margin-top: 5rem;
+  }
 `
 const LecturersTitle = styled(SectionTitle)`
   text-align: center;
+  @media (max-width: 1024px) {
+    text-align: left;
+  }
 `
 
 const LecturersSection = ({ lecturersTitle, lecturers }) => {

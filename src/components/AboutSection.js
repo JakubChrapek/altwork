@@ -86,7 +86,7 @@ const QuestionsWrapper = styled.div`
   @media (max-width: 767px) {
     > ul > li {
       --list-indent: 3.5rem;
-      font-size: var(--font-20);
+      font-size: var(--font-18);
       :not(:first-of-type) {
         margin-top: 2.125rem;
       }
