@@ -4,13 +4,13 @@ import styled, { css } from "styled-components"
 
 const CirclesWrapper = styled.div`
   margin: 4.5rem 0 4.813rem;
-
   display: flex;
   > div {
     flex: 1 1 50%;
   }
   @media (max-width: 767px) {
     flex-wrap: wrap;
+    margin: ${({ cta }) => cta && "2rem 0 7rem"};
     > div {
       flex: 1 1 100%;
     }
@@ -19,16 +19,26 @@ const CirclesWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    @media (max-width: 767px) {
+      flex-direction: column-reverse;
+    }
   }
   .cta p {
     a {
       color: currentColor;
       font-size: var(--font-20);
+      @media (max-width: 767px) {
+        font-size: var(--font-18);
+      }
       font-weight: bold;
       line-height: 1.7;
     }
     + * {
       margin-top: 1.2rem;
+
+    @media (max-width: 767px) {
+      margin-top: 0;
+      margin-bottom: ${({ cta }) => cta && "1.2rem"};
     }
   }
   ${({ hero }) =>
@@ -46,6 +56,10 @@ const Circle = styled.span`
   top: 0;
   width: 12.5rem;
   height: 12.5rem;
+  @media (max-width: 767px) {
+    width: ${({ cta }) => (cta ? "12.5rem" : "17.5rem")};
+    height: ${({ cta }) => (cta ? "12.5rem" : "17.5rem")};
+  }
   border-radius: 100%;
   z-index: -1;
   ${({ variant }) =>
@@ -53,31 +67,25 @@ const Circle = styled.span`
       ? css`
           border: 1px solid var(--color-black);
           @media (max-width: 767px) {
-            left: -2.5rem;
+            left: -4.75rem;
           }
         `
       : css`
           border: 0;
           background-color: var(--color-accent);
         `}
-  @media (max-width: 767px) {
-    width: 17.5rem;
-    height: 17.5rem;
-  }
 `
 
 const CircleWrapper = styled.div`
   position: relative;
   padding: 2.875rem 0 0 2.438rem;
   @media (max-width: 767px) {
-    padding: 3.75rem 0 0 2.25rem;
+    margin-top: ${({ cta }) => cta && "5rem"};
+    padding: ${({ cta }) => (cta ? "2.875rem 0 0 2.438rem" : "3.75rem 0 0 0")};
   }
   > p {
     :first-of-type {
       font-size: var(--font-18);
-      @media (max-width: 767px) {
-        font-size: var(--font-20);
-      }
       line-height: var(--font-20);
       font-family: Poppins;
       text-transform: uppercase;
@@ -150,7 +158,7 @@ const Circles = ({
   variant,
 }) => {
   return (
-    <CirclesWrapper hero={hero}>
+    <CirclesWrapper cta={variant === "plainText"} hero={hero}>
       {variant === "plainText" ? (
         <div className="cta">
           <StructuredText data={plainText} />
@@ -161,8 +169,8 @@ const Circles = ({
           <StructuredText data={emptyCircleText} />
         </EmptyCircleWrapper>
       )}
-      <FilledCircleWrapper hide={hero}>
-        <Circle variant="accent" />
+      <FilledCircleWrapper cta={variant === "plainText"} hide={hero}>
+        <Circle cta={variant === "plainText"} variant="accent" />
         <StructuredText data={filledCircleText} />
       </FilledCircleWrapper>
     </CirclesWrapper>

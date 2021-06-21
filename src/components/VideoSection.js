@@ -41,6 +41,10 @@ const VideoPreview = styled.div`
     @media (max-width: 1283px) {
       max-width: 24rem;
     }
+    @media (max-width: 480px) {
+      max-width: 80vw;
+      width: 80vw;
+    }
   }
   button {
     position: absolute;
@@ -114,6 +118,10 @@ const CircleBorder = styled(motion.div)`
   @media (max-width: 1283px) {
     width: 30rem;
     height: 30rem;
+  }
+  @media (max-width: 480px) {
+    width: 124vw;
+    height: 124vw;
   }
   display: inline-block;
   pointer-events: none;
