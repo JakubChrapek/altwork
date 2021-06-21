@@ -1,8 +1,8 @@
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
-import { SectionTitle } from "./typography"
-import { RichArrowDown } from "./icons"
+import { SectionTitle } from "./Typography"
+import { RichArrowDown } from "./Icons"
 import Circles from "./Circles"
 
 const ProgramSectionStyles = styled.section`

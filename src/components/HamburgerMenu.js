@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React, { useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
-import { IconFB, IconYT, Logo } from "./icons"
+import { IconFB, IconYT, Logo } from "./Icons"
 import { Wrapper } from "./Wrapper"
 
 const HamburgerButtonStyles = styled.button`

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
-import VideoModal from "./videoModal"
-import { IconPlay } from "./icons"
+import VideoModal from "./VideoModal"
+import { IconPlay } from "./Icons"
 import { StructuredText } from "react-datocms"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"

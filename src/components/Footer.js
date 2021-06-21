@@ -1,10 +1,9 @@
 import { graphql, Link, StaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
-import { IconFB, IconYT, Logo } from "./icons"
-import { BlueRankLogo, HycomLogo, IgrzyskaWolnosciLogo } from "./Logos"
+import { IconFB, IconYT, Logo } from "./Icons"
+import { BlueRankLogo } from "./Logos"
 import { Wrapper } from "./Wrapper"
 
 const FooterStyles = styled.footer`

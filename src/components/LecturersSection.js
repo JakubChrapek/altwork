@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import LecturersSlider from "./lecturersSlider"
-import { SectionTitle } from "./typography"
+import LecturersSlider from "./LecturersSlider"
+import { SectionTitle } from "./Typography"
 
 const LecturersSectionStyles = styled.section`
   margin-top: 14rem;

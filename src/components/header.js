@@ -2,7 +2,7 @@ import { graphql, Link, StaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import HamburgerMenu from "./HamburgerMenu"
-import { Logo, IconFB, IconYT } from "./icons"
+import { Logo, IconFB, IconYT } from "./Icons"
 
 const HeaderWrapper = styled.header`
   width: 100%;

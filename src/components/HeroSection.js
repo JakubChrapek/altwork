@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { StructuredText } from "react-datocms"
-import { ClaimStyles } from "./typography"
+import { ClaimStyles } from "./Typography"
 import Circles from "./Circles"
 import FilledMobileCircle from "./FilledMobileCircle"
 
