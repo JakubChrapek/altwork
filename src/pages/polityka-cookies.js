@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import { StructuredText } from "react-datocms"
+import Circles from "../components/Circles"
 import Layout from "../components/layout"
 import { TextPageStyles } from "../components/TextPageStyles"
 
@@ -12,6 +13,11 @@ const CookiesPage = ({ data }) => {
           <StructuredText data={data.datoCmsPageCookie.cookiesTitle.value} />
         </h1>
         <StructuredText data={data.datoCmsPageCookie.cookiesText} />
+        <Circles
+          plainText={data.datoCmsPageHome.additionalInfoCtaText}
+          filledCircleText={data.datoCmsPageHome.filledCircleContent}
+          variant="plainText"
+        />
       </TextPageStyles>
     </Layout>
   )
@@ -24,6 +30,14 @@ export const cookiesQuery = graphql`
         value
       }
       cookiesText {
+        value
+      }
+    }
+    datoCmsPageHome {
+      filledCircleContent {
+        value
+      }
+      additionalInfoCtaText {
         value
       }
     }

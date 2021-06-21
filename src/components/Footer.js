@@ -11,6 +11,7 @@ const FooterStyles = styled.footer`
   background-color: var(--color-black);
   color: var(--color-white);
   z-index: 6;
+  position: relative;
 
   a:focus-visible {
     outline: 0.125rem solid var(--color-white);
@@ -20,18 +21,28 @@ const FooterStyles = styled.footer`
 const FooterWrapper = styled(Wrapper)`
   padding-top: 2.875rem;
   padding-bottom: 2.125rem;
+  @media (max-width: 767px) {
+    padding-bottom: 3.5rem;
+  }
 `
 
 const LogoRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 const SocialWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-self: flex-end;
+  @media (max-width: 767px) {
+    margin-top: 1.5rem;
+  }
   > a:last-of-type {
     margin-left: 1rem;
   }
@@ -83,9 +94,40 @@ const BrandingRow = styled.div`
       }
     }
   }
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 3.875rem;
+    > ul {
+      flex: 1 1 100%;
+      width: 100%;
+      > li {
+        flex: 1 1 11%;
+        svg {
+          max-height: 3.5rem;
+        }
+      }
+      .gatsby-image-wrapper {
+        max-height: 5rem !important;
+        > div,
+        img,
+        picture {
+        }
+      }
+    }
+  }
 `
 const OrganisersRow = styled(BrandingRow)`
   margin-top: 3.625rem;
+  @media (max-width: 767px) {
+    margin-top: 1.5rem;
+    > ul > li {
+      svg {
+        min-width: 8rem;
+      }
+    }
+  }
   > ul > li {
     max-width: 11.438rem;
     svg {
@@ -100,6 +142,14 @@ const OrganisersRow = styled(BrandingRow)`
   }
 `
 const PartnersRow = styled(BrandingRow)`
+  @media (max-width: 767px) {
+    margin-top: 1.5rem;
+    > ul > li {
+      svg {
+        min-width: 7rem;
+      }
+    }
+  }
   > ul > li {
     max-width: 12.438rem;
     svg {
@@ -123,13 +173,26 @@ const ContentPartnersRow = styled(BrandingRow)`
         max-width: 7.5rem;
       }
       @media (max-width: 840px) {
-        max-width: 5rem;
+        max-width: 7.5rem;
         svg {
           max-width: 5rem;
         }
       }
       &:last-of-type {
         margin-right: 0;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    margin-top: 1.5rem;
+    > ul > li {
+      margin-right: 1rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      flex: unset;
+      svg {
+        height: 1.25rem;
       }
     }
   }
@@ -142,6 +205,13 @@ const CopyrightsRow = styled.div`
   > p {
     font-size: var(--font-18);
     color: var(--color-white);
+  }
+  @media (max-width: 767px) {
+    flex-direction: column;
+    margin-top: 4rem;
+    > p {
+      margin-top: 2.5rem;
+    }
   }
 `
 const LinksList = styled.ul`
@@ -159,6 +229,16 @@ const LinksList = styled.ul`
       text-decoration: underline;
       font-size: var(--font-18);
       color: var(--color-white);
+    }
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    > li {
+      margin-top: 0.15rem;
+      &:first-of-type {
+        margin-top: 0;
+      }
     }
   }
 `

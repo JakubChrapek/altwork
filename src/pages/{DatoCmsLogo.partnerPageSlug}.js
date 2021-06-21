@@ -4,19 +4,39 @@ import React from "react"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
+import Circles from "../components/Circles"
 
 const PartnerBio = styled.section`
   display: flex;
   > * {
     flex: 1 1 50%;
   }
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `
 
 const PartnerLogoWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   padding: 0 6.25rem 0 5.688rem;
+  svg {
+    width: 22rem;
+    height: 22rem;
+  }
+  svg,
+  path {
+    fill: var(--color-black);
+  }
+  @media (max-width: 1024px) {
+    svg {
+      width: 55vw;
+      max-width: 20rem;
+    }
+    justify-content: flex-start;
+    padding: 0;
+  }
 `
 
 const PartnerInfoWrapper = styled.div`
@@ -35,7 +55,9 @@ const PartnerPage = ({ data }) => {
         </h1>
         <PartnerBio>
           <PartnerLogoWrapper>
-            <GatsbyImage data={data.datoCmsLogo.logoGraphic.gatsbyImageData} />
+            <span
+              dangerouslySetInnerHTML={{ __html: data.datoCmsLogo.grafikaSvg }}
+            />
           </PartnerLogoWrapper>
           <PartnerInfoWrapper>
             <h2>{data.datoCmsLogo.partnerName}</h2>
@@ -52,6 +74,11 @@ const PartnerPage = ({ data }) => {
             </p>
           </PartnerInfoWrapper>
         </PartnerBio>
+        <Circles
+          plainText={data.datoCmsPageHome.additionalInfoCtaText}
+          filledCircleText={data.datoCmsPageHome.filledCircleContent}
+          variant="plainText"
+        />
       </TextPageStyles>
     </Layout>
   )
@@ -64,8 +91,14 @@ export const query = graphql`
     datoCmsLogo(partnerPageSlug: { eq: $partnerPageSlug }) {
       partnerPageSlug
       partnerName
-      logoGraphic {
-        gatsbyImageData
+      grafikaSvg
+    }
+    datoCmsPageHome {
+      filledCircleContent {
+        value
+      }
+      additionalInfoCtaText {
+        value
       }
     }
   }

@@ -176,11 +176,12 @@ const LinksColumn = styled.ul`
           border-radius: 3.75rem;
         }
         @media (max-width: 767px) {
-          padding-left: 3.313rem;
+          padding-left: 2.5rem;
           &:after {
-            width: 2.625rem;
-            height: 2.625rem;
-            border-radius: 2.625rem;
+            width: 2rem;
+            height: 2rem;
+            top: 0.5rem;
+            border-radius: 2;
           }
         }
       }
@@ -212,7 +213,7 @@ const ContactAndPartnersColumn = styled.div`
       font-size: var(--font-24-pt);
     }
     @media (max-width: 767px) {
-      font-size: clamp(var(--font-18-pt), 7vw, var(--font-24-pt));
+      font-size: clamp(var(--font-18), 6.5vw, var(--font-24-pt));
       line-break: anywhere;
     }
   }
@@ -236,6 +237,9 @@ const SocialWrapper = styled.ul`
 const PartnersWrapper = styled(SocialWrapper)`
   margin-top: 6.25rem;
   display: flex;
+  @media (max-width: 767px) {
+    display: none;
+  }
   > li {
     flex: 1 1 50%;
     max-height: 4.75rem;

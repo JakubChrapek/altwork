@@ -64,12 +64,6 @@ const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
     }
 
-    ${
-      "" /* html[data-direction="down"] .header {
-      transform: translateY(-100%);
-    } */
-    }
-
     a {
       &:focus-visible {
         outline-offset: 0.25rem;
