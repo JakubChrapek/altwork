@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import GSAP from "gsap"
+import gsap from "gsap"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
 
@@ -23,6 +23,10 @@ const LogoStyles = styled.svg`
     fill: ${({ circleFillColor }) =>
       circleFillColor ? circleFillColor : "var(--color-accent)"};
   }
+  path,
+  rect {
+    pointer-events: none;
+  }
 `
 
 export const Logo = ({
@@ -31,8 +35,35 @@ export const Logo = ({
   circleFillColor,
   onClick,
 }) => {
+  const ref = useRef(null)
+
+  const HandleMouseOver = () => {
+    if (ref.current) {
+      gsap.to(ref.current, {
+        x: -31,
+        ease: "Power4.out",
+        duration: 0.3,
+      })
+    }
+  }
+  const HandleMouseOut = () => {
+    if (ref.current) {
+      gsap.to(ref.current, {
+        x: 0,
+        ease: "Power4.out",
+        duration: 0.3,
+      })
+    }
+  }
   return (
-    <Link variant={variant} to="/" onClick={onClick}>
+    <Link
+      style={{ display: "inline-block" }}
+      variant={variant}
+      to="/"
+      onClick={onClick}
+      onMouseOver={HandleMouseOver}
+      onMouseOut={HandleMouseOut}
+    >
       <LogoStyles
         maxWidth={maxWidth}
         variant={variant}
@@ -68,7 +99,8 @@ export const Logo = ({
             />
             <motion.rect
               id="toggle-circle"
-              x="96.53"
+              ref={ref}
+              x="97"
               y="64.31"
               width="44.07"
               height="44.07"

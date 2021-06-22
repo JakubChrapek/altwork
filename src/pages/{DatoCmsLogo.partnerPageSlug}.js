@@ -1,18 +1,20 @@
 import { graphql } from "gatsby"
 import { TextPageStyles } from "../components/TextPageStyles"
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Circles from "../components/Circles"
 
 const PartnerBio = styled.section`
   display: flex;
+  margin-bottom: 6rem;
   > * {
     flex: 1 1 50%;
   }
   @media (max-width: 1024px) {
     flex-direction: column;
+    margin-bottom: 8rem;
   }
 `
 
@@ -20,20 +22,41 @@ const PartnerLogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding: 0 6.25rem 0 5.688rem;
-  svg {
+  padding: 0 6.25rem 0rem 5.688rem;
+  @media (max-width: 1280px) {
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+  @media (max-width: 1200px) {
+    flex: 1 1 40%;
+    padding-right: 5rem;
+  }
+  > span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-gray);
     width: 22rem;
     height: 22rem;
+    border-radius: 22rem;
+    @media (max-width: 1200px) {
+      width: 18rem;
+      height: 18rem;
+      border-radius: 18rem;
+    }
+    @media (max-width: 1024px) {
+      width: 55vw;
+      height: 55vw;
+      max-width: 13rem;
+      max-height: 13rem;
+      padding: 1.5rem;
+    }
   }
   svg,
   path {
     fill: var(--color-black);
   }
   @media (max-width: 1024px) {
-    svg {
-      width: 55vw;
-      max-width: 20rem;
-    }
     justify-content: flex-start;
     padding: 0;
   }
@@ -42,6 +65,13 @@ const PartnerLogoWrapper = styled.div`
 const PartnerInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: 0.8rem;
+  @media (max-width: 1200px) {
+    flex: 1 1 60%;
+  }
+  @media (max-width: 1024px) {
+    margin-top: 2.125rem;
+  }
 `
 
 const PartnerPage = ({ data }) => {

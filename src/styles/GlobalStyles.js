@@ -28,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
       --color-white: #fff;
       --color-accent: #03DF07;
       --color-accent-circle: #02E745;
+      --color-light-gray: #D9D9D9;
       --color-gray: #707070;
 
       --font-18: 1.13rem;
@@ -55,6 +56,8 @@ const GlobalStyles = createGlobalStyle`
 
       --content-max-width-desktop: 85.38rem;
       --content-max-width-mobile: 23.44rem;
+
+      --cubic: cubic-bezier(0.77, 0, 0.175, 1);
     }
     body {
       font-family: Poppins, sans-serif;

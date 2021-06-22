@@ -56,6 +56,7 @@ const Circle = styled.span`
   top: 0;
   width: 12.5rem;
   height: 12.5rem;
+  transition: transform 0.25s cubic-bezier(0.77, 0, 0.175, 1);
   @media (max-width: 767px) {
     width: ${({ cta }) => (cta ? "12.5rem" : "17.5rem")};
     height: ${({ cta }) => (cta ? "12.5rem" : "17.5rem")};
@@ -84,6 +85,9 @@ const CircleWrapper = styled.div`
     padding: ${({ cta }) => (cta ? "2.875rem 0 0 2.438rem" : "3.75rem 0 0 0")};
   }
   > p {
+    &:hover + span {
+      transform: scale(1.3);
+    }
     :first-of-type {
       font-size: var(--font-18);
       line-height: var(--font-20);
@@ -165,13 +169,13 @@ const Circles = ({
         </div>
       ) : (
         <EmptyCircleWrapper>
-          <Circle variant="empty" />
           <StructuredText data={emptyCircleText} />
+          <Circle variant="empty" />
         </EmptyCircleWrapper>
       )}
       <FilledCircleWrapper cta={variant === "plainText"} hide={hero}>
-        <Circle cta={variant === "plainText"} variant="accent" />
         <StructuredText data={filledCircleText} />
+        <Circle cta={variant === "plainText"} variant="accent" />
       </FilledCircleWrapper>
     </CirclesWrapper>
   )

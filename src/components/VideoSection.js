@@ -26,6 +26,7 @@ const VideoPreview = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+
   @media (max-width: 767px) {
     margin-bottom: 10rem;
   }
@@ -37,7 +38,9 @@ const VideoPreview = styled.div`
   }
   .gatsby-image-wrapper {
     border-radius: 100%;
-    pointer-events: none;
+    &:hover ~ .circle-border {
+      transform: translate(-50%, -50%) scale(1.55);
+    }
     @media (max-width: 1283px) {
       max-width: 24rem;
     }
@@ -47,11 +50,18 @@ const VideoPreview = styled.div`
     }
   }
   button {
+    &:hover ~ .circle-border {
+      transform: translate(-50%, -50%) scale(1.55);
+    }
     position: absolute;
     top: calc(50%);
     transform: translateY(-50%);
-    width: 6.875rem;
-    height: 6.875rem;
+    width: 5.3rem;
+    height: 5.3rem;
+    > svg {
+      width: 5.3rem;
+      height: 5.3rem;
+    }
     @media (max-width: 767px) {
       width: 4.75rem;
       height: 4.75rem;
@@ -115,6 +125,7 @@ const TextContainer = styled.div`
 const CircleBorder = styled(motion.div)`
   width: 34.5rem;
   height: 34.5rem;
+  pointer-events: none;
   @media (max-width: 1283px) {
     width: 30rem;
     height: 30rem;
@@ -129,6 +140,9 @@ const CircleBorder = styled(motion.div)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 0.25s var(--cubic);
   border: 1px solid var(--color-black);
   border-radius: 50%;
 `
@@ -141,30 +155,6 @@ const VideoSection = ({
   const [isModalOpened, setIsModalOpened] = useState(false)
   const handleCloseModal = () => setIsModalOpened(false)
   const handleOpenModal = () => setIsModalOpened(true)
-  const buttonRef = useRef()
-  const circleRef = useRef()
-
-  const tl = gsap.timeline()
-
-  const AnimateMouseOver = () => {
-    tl.to(
-      buttonRef.current,
-      {
-        scale: 1.05,
-      },
-      "start"
-    ).to(
-      circleRef.current,
-      {
-        scale: 1.4,
-      },
-      "start"
-    )
-  }
-
-  const AnimateMouseOut = () => {
-    tl.reverse()
-  }
 
   return (
     <SectionStyles>
@@ -173,18 +163,15 @@ const VideoSection = ({
           <VideoModal isModalOpened handleCloseModal={handleCloseModal} />
         )}
       </AnimatePresence>
-      <VideoPreview
-      // onMouseOver={() => AnimateMouseOver()}
-      // onMouseOut={() => AnimateMouseOut()}
-      >
-        <CircleBorder ref={circleRef} />
+      <VideoPreview>
         <GatsbyImage
           image={previewImage.gatsbyImageData}
           alt={previewImage.alt}
         />
-        <button ref={buttonRef} type="button" onClick={handleOpenModal}>
+        <button type="button" onClick={handleOpenModal}>
           <IconPlay />
         </button>
+        <CircleBorder className="circle-border" />
       </VideoPreview>
       <TextContainer>
         <StructuredText data={firstContentColumn} />

@@ -77,6 +77,12 @@ const SocialColumn = styled.ul`
 
   a {
     display: flex;
+    &:hover > svg {
+      transform: scale(1.2);
+    }
+    > svg {
+      transition: transform 0.25s var(--cubic);
+    }
   }
 `
 
@@ -102,6 +108,9 @@ const AnchorColumn = styled(SocialColumn)`
     }
     &.link--accent {
       padding-left: 2.688rem;
+      &:hover:after {
+        transform: translate(0.5rem, calc(-50% + 0.2rem));
+      }
       :after {
         content: "";
         position: absolute;
@@ -112,6 +121,7 @@ const AnchorColumn = styled(SocialColumn)`
         height: 1.75rem;
         border-radius: 1.75rem;
         background-color: var(--color-accent);
+        transition: transform 0.25s var(--cubic);
       }
     }
   }

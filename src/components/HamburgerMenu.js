@@ -33,8 +33,11 @@ const HamburgerButtonStyles = styled.button`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: background-color 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: background-color 0.25s var(--cubic), transform 0.25s var(--cubic);
 
+  &:hover {
+    transform: scale(1.3);
+  }
   span {
     width: 2.5rem;
     height: 0.3rem;
@@ -44,8 +47,8 @@ const HamburgerButtonStyles = styled.button`
       height: 0.3rem;
     }
     background-color: var(--color-black);
-    transition: background-color 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045),
-      transform 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition: background-color 0.25s var(--cubic),
+      transform 0.25s var(--cubic);
     &:last-of-type {
       margin-top: 0.35rem;
     }
@@ -232,6 +235,12 @@ const SocialWrapper = styled.ul`
     &:first-of-type {
       margin-right: 1rem;
     }
+  }
+  svg {
+    transition: transform 0.25s var(--cubic);
+  }
+  a:hover svg {
+    transition: transform 0.25s var(--cubic);
   }
 `
 const PartnersWrapper = styled(SocialWrapper)`
