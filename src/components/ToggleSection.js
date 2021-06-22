@@ -91,7 +91,7 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
               key="armchair-off"
               transition={{ ...transition, duration: 1 }}
             >
-              <Armchair image={armchairoff.gatsbyImageData} />
+              <Armchair image={armchairoff?.gatsbyImageData} />
             </ImageWrapper>
           ) : (
             <ImageWrapper
@@ -101,7 +101,7 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
               key="armchair-on"
               transition={{ ...transition, duration: 1 }}
             >
-              <Armchair image={armchairon.gatsbyImageData} />
+              <Armchair image={armchairon?.gatsbyImageData} />
             </ImageWrapper>
           )}
           {toggleState ? (
@@ -112,7 +112,7 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
               key="chair-on"
               transition={{ ...transition, duration: 1 }}
             >
-              <Chair image={chairon.gatsbyImageData} />
+              <Chair image={chairon?.gatsbyImageData} />
             </ImageWrapper>
           ) : (
             <ImageWrapper
@@ -122,7 +122,7 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
               key="chair-off"
               transition={{ ...transition, duration: 1 }}
             >
-              <Chair image={chairoff.gatsbyImageData} />
+              <Chair image={chairoff?.gatsbyImageData} />
             </ImageWrapper>
           )}
         </AnimatePresence>
