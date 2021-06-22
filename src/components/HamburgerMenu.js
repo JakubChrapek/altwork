@@ -93,6 +93,11 @@ const HamburgerMenuContainer = styled.div`
   width: 100%;
   z-index: 4;
   padding: 0 0 5.5rem;
+  transform: translateX(100%);
+  transition: transform 0.3s var(--cubic);
+  &.show {
+    transform: translateX(0);
+  }
 `
 
 const MenuOpenedWrapper = styled(Wrapper)`
@@ -286,84 +291,91 @@ const HamburgerMenu = ({
 
   return (
     <>
-      {menuOpened && (
-        <HamburgerMenuContainer>
-          <MenuOpenedWrapper>
-            <LogoRow>
-              <Logo
-                onClick={() => {
-                  setMenuOpened(false)
-                }}
-                circleFillColor="white"
-              />
-              <HamburgerButtonStyles
-                ref={hamburgerRef}
-                aria-label="Zamknij menu główne"
-                aria-expanded={true}
-                opened
-                onClick={() => setMenuOpened(false)}
+      <HamburgerMenuContainer
+        tabindex="-1"
+        className={menuOpened ? "show" : undefined}
+      >
+        <MenuOpenedWrapper>
+          <LogoRow>
+            <Logo
+              tabindex={!menuOpened && "-1"}
+              onClick={() => {
+                setMenuOpened(false)
+              }}
+              circleFillColor="white"
+            />
+            <HamburgerButtonStyles
+              ref={hamburgerRef}
+              aria-label="Zamknij menu główne"
+              aria-expanded={true}
+              opened
+              onClick={() => setMenuOpened(false)}
+            >
+              <span />
+              <span />
+            </HamburgerButtonStyles>
+          </LogoRow>
+          <MainMenuWrapper>
+            <LinksColumn>
+              {filteredLinks.map((headerLink, iterator) => {
+                const isLast = iterator === filteredLinks.length - 1
+                return (
+                  <Link
+                    key={`${headerLink.linkText}-hamburger-variant`}
+                    activeClassName="active"
+                    className={isLast && "link--accent"}
+                    to={headerLink.linkUrl}
+                    target={isLast && "_blank"}
+                    onClick={() => setMenuOpened(false)}
+                    tabindex={!menuOpened && "-1"}
+                  >
+                    <li>{headerLink.linkText}</li>
+                  </Link>
+                )
+              })}
+            </LinksColumn>
+            <ContactAndPartnersColumn>
+              <p>Skontaktuj się:</p>
+              <a
+                tabindex={!menuOpened && "-1"}
+                href="mailto:altwork@lodz.digital"
               >
-                <span />
-                <span />
-              </HamburgerButtonStyles>
-            </LogoRow>
-            <MainMenuWrapper>
-              <LinksColumn>
-                {filteredLinks.map((headerLink, iterator) => {
-                  const isLast = iterator === filteredLinks.length - 1
-                  return (
-                    <Link
-                      key={`${headerLink.linkText}-hamburger-variant`}
-                      activeClassName="active"
-                      className={isLast && "link--accent"}
-                      to={headerLink.linkUrl}
-                      target={isLast && "_blank"}
-                      onClick={() => setMenuOpened(false)}
+                altwork@lodz.digital
+              </a>
+              <SocialWrapper>
+                {headerSocialLinks.map((headerSocialLink, i) => (
+                  <li key={`${headerSocialLink.socialLink}-hamburger-variant`}>
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={headerSocialLink.socialLink}
+                      tabindex={!menuOpened && "-1"}
                     >
-                      <li>{headerLink.linkText}</li>
-                    </Link>
-                  )
-                })}
-              </LinksColumn>
-              <ContactAndPartnersColumn>
-                <p>Skontaktuj się:</p>
-                <a href="mailto:altwork@lodz.digital">altwork@lodz.digital</a>
-                <SocialWrapper>
-                  {headerSocialLinks.map((headerSocialLink, i) => (
-                    <li
-                      key={`${headerSocialLink.socialLink}-hamburger-variant`}
-                    >
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href={headerSocialLink.socialLink}
-                      >
-                        {i === 0 ? (
-                          <IconFB variant="dark" />
-                        ) : (
-                          <IconYT variant="dark" />
-                        )}
-                      </a>
-                    </li>
-                  ))}
-                </SocialWrapper>
-                <PartnersWrapper>
-                  <li>
-                    <span
-                      dangerouslySetInnerHTML={{ __html: firstPartnerLogo }}
-                    />
+                      {i === 0 ? (
+                        <IconFB variant="dark" />
+                      ) : (
+                        <IconYT variant="dark" />
+                      )}
+                    </a>
                   </li>
-                  <li>
-                    <span
-                      dangerouslySetInnerHTML={{ __html: secondPartnerLogo }}
-                    />
-                  </li>
-                </PartnersWrapper>
-              </ContactAndPartnersColumn>
-            </MainMenuWrapper>
-          </MenuOpenedWrapper>
-        </HamburgerMenuContainer>
-      )}
+                ))}
+              </SocialWrapper>
+              <PartnersWrapper>
+                <li>
+                  <span
+                    dangerouslySetInnerHTML={{ __html: firstPartnerLogo }}
+                  />
+                </li>
+                <li>
+                  <span
+                    dangerouslySetInnerHTML={{ __html: secondPartnerLogo }}
+                  />
+                </li>
+              </PartnersWrapper>
+            </ContactAndPartnersColumn>
+          </MainMenuWrapper>
+        </MenuOpenedWrapper>
+      </HamburgerMenuContainer>
       <HamburgerWrapper>
         <HamburgerButtonStyles
           aria-label="Otwórz menu główne"

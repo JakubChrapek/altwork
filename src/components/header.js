@@ -146,11 +146,7 @@ const Header = ({ data }) => {
         firstPartnerLogo={headerPartner1Svg}
         secondPartnerLogo={headerPartner2Svg}
       />
-      <HeaderWrapper
-        data-scroll
-        data-scroll-sticky
-        data-scroll-target="#container"
-      >
+      <HeaderWrapper>
         <HeaderContainer className="header">
           <HeaderStyles>
             <h1>

@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react"
-// import Scroll from "./LocomotiveScroll"
+import React, { useEffect, useState, useRef } from "react"
 import Header from "./Header"
 import GlobalStyles from "../styles/GlobalStyles"
 import Footer from "./Footer"
 import { Wrapper } from "./Wrapper"
+import useLocoScroll from "../hooks/useLocoScroll"
 
-// This `location` prop will serve as a callback on route change
 const Layout = ({ children, location }) => {
   const [hasMounted, setHasMounted] = useState(false)
-  // useEffect(() => {
-  //   setRouteChange(!routeChange)
-  //   setPanelComplete(false)
-  // }, [pathname])
+  const ref = useRef(null)
+
+  // useLocoScroll(hasMounted)
+
   useEffect(() => {
     setHasMounted(true)
   }, [])
@@ -20,15 +19,21 @@ const Layout = ({ children, location }) => {
     return null
   }
 
+  if (typeof window === "undefined" || !window.document) {
+    return null
+  }
+
   return (
     <>
       <GlobalStyles />
-      <Header />
       {/* <Scroll callbacks={location} /> */}
-      <Wrapper data-scroll-container id="container">
-        <main>{children}</main>
-      </Wrapper>
-      <Footer />
+      <div id="main-container" ref={ref}>
+        <Header />
+        <Wrapper>
+          <main>{children}</main>
+        </Wrapper>
+        <Footer />
+      </div>
     </>
   )
 }
