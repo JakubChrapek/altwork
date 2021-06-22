@@ -5,8 +5,7 @@ import { IconFB, IconYT, Logo } from "./Icons"
 import { Wrapper } from "./Wrapper"
 
 const HamburgerButtonStyles = styled.button`
-  right: 8.75rem;
-  right: -0.75rem;
+  right: -1.75rem;
   @media (max-width: 1366px) {
     right: 5.75rem;
   }
@@ -35,9 +34,6 @@ const HamburgerButtonStyles = styled.button`
   flex-direction: column;
   transition: background-color 0.25s var(--cubic), transform 0.25s var(--cubic);
 
-  &:hover {
-    transform: scale(1.3);
-  }
   span {
     width: 2.5rem;
     height: 0.3rem;
@@ -82,6 +78,7 @@ const HamburgerWrapper = styled(Wrapper)`
   margin: 0 auto;
   top: 3.75rem;
   z-index: 3;
+  max-width: var(--content-max-width-desktop);
   @media (max-width: 767px) {
     top: 1.813rem;
   }
@@ -166,6 +163,9 @@ const LinksColumn = styled.ul`
     }
     &:last-of-type {
       border-bottom: 0;
+      &:hover > li:after {
+        transform: translateX(4.75rem) scale(1.4);
+      }
       > li {
         padding-left: 4.8rem;
         position: relative;
@@ -177,6 +177,8 @@ const LinksColumn = styled.ul`
           height: 3.75rem;
           background-color: var(--color-white);
           border-radius: 3.75rem;
+          z-index: -1;
+          transition: transform 0.25s var(--cubic);
         }
         @media (max-width: 767px) {
           padding-left: 2.5rem;
@@ -240,7 +242,7 @@ const SocialWrapper = styled.ul`
     transition: transform 0.25s var(--cubic);
   }
   a:hover svg {
-    transition: transform 0.25s var(--cubic);
+    transform: scale(1.2);
   }
 `
 const PartnersWrapper = styled(SocialWrapper)`
@@ -362,18 +364,16 @@ const HamburgerMenu = ({
           </MenuOpenedWrapper>
         </HamburgerMenuContainer>
       )}
-      <div style={{ margin: "0 auto" }}>
-        <HamburgerWrapper>
-          <HamburgerButtonStyles
-            aria-label="Otwórz menu główne"
-            aria-expanded={false}
-            onClick={() => setMenuOpened(true)}
-          >
-            <span />
-            <span />
-          </HamburgerButtonStyles>
-        </HamburgerWrapper>
-      </div>
+      <HamburgerWrapper>
+        <HamburgerButtonStyles
+          aria-label="Otwórz menu główne"
+          aria-expanded={false}
+          onClick={() => setMenuOpened(true)}
+        >
+          <span />
+          <span />
+        </HamburgerButtonStyles>
+      </HamburgerWrapper>
     </>
   )
 }

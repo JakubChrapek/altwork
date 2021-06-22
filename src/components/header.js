@@ -109,7 +109,7 @@ const AnchorColumn = styled(SocialColumn)`
     &.link--accent {
       padding-left: 2.688rem;
       &:hover:after {
-        transform: translate(0.5rem, calc(-50% + 0.2rem));
+        transform: translate(2.5rem, calc(-50% + 0.2rem)) scale(1.4);
       }
       :after {
         content: "";
@@ -122,6 +122,7 @@ const AnchorColumn = styled(SocialColumn)`
         border-radius: 1.75rem;
         background-color: var(--color-accent);
         transition: transform 0.25s var(--cubic);
+        z-index: -1;
       }
     }
   }

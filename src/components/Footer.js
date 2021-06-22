@@ -45,6 +45,12 @@ const SocialWrapper = styled.div`
   > a:last-of-type {
     margin-left: 1rem;
   }
+  a:hover svg {
+    transform: scale(1.2);
+  }
+  svg {
+    transition: transform 0.25s var(--cubic);
+  }
 `
 
 const BrandingRow = styled.div`
