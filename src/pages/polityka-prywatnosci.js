@@ -3,7 +3,7 @@ import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import Circles from "../components/Circles"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { TextPageStyles } from "../components/TextPageStyles"
 
 const PageStyles = styled(TextPageStyles)`

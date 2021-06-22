@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 import { StructuredText } from "react-datocms"
 import Circles from "../components/Circles"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { TextPageStyles } from "../components/TextPageStyles"
 
 const StatutePage = ({ data }) => {
