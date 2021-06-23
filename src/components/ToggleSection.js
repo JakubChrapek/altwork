@@ -79,6 +79,7 @@ const ImageWrapper = styled(motion.div)``
 const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
   const [toggleState, setToggleState] = useState(false)
   const transition = { ease: [0.6, 0.01, -0.05, 0.95], duration: 0.7 }
+  console.log(chairoff, chairon, armchairoff, armchairon)
   return (
     <ToggleStyles>
       <div>
