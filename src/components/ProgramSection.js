@@ -175,7 +175,7 @@ const ProgramSection = ({
       </ContentWrapper>
       <SessionsWrapper>
         {meetingSessions.map((session, iterator) => (
-          <li>
+          <li key={`session-${iterator}`}>
             <p>Sesja {iterator + 1}</p>
             <StructuredText data={session.sessionTitle} />
             <StructuredText

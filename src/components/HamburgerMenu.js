@@ -292,13 +292,13 @@ const HamburgerMenu = ({
   return (
     <>
       <HamburgerMenuContainer
-        tabindex="-1"
+        tabIndex="-1"
         className={menuOpened ? "show" : undefined}
       >
         <MenuOpenedWrapper>
           <LogoRow>
             <Logo
-              tabindex={!menuOpened && "-1"}
+              tabIndex={!menuOpened ? "-1" : undefined}
               onClick={() => {
                 setMenuOpened(false)
               }}
@@ -323,11 +323,11 @@ const HamburgerMenu = ({
                   <Link
                     key={`${headerLink.linkText}-hamburger-variant`}
                     activeClassName="active"
-                    className={isLast && "link--accent"}
+                    className={isLast ? "link--accent" : undefined}
                     to={headerLink.linkUrl}
-                    target={isLast && "_blank"}
+                    target={isLast ? "_blank" : undefined}
                     onClick={() => setMenuOpened(false)}
-                    tabindex={!menuOpened && "-1"}
+                    tabIndex={!menuOpened ? "-1" : undefined}
                   >
                     <li>{headerLink.linkText}</li>
                   </Link>
@@ -337,7 +337,7 @@ const HamburgerMenu = ({
             <ContactAndPartnersColumn>
               <p>Skontaktuj się:</p>
               <a
-                tabindex={!menuOpened && "-1"}
+                tabIndex={!menuOpened ? "-1" : undefined}
                 href="mailto:altwork@lodz.digital"
               >
                 altwork@lodz.digital
@@ -349,7 +349,7 @@ const HamburgerMenu = ({
                       rel="noopener noreferrer"
                       target="_blank"
                       href={headerSocialLink.socialLink}
-                      tabindex={!menuOpened && "-1"}
+                      tabIndex={!menuOpened ? "-1" : undefined}
                     >
                       {i === 0 ? (
                         <IconFB variant="dark" />

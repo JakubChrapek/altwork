@@ -107,7 +107,10 @@ const Slide = ({ slide, index }) => {
   return (
     <SlideWrapper>
       <ImageWrapper>
-        <GatsbyImage image={lecturerPhoto.gatsbyImageData} />
+        <GatsbyImage
+          image={lecturerPhoto.gatsbyImageData}
+          alt={lecturerPhoto.alt}
+        />
         <svg
           aria-labelledby="zielone dekoracyjne koło"
           role="img"
@@ -251,7 +254,7 @@ const LecturersSlider = ({ lecturers }) => {
       </ButtonsWrapper>
       <SliderStyles ref={sliderRef} {...settings}>
         {lecturers.map((slide, index) => (
-          <Slide slide={slide} index={index} />
+          <Slide key={`slide-${index}`} slide={slide} index={index} />
         ))}
       </SliderStyles>
     </>

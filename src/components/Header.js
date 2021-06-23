@@ -177,8 +177,8 @@ const Header = ({ data }) => {
                     <Link
                       key={headerLink.linkText}
                       activeClassName="active"
-                      className={isLast && "link--accent"}
-                      target={isLast && "_blank"}
+                      className={isLast ? "link--accent" : undefined}
+                      target={isLast ? "_blank" : undefined}
                       to={headerLink.linkUrl}
                     >
                       <li>{headerLink.linkText}</li>

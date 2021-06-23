@@ -79,8 +79,8 @@ const WhyWorthItSection = ({ whyWorthItTitle, whyWorthItAnswers }) => {
         </IconColumn>
         <AnswersWrapper>
           <ul>
-            {whyWorthItAnswers.map(answer => (
-              <li>
+            {whyWorthItAnswers.map((answer, i) => (
+              <li key={`answer-${i}`}>
                 <StructuredText data={answer.paragraphText} />
               </li>
             ))}

@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import VideoModal from "./VideoModal"
 import { IconPlay } from "./Icons"
 import { StructuredText } from "react-datocms"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { AnimatePresence, motion } from "framer-motion"
-import { gsap } from "gsap"
 
 const SectionStyles = styled.section`
   width: 100%;

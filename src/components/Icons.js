@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import gsap from "gsap"
 import { motion } from "framer-motion"
@@ -211,8 +211,8 @@ export const RichArrowRight = () => {
               transform="translate(75.89 40.085)"
               fill="none"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="2"
+              strokeMiterlimit="10"
+              strokeWidth="2"
             />
             <line
               id="richArrowRight-straightLine"
@@ -221,8 +221,8 @@ export const RichArrowRight = () => {
               transform="translate(71.69 0.043)"
               fill="none"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="2"
+              strokeMiterlimit="10"
+              strokeWidth="2"
             />
             <path
               id="richArrowRight-bottomLine"
@@ -231,8 +231,8 @@ export const RichArrowRight = () => {
               transform="translate(71.647 0)"
               fill="none"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="2"
+              strokeMiterlimit="10"
+              strokeWidth="2"
             />
             <path
               id="richArrowRight-topLine"
@@ -241,8 +241,8 @@ export const RichArrowRight = () => {
               transform="translate(0 0)"
               fill="none"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="2"
+              strokeMiterlimit="10"
+              strokeWidth="2"
             />
           </g>
         </g>
@@ -295,8 +295,8 @@ export const RichArrowDown = () => {
             transform="translate(75.89 40.085)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
           />
           <line
             id="richArrowDownWrapper-straightLine"
@@ -305,8 +305,8 @@ export const RichArrowDown = () => {
             transform="translate(71.69 0.043)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
           />
           <path
             id="richArrowDownWrapper-leftCurve"
@@ -315,8 +315,8 @@ export const RichArrowDown = () => {
             transform="translate(71.647 0)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
           />
           <path
             id="richArrowDownWrapper-rightCurve"
@@ -325,8 +325,8 @@ export const RichArrowDown = () => {
             transform="translate(0 0)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
           />
         </g>
       </g>
@@ -357,7 +357,7 @@ export const LeftArrow = () => (
         rx="40"
         fill="none"
         stroke="#000"
-        stroke-width="1"
+        strokeWidth="1"
       />
       <g
         id="Group_65"
@@ -376,8 +376,8 @@ export const LeftArrow = () => (
             transform="translate(10.132 5.352)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <line
             id="Line_5"
@@ -386,8 +386,8 @@ export const LeftArrow = () => (
             transform="translate(9.572 0.006)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_5"
@@ -396,8 +396,8 @@ export const LeftArrow = () => (
             transform="translate(9.566)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_6"
@@ -405,8 +405,8 @@ export const LeftArrow = () => (
             d="M9.569,0A9.72,9.72,0,0,1,0,9.863"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
         </g>
       </g>
@@ -437,7 +437,7 @@ export const RightArrow = () => (
         rx="40"
         fill="none"
         stroke="#000"
-        stroke-width="1"
+        strokeWidth="1"
       />
       <g
         id="Group_65"
@@ -456,8 +456,8 @@ export const RightArrow = () => (
             transform="translate(10.132 5.352)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <line
             id="Line_5"
@@ -466,8 +466,8 @@ export const RightArrow = () => (
             transform="translate(9.572 0.006)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_5"
@@ -476,8 +476,8 @@ export const RightArrow = () => (
             transform="translate(9.566)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_6"
@@ -485,8 +485,8 @@ export const RightArrow = () => (
             d="M9.569,0A9.72,9.72,0,0,1,0,9.863"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
         </g>
       </g>

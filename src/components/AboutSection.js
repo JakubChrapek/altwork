@@ -102,15 +102,15 @@ const AboutSection = ({ aboutWhatTitle, shortQuestions, longerQuestions }) => {
       </ClaimStyles>
       <QuestionsWrapper>
         <ul>
-          {shortQuestions.map(question => (
-            <li>
+          {shortQuestions.map((question, i) => (
+            <li key={`question-firstList-${i}`}>
               <StructuredText data={question.questionText} />
             </li>
           ))}
         </ul>
         <ul>
-          {longerQuestions.map(question => (
-            <li>
+          {longerQuestions.map((question, i) => (
+            <li key={`question-firstList-${i}`}>
               <StructuredText data={question.questionText} />
             </li>
           ))}

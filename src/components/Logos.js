@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import GSAP from "gsap"
-import { motion } from "framer-motion"
-import { Link } from "gatsby"
 
 const HycomStyles = styled.svg`
   .st0 {

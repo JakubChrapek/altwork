@@ -3,7 +3,6 @@ import { TextPageStyles } from "../components/TextPageStyles"
 import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
-import { GatsbyImage } from "gatsby-plugin-image"
 import Circles from "../components/Circles"
 
 const PartnerBio = styled.section`
@@ -39,17 +38,19 @@ const PartnerLogoWrapper = styled.div`
     width: 22rem;
     height: 22rem;
     border-radius: 22rem;
+    padding: 4rem;
     @media (max-width: 1200px) {
       width: 18rem;
       height: 18rem;
       border-radius: 18rem;
+      padding: 3rem;
     }
     @media (max-width: 1024px) {
       width: 55vw;
       height: 55vw;
       max-width: 13rem;
       max-height: 13rem;
-      padding: 1.5rem;
+      padding: 2rem;
     }
   }
   svg,
