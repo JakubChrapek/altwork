@@ -22,6 +22,10 @@ const IndexPage = ({ data }) => {
       aboutWhatTitle,
       shortQuestions,
       longerQuestions,
+      armchairon,
+      armchairoff,
+      chairon,
+      chairoff,
       whyWorthItTitle,
       whyWorthItAnswers,
       lecturersTitle,
@@ -33,10 +37,6 @@ const IndexPage = ({ data }) => {
       additionalSecondColText,
       additionalInfoCtaText,
     },
-    chairoff,
-    chairon,
-    armchairoff,
-    armchairon,
   } = data
   return (
     <Layout>
@@ -118,6 +118,18 @@ export const homeQuery = graphql`
           value
         }
       }
+      armchairoff {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+      armchairon {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+      chairon {
+        gatsbyImageData(placeholder: BLURRED)
+      }
+      chairoff {
+        gatsbyImageData(placeholder: BLURRED)
+      }
       whyWorthItTitle {
         value
       }
@@ -161,20 +173,6 @@ export const homeQuery = graphql`
       additionalInfoCtaText {
         value
       }
-    }
-    chairoff: imageSharp(id: { eq: "64357852-a7b7-50ec-9106-ac45833571ae" }) {
-      gatsbyImageData(placeholder: BLURRED)
-    }
-    chairon: imageSharp(id: { eq: "0f5cb491-5c9a-5c6d-ba01-2dafd720c8b5" }) {
-      gatsbyImageData(placeholder: BLURRED)
-    }
-    armchairoff: imageSharp(
-      id: { eq: "8748fa35-caf8-5313-a56f-5e290080ebaf" }
-    ) {
-      gatsbyImageData(placeholder: BLURRED)
-    }
-    armchairon: imageSharp(id: { eq: "7e9487f2-e1d9-5d25-890b-877077837e19" }) {
-      gatsbyImageData(placeholder: BLURRED)
     }
   }
 `
