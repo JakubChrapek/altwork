@@ -6,7 +6,7 @@ import { Logo, IconFB, IconYT } from "./Icons"
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  z-index: 2;
+  z-index: 4;
   background-color: var(--color-white);
 `
 
@@ -27,7 +27,7 @@ const HeaderContainer = styled.div`
   height: 15.375rem;
   position: relative;
   background-color: var(--color-white);
-  z-index: 3;
+  z-index: 4;
   @media (max-width: 767px) {
     background-color: transparent;
     z-index: 0;

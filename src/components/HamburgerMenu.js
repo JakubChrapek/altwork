@@ -91,7 +91,7 @@ const HamburgerMenuContainer = styled.div`
   left: 0;
   background-color: var(--color-accent);
   width: 100%;
-  z-index: 4;
+  z-index: 5;
   padding: 0 0 5.5rem;
   transform: translateX(100%);
   transition: transform 0.3s var(--cubic);
