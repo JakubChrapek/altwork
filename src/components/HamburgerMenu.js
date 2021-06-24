@@ -5,16 +5,6 @@ import { IconFB, IconYT, Logo } from "./Icons"
 import { Wrapper } from "./Wrapper"
 
 const HamburgerButtonStyles = styled.button`
-  right: -1.75rem;
-  @media (max-width: 1366px) {
-    right: 5.75rem;
-  }
-  @media (max-width: 1024px) {
-    right: 3.75rem;
-  }
-  @media (max-width: 767px) {
-    right: 2.25rem;
-  }
   position: absolute;
   background-color: transparent;
   border: none;
@@ -72,14 +62,23 @@ const HamburgerButtonStyles = styled.button`
 const HamburgerWrapper = styled(Wrapper)`
   justify-content: flex-end;
   display: flex;
-  padding: 0;
   position: fixed;
   width: 100%;
   margin: 0 auto;
   top: 3.75rem;
+  padding: 0 8.75rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 3;
   max-width: var(--content-max-width-desktop);
+  @media (max-width: 1366px) {
+    padding: 0 5.75rem;
+  }
+  @media (max-width: 1024px) {
+    padding: 0 3.75rem;
+  }
   @media (max-width: 767px) {
+    padding: 0 2.25rem;
     top: 1.813rem;
   }
 `

@@ -119,16 +119,16 @@ export const homeQuery = graphql`
         }
       }
       armchairoff {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
       armchairon {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
       chairon {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
       chairoff {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: NONE)
       }
       whyWorthItTitle {
         value
