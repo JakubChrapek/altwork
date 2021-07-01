@@ -37,6 +37,8 @@ const VideoPreview = styled.div`
   }
   .gatsby-image-wrapper {
     border-radius: 100%;
+    max-width: 27.75rem;
+    max-height: 27.75rem;
     &:hover ~ .circle-border {
       transform: translate(-50%, -50%) scale(1.55);
     }

@@ -4,6 +4,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
 import Circles from "../components/Circles"
+import { StructuredText } from "react-datocms"
 
 const PartnerBio = styled.section`
   display: flex;
@@ -92,17 +93,9 @@ const PartnerPage = ({ data }) => {
           </PartnerLogoWrapper>
           <PartnerInfoWrapper>
             <h2>{data.datoCmsLogo.partnerName}</h2>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-              velit, sed quia non numquam eius modi tempora incidunt ut labore
-              et dolore magnam aliquam quaerat voluptatem.
-            </p>
+            <StructuredText
+              data={data.datoCmsLogo.partnerRichInformation.value}
+            />
           </PartnerInfoWrapper>
         </PartnerBio>
         <Circles
@@ -123,6 +116,9 @@ export const query = graphql`
       partnerPageSlug
       partnerName
       grafikaSvg
+      partnerRichInformation {
+        value
+      }
     }
     datoCmsPageHome {
       filledCircleContent {

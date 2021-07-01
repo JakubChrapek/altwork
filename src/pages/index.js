@@ -66,7 +66,7 @@ const IndexPage = ({ data }) => {
         whyWorthItTitle={whyWorthItTitle}
         whyWorthItAnswers={whyWorthItAnswers}
       />
-      <LecturersSection lecturersTitle={lecturersTitle} lecturers={lecturers} />
+      {/* <LecturersSection lecturersTitle={lecturersTitle} lecturers={lecturers} /> */}
       <ProgramSection
         programTitle={programTitle}
         programDescription={programDescription}

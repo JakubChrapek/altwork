@@ -147,23 +147,26 @@ const OrganisersRow = styled(BrandingRow)`
   }
 `
 const PartnersRow = styled(BrandingRow)`
+  > ul {
+    border-bottom: 0;
+    > li {
+      max-width: 12.438rem;
+      svg {
+        max-width: 12.438rem;
+      }
+      @media (max-width: 840px) {
+        max-width: 11.238rem;
+        svg {
+          max-width: 11.238rem;
+        }
+      }
+    }
+  }
   @media (max-width: 767px) {
     margin-top: 1.5rem;
     > ul > li {
       svg {
         min-width: 7rem;
-      }
-    }
-  }
-  > ul > li {
-    max-width: 12.438rem;
-    svg {
-      max-width: 12.438rem;
-    }
-    @media (max-width: 840px) {
-      max-width: 11.238rem;
-      svg {
-        max-width: 11.238rem;
       }
     }
   }
@@ -306,7 +309,7 @@ const Footer = ({ data }) => {
             ))}
           </ul>
         </PartnersRow>
-        <ContentPartnersRow>
+        {/* <ContentPartnersRow>
           <StructuredText data={footerContentPartnersTitle} />
           <ul>
             {contentPartnersLogos.map(logo => (
@@ -317,10 +320,10 @@ const Footer = ({ data }) => {
               </li>
             ))}
           </ul>
-        </ContentPartnersRow>
+        </ContentPartnersRow> */}
         <CopyrightsRow>
           <LinksList>
-            <li>
+            {/* <li>
               <Link to="/polityka-prywatnosci">Polityka prywatności</Link>
             </li>
             <li>
@@ -328,7 +331,7 @@ const Footer = ({ data }) => {
             </li>
             <li>
               <Link to="/regulamin">Regulamin</Link>
-            </li>
+            </li> */}
           </LinksList>
           <p>&copy; {new Date().getFullYear()} Alt:work</p>
         </CopyrightsRow>

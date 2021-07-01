@@ -73,12 +73,14 @@ export const Logo = ({
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 222.33 108.38"
       >
-        <title id="altworkTitle">Logo konferencji alt:work</title>
+        <title id="altworkTitle">
+          Alt:work - porozmawiajmy o pracy przyszłości, 12 września 2021r.
+        </title>
         <desc id="altworkDescription">
-          Logo alt:work to dwa wiersze tekstu dekoracyjnego. Pierwsza linia
-          zawiera słowo alt nawiązujące do alternatynego podejścia. Drugi wiersz
-          to słowo work, w którym zamiast litery o umieszczono grafikę
-          włączonego przełącznika zielonego koloru.
+          Alt:work to spotkanie służące wymianie myśli, doświadczeń i refleksji
+          na temat zmieniającej się na naszych oczach podstawowej formy
+          aktywności człowieka: pracy. Spotkajmy się podczas Igrzysk Wolności
+          2021, 12 września 2021r. Zapraszamy!
         </desc>
         <g id="Layer_2" data-name="Layer 2">
           <g id="Layer_1-2" data-name="Layer 1">

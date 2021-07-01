@@ -359,7 +359,7 @@ const HamburgerMenu = ({
                   </li>
                 ))}
               </SocialWrapper>
-              <PartnersWrapper>
+              {/* <PartnersWrapper>
                 <li>
                   <span
                     dangerouslySetInnerHTML={{ __html: firstPartnerLogo }}
@@ -370,7 +370,7 @@ const HamburgerMenu = ({
                     dangerouslySetInnerHTML={{ __html: secondPartnerLogo }}
                   />
                 </li>
-              </PartnersWrapper>
+              </PartnersWrapper> */}
             </ContactAndPartnersColumn>
           </MainMenuWrapper>
         </MenuOpenedWrapper>
