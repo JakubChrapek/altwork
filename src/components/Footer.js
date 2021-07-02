@@ -9,7 +9,7 @@ import { Wrapper } from "./Wrapper"
 const FooterStyles = styled.footer`
   background-color: var(--color-black);
   color: var(--color-white);
-  z-index: 6;
+  z-index: 2;
   position: relative;
 
   a:focus-visible {

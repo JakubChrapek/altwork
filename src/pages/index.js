@@ -9,6 +9,7 @@ import ToggleSection from "../components/ToggleSection"
 import WhyWorthItSection from "../components/WhyWorthItSection"
 import LecturersSection from "../components/LecturersSection"
 import ProgramSection from "../components/ProgramSection"
+import siteConfig from "../../config/site-config"
 
 const IndexPage = ({ data }) => {
   const {
@@ -40,7 +41,11 @@ const IndexPage = ({ data }) => {
   } = data
   return (
     <Layout>
-      <Seo meta={data.datoCmsPageHome.seoMetaTags} />
+      <Seo
+        title={siteConfig.title}
+        description={siteConfig.description}
+        meta={data.datoCmsPageHome.seoMetaTags}
+      />
       <HeroSection
         emptyCircleText={emptyCircleContent}
         filledCircleText={filledCircleContent}

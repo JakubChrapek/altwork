@@ -179,6 +179,7 @@ const Header = ({ data }) => {
                       activeClassName="active"
                       className={isLast ? "link--accent" : undefined}
                       target={isLast ? "_blank" : undefined}
+                      rel="noreferrer noopener"
                       to={headerLink.linkUrl}
                     >
                       <li>{headerLink.linkText}</li>

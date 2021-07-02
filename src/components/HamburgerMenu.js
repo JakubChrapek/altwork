@@ -337,9 +337,9 @@ const HamburgerMenu = ({
               <p>Skontaktuj się:</p>
               <a
                 tabIndex={!menuOpened ? "-1" : undefined}
-                href="mailto:altwork@lodz.digital"
+                href="mailto:info@altwork.pl"
               >
-                altwork@lodz.digital
+                info@altwork.pl
               </a>
               <SocialWrapper>
                 {headerSocialLinks.map((headerSocialLink, i) => (

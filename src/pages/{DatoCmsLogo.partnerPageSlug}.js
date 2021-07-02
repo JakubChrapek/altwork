@@ -31,7 +31,7 @@ const PartnerLogoWrapper = styled.div`
     flex: 1 1 40%;
     padding-right: 5rem;
   }
-  > span {
+  > a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +40,10 @@ const PartnerLogoWrapper = styled.div`
     height: 22rem;
     border-radius: 22rem;
     padding: 4rem;
+    transition: background-color 0.25s var(--cubic);
+    &:hover {
+      background-color: var(--color-accent);
+    }
     @media (max-width: 1200px) {
       width: 18rem;
       height: 18rem;
@@ -87,8 +91,11 @@ const PartnerPage = ({ data }) => {
         </h1>
         <PartnerBio>
           <PartnerLogoWrapper>
-            <span
+            <a
+              href={data.datoCmsLogo?.partnerWebsiteLink}
               dangerouslySetInnerHTML={{ __html: data.datoCmsLogo.grafikaSvg }}
+              target="_blank"
+              rel="noopener noreferrer"
             />
           </PartnerLogoWrapper>
           <PartnerInfoWrapper>
@@ -115,6 +122,7 @@ export const query = graphql`
     datoCmsLogo(partnerPageSlug: { eq: $partnerPageSlug }) {
       partnerPageSlug
       partnerName
+      partnerWebsiteLink
       grafikaSvg
       partnerRichInformation {
         value
