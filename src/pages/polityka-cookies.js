@@ -4,10 +4,17 @@ import { StructuredText } from "react-datocms"
 import Circles from "../components/Circles"
 import Layout from "../components/Layout"
 import { TextPageStyles } from "../components/TextPageStyles"
+import siteConfig from "../../config/site-config"
+import Seo from "../components/Seo"
 
 const CookiesPage = ({ data }) => {
   return (
     <Layout>
+      <Seo
+        title={siteConfig.title}
+        description={siteConfig.description}
+        meta={data.datoCmsPageHome.seoMetaTags}
+      />
       <TextPageStyles>
         <h1>
           <StructuredText data={data.datoCmsPageCookie.cookiesTitle.value} />
@@ -34,6 +41,9 @@ export const cookiesQuery = graphql`
       }
     }
     datoCmsPageHome {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       filledCircleContent {
         value
       }

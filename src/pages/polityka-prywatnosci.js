@@ -5,6 +5,8 @@ import styled from "styled-components"
 import Circles from "../components/Circles"
 import Layout from "../components/Layout"
 import { TextPageStyles } from "../components/TextPageStyles"
+import siteConfig from "../../config/site-config"
+import Seo from "../components/Seo"
 
 const PageStyles = styled(TextPageStyles)`
   h2 {
@@ -15,6 +17,11 @@ const PageStyles = styled(TextPageStyles)`
 const PrivacyPolicyPage = ({ data }) => {
   return (
     <Layout>
+      <Seo
+        title={siteConfig.title}
+        description={siteConfig.description}
+        meta={data.datoCmsPageHome.seoMetaTags}
+      />
       <PageStyles>
         <h1>
           <StructuredText
@@ -43,6 +50,9 @@ export const privacyQuery = graphql`
       }
     }
     datoCmsPageHome {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       filledCircleContent {
         value
       }

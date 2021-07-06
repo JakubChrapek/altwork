@@ -5,6 +5,8 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import Circles from "../components/Circles"
 import { StructuredText } from "react-datocms"
+import siteConfig from "../../config/site-config"
+import Seo from "../components/Seo"
 
 const PartnerBio = styled.section`
   display: flex;
@@ -83,6 +85,11 @@ const PartnerInfoWrapper = styled.div`
 const PartnerPage = ({ data }) => {
   return (
     <Layout>
+      <Seo
+        title={`${data.datoCmsLogo?.partnerName} - alt:work - porozmawiajmy o pracy przyszłości.`}
+        description={siteConfig.description}
+        meta={data.datoCmsPageHome.seoMetaTags}
+      />
       <TextPageStyles>
         <h1>
           Nasi
