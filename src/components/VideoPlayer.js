@@ -41,7 +41,7 @@ const VideoPlayer = ({ url }) => {
     >
       <ReactPlayer
         className="react-player"
-        url={url ? url : "https://www.youtube.com/watch?v=zvRAF3r1xPo"}
+        url={url ? url : "https://www.youtube.com/watch?v=KHYDZ3G6lKo"}
         width="100%"
         height="100%"
         controls
