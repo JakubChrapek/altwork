@@ -68,28 +68,24 @@ const SessionsWrapper = styled.ul`
     @media (max-width: 1024px) {
       flex-direction: column;
       padding: 3rem 0 1.5rem;
+
+      > div {
+        width: 70%;
+        min-width: 660px;
+      }
+
       :nth-of-type(1) {
         padding-top: 0;
-      }
-      > p {
-        :nth-of-type(2),
-        :nth-of-type(3) {
-          margin-top: 1rem;
-        }
       }
     }
     @media (max-width: 767px) {
       flex-direction: column;
       padding: 2rem 0 1.5rem;
-      > p {
-        :nth-of-type(2) {
-          margin: 1.5rem 0 0;
-          font-size: var(--font-28);
-        }
-        :nth-of-type(3) {
-          margin-top: 1.925rem;
-          font-size: var(--font-18);
-        }
+
+      > div {
+        width: 100%;
+        max-width: 540px;
+        min-width: unset;
       }
     }
   }
@@ -100,6 +96,9 @@ const SessionTitleWrapper = styled.div`
   flex-direction: column;
   flex: 1 1 20%;
   padding: 0 2.6rem 0 0;
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
   > p {
     font-size: var(--font-24);
     font-weight: bold;
@@ -113,6 +112,9 @@ const SessionTitleBoldWrapper = styled.div`
   flex-direction: column;
   flex: 1 1 42.5%;
   padding: 0 2.6rem;
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
   > p {
     font-family: Diagramm;
     font-size: var(--font-32);
@@ -122,6 +124,10 @@ const SessionTitleBoldWrapper = styled.div`
     @media (max-width: 1024px) {
       margin-top: 1rem;
     }
+    @media (max-width: 767px) {
+      margin: 1.5rem 0 0;
+      font-size: var(--font-28);
+    }
   }
 `
 const SessionQuestionWrapper = styled.div`
@@ -129,14 +135,26 @@ const SessionQuestionWrapper = styled.div`
   flex-direction: column;
   flex: 1 1 37.5%;
   padding: 0 0 0 2.6rem;
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
   > p {
     font-size: var(--font-20);
     line-height: 1.4;
     @media (max-width: 1024px) {
       margin-top: 1rem;
     }
+    @media (max-width: 767px) {
+      margin-top: 1.925rem;
+      font-size: var(--font-18);
+    }
     + ul {
       margin: 1.25rem 0 0;
+    }
+  }
+  @media (max-width: 1024px) {
+    ul {
+      margin-top: 1.25rem;
     }
   }
 `
@@ -208,18 +226,18 @@ const ProgramSection = ({
         {meetingSessions.map((session, iterator) => (
           <li key={`session-${iterator}`}>
             <SessionTitleWrapper>
-              {session?.sessionTitleFirstColumn?.value !== null && (
+              {session?.sessionTitleFirstColumn && (
                 <StructuredText
                   className="title-first"
                   data={session?.sessionTitleFirstColumn}
                 />
               )}
-              {session?.sessionTime?.value !== null && (
+              {session?.sessionTime && (
                 <StructuredText className="time" data={session?.sessionTime} />
               )}
             </SessionTitleWrapper>
             <SessionTitleBoldWrapper>
-              {session?.sessionTitleBold?.value !== null && (
+              {session?.sessionTitleBold && (
                 <StructuredText
                   className="title-bold"
                   data={session?.sessionTitleBold}
@@ -227,13 +245,14 @@ const ProgramSection = ({
               )}
             </SessionTitleBoldWrapper>
             <SessionQuestionWrapper>
-              {session?.sessionQuestion?.value !== null && (
+              {session?.sessionQuestion?.value.document.children[0].children[0]
+                .value !== "" && (
                 <StructuredText
                   className="question"
                   data={session?.sessionQuestion}
                 />
               )}
-              {session?.sessionLecturersList?.value !== null && (
+              {session?.sessionLecturersList && (
                 <LecturersList>
                   <StructuredText
                     className="list"
