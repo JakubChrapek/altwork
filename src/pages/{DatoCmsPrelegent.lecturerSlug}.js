@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { TextPageStyles } from "../components/TextPageStyles"
 import React from "react"
 import Layout from "../components/Layout"
@@ -10,7 +10,7 @@ import Seo from "../components/Seo"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const PartnerBio = styled.section`
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
   @media (max-width: 1024px) {
     flex-direction: column;
     margin-bottom: 8rem;
@@ -25,15 +25,11 @@ const PartnerBio = styled.section`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-light-gray);
     width: 22rem;
     height: 22rem;
     border-radius: 22rem;
     padding: 4rem;
-    transition: background-color 0.25s var(--cubic);
-    &:hover {
-      background-color: var(--color-accent);
-    }
+
     @media (max-width: 1200px) {
       width: 18rem;
       height: 18rem;
@@ -67,6 +63,16 @@ const PartnerInfoWrapper = styled.div`
   }
 `
 
+const BackToLecturers = styled(Link)`
+  color: currentColor;
+  font-size: var(--font-20);
+  @media (max-width: 767px) {
+    font-size: var(--font-18);
+  }
+  font-weight: bold;
+  line-height: 1.7;
+`
+
 const PartnerPage = ({ data }) => {
   return (
     <Layout>
@@ -88,6 +94,7 @@ const PartnerPage = ({ data }) => {
             />
           </PartnerInfoWrapper>
         </PartnerBio>
+        <BackToLecturers to="/#prelegenci">Wróć do prelegentów</BackToLecturers>
         <Circles
           plainText={data.datoCmsPageHome.additionalInfoCtaText}
           filledCircleText={data.datoCmsPageHome.filledCircleContent}
