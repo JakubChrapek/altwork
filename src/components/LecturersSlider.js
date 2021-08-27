@@ -7,6 +7,7 @@ import { LeftArrow, RightArrow } from "./Icons"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
+import { Link } from "gatsby"
 
 const SlideWrapper = styled.div`
   display: flex;
@@ -104,8 +105,21 @@ const TextWrapper = styled.div`
   }
 `
 
-const Slide = ({ slide, index }) => {
-  const { lecturerPhoto, lecturerBio, lecturerHeader } = slide
+const ReadMoreLink = styled(Link)`
+  color: currentColor;
+  font-size: var(--font-20);
+  margin-top: 1.75rem;
+  @media (max-width: 767px) {
+    font-size: var(--font-18);
+  }
+  font-weight: bold;
+  line-height: 1.7;
+`
+
+const Slide = ({ buttonText, slide, index }) => {
+  const { lecturerPhoto, lecturerHeader, lecturerShortBio, lecturerSlug } =
+    slide
+
   const circleVariant = index % 3
   return (
     <SlideWrapper>
@@ -133,8 +147,9 @@ const Slide = ({ slide, index }) => {
         <h3>
           <StructuredText data={lecturerHeader} />
         </h3>
-        <StructuredText data={lecturerBio} />
+        <StructuredText data={lecturerShortBio} />
       </TextWrapper>
+      <ReadMoreLink to={lecturerSlug}>{buttonText}</ReadMoreLink>
     </SlideWrapper>
   )
 }
@@ -179,7 +194,7 @@ const SliderStyles = styled(Slider)`
   }
 `
 
-const LecturersSlider = ({ lecturers }) => {
+const LecturersSlider = ({ buttonText, lecturers }) => {
   const sliderRef = useRef()
 
   const handleNext = () => {
@@ -197,8 +212,7 @@ const LecturersSlider = ({ lecturers }) => {
     speed: 300,
     swipeToSlide: true,
     slidesToShow: 2,
-    slidesToScroll: 2,
-    adaptiveHeight: true,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -257,7 +271,12 @@ const LecturersSlider = ({ lecturers }) => {
       </ButtonsWrapper>
       <SliderStyles ref={sliderRef} {...settings}>
         {lecturers.map((slide, index) => (
-          <Slide key={`slide-${index}`} slide={slide} index={index} />
+          <Slide
+            key={`slide-${index}`}
+            buttonText={buttonText}
+            slide={slide}
+            index={index}
+          />
         ))}
       </SliderStyles>
     </>

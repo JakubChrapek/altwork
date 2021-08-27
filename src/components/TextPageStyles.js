@@ -37,7 +37,8 @@ export const TextPageStyles = styled.section`
   p {
     font-size: var(--font-20);
     line-height: 1.4;
-    + p {
+    + p,
+    + ul {
       margin-top: 1em;
     }
     + h2 {

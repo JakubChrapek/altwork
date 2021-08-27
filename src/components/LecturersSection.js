@@ -22,11 +22,15 @@ const LecturersTitle = styled(SectionTitle)`
   }
 `
 
-const LecturersSection = ({ lecturersTitle, lecturers }) => {
+const LecturersSection = ({ buttonText, lecturersTitle, lecturers }) => {
   return (
     <LecturersSectionStyles id="prelegenci">
       <LecturersTitle>{lecturersTitle}</LecturersTitle>
-      <LecturersSlider lecturersTitle={lecturersTitle} lecturers={lecturers} />
+      <LecturersSlider
+        buttonText={buttonText}
+        lecturersTitle={lecturersTitle}
+        lecturers={lecturers}
+      />
     </LecturersSectionStyles>
   )
 }

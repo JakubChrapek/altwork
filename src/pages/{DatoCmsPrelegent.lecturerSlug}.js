@@ -7,33 +7,21 @@ import Circles from "../components/Circles"
 import { StructuredText } from "react-datocms"
 import siteConfig from "../../config/site-config"
 import Seo from "../components/Seo"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const PartnerBio = styled.section`
-  display: flex;
   margin-bottom: 6rem;
-  > * {
-    flex: 1 1 50%;
-  }
   @media (max-width: 1024px) {
     flex-direction: column;
     margin-bottom: 8rem;
   }
-`
-
-const PartnerLogoWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 0 6.25rem 0rem 5.688rem;
-  @media (max-width: 1280px) {
-    justify-content: flex-start;
-    padding-left: 0;
-  }
-  @media (max-width: 1200px) {
-    flex: 1 1 40%;
-    padding-right: 5rem;
-  }
-  > a {
+  > .gatsby-image-wrapper {
+    float: left;
+    margin: 0 4rem 0.75rem 0;
+    @media (max-width: 576px) {
+      float: unset;
+      margin-right: 0;
+    }
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -59,20 +47,17 @@ const PartnerLogoWrapper = styled.div`
       max-height: 13rem;
       padding: 2rem;
     }
-  }
-  svg,
-  path {
-    fill: var(--color-black);
-  }
-  @media (max-width: 1024px) {
-    justify-content: flex-start;
-    padding: 0;
+    @media (max-width: 520px) {
+      width: 75vw;
+      height: 75vw;
+      max-width: 460px;
+      max-height: 460px;
+      padding: 0;
+    }
   }
 `
 
 const PartnerInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   padding-bottom: 0.8rem;
   @media (max-width: 1200px) {
     flex: 1 1 60%;
@@ -86,29 +71,20 @@ const PartnerPage = ({ data }) => {
   return (
     <Layout>
       <Seo
-        title={`${data.datoCmsLogo?.partnerName} - alt:work - porozmawiajmy o pracy przyszłości.`}
+        title={`Alt:work - porozmawiajmy o pracy przyszłości. Prelegent ${data.datoCmsPrelegent?.lecturerNameAndSurname}`}
         description={siteConfig.description}
         meta={data.datoCmsPageHome.seoMetaTags}
       />
       <TextPageStyles>
-        <h1>
-          Nasi
-          <br />
-          partnerzy
-        </h1>
         <PartnerBio>
-          <PartnerLogoWrapper>
-            <a
-              href={data.datoCmsLogo?.partnerWebsiteLink}
-              dangerouslySetInnerHTML={{ __html: data.datoCmsLogo.grafikaSvg }}
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-          </PartnerLogoWrapper>
+          <GatsbyImage
+            image={data.datoCmsPrelegent.lecturerPhoto.gatsbyImageData}
+            alt={`Portret ${data.datoCmsPrelegent.lecturerNameAndSurname}`}
+          />
           <PartnerInfoWrapper>
-            <h2>{data.datoCmsLogo.partnerName}</h2>
+            <h2>{data.datoCmsPrelegent.lecturerNameAndSurname}</h2>
             <StructuredText
-              data={data.datoCmsLogo.partnerRichInformation.value}
+              data={data.datoCmsPrelegent.lecturerLongBiography.value}
             />
           </PartnerInfoWrapper>
         </PartnerBio>
@@ -125,13 +101,18 @@ const PartnerPage = ({ data }) => {
 export default PartnerPage
 
 export const query = graphql`
-  query ($partnerPageSlug: String) {
-    datoCmsLogo(partnerPageSlug: { eq: $partnerPageSlug }) {
-      partnerPageSlug
-      partnerName
-      partnerWebsiteLink
-      grafikaSvg
-      partnerRichInformation {
+  query ($lecturerSlug: String) {
+    datoCmsPrelegent(lecturerSlug: { eq: $lecturerSlug }) {
+      lecturerSlug
+      lecturerPhoto {
+        gatsbyImageData
+        alt
+      }
+      lecturerHeader {
+        value
+      }
+      lecturerNameAndSurname
+      lecturerLongBiography {
         value
       }
     }

@@ -30,6 +30,7 @@ const IndexPage = ({ data }) => {
       whyWorthItTitle,
       whyWorthItAnswers,
       lecturersTitle,
+      lecturersSeeMoreButtonText,
       lecturers,
       programTitle,
       programDescription,
@@ -71,7 +72,11 @@ const IndexPage = ({ data }) => {
         whyWorthItTitle={whyWorthItTitle}
         whyWorthItAnswers={whyWorthItAnswers}
       />
-      <LecturersSection lecturersTitle={lecturersTitle} lecturers={lecturers} />
+      <LecturersSection
+        buttonText={lecturersSeeMoreButtonText}
+        lecturersTitle={lecturersTitle}
+        lecturers={lecturers}
+      />
       <ProgramSection
         programTitle={programTitle}
         programDescription={programDescription}
@@ -144,17 +149,19 @@ export const homeQuery = graphql`
         }
       }
       lecturersTitle
+      lecturersSeeMoreButtonText
       lecturers {
         lecturerPhoto {
           gatsbyImageData
           alt
         }
-        lecturerBio {
-          value
-        }
         lecturerHeader {
           value
         }
+        lecturerShortBio {
+          value
+        }
+        lecturerSlug
       }
       programTitle
       programDescription {

@@ -140,6 +140,10 @@ const LinksColumn = styled.ul`
   list-style: none;
   padding: 0;
   max-width: 536px;
+  padding-right: 6.75rem;
+  @media (max-width: 1080px) {
+    padding-right: 4.5rem;
+  }
 
   a {
     text-decoration: none;
@@ -147,9 +151,9 @@ const LinksColumn = styled.ul`
     font-weight: bold;
     border-bottom: 1px solid var(--color-black);
     > li {
-      --minFontSize: var(--font-32);
+      --minFontSize: var(--font-28);
       --maxFontSize: var(--font-60);
-      --scaler: 4.392vw;
+      --scaler: 3vw;
       font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
       line-height: 1;
       padding: 1rem 0 1.25rem;
@@ -177,10 +181,11 @@ const LinksColumn = styled.ul`
           content: "";
           position: absolute;
           left: 0;
-          width: 3.75rem;
-          height: 3.75rem;
+          top: 0.7rem;
+          width: 3.5rem;
+          height: 3.5rem;
           background-color: var(--color-white);
-          border-radius: 3.75rem;
+          border-radius: 3.5rem;
           z-index: -1;
           transition: transform 0.25s var(--cubic);
         }
@@ -199,10 +204,6 @@ const LinksColumn = styled.ul`
 `
 
 const ContactAndPartnersColumn = styled.div`
-  padding-left: 6.75rem;
-  @media (max-width: 1080px) {
-    padding-left: 4.5rem;
-  }
   > p {
     font-size: var(--font-20);
     font-weight: bold;
