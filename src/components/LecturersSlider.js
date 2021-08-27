@@ -54,7 +54,7 @@ const ImageWrapper = styled.div`
   }
   svg {
     position: absolute;
-    left: 0;
+    left: 1px;
     width: 12.5rem;
     height: 12.5rem;
     max-width: 50vw;
@@ -98,6 +98,9 @@ const TextWrapper = styled.div`
       margin-top: 1rem;
       font-size: var(--font-18);
     }
+  }
+  a {
+    color: inherit;
   }
 `
 

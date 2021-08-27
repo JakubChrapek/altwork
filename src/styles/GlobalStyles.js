@@ -30,7 +30,8 @@ const GlobalStyles = createGlobalStyle`
       --color-accent-circle: #02E745;
       --color-light-gray: #D9D9D9;
       --color-gray: #707070;
-
+      --color-dark-gray: #282828;
+      --font-16: 1rem;
       --font-18: 1.13rem;
       --font-20: 1.25rem;
       --font-24: 1.5rem;

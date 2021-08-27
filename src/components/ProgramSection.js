@@ -64,27 +64,6 @@ const SessionsWrapper = styled.ul`
     display: flex;
     padding: 2rem 0.75rem;
     border-bottom: 1px solid var(--color-gray);
-    > p {
-      flex: 1 1 33%;
-      :nth-of-type(1) {
-        flex-basis: 15%;
-        font-size: var(--font-24);
-        font-weight: bold;
-        line-height: 1.4;
-        font-family: Diagramm;
-      }
-      :nth-of-type(2) {
-        margin-right: 6.75rem;
-        font-family: Diagramm;
-        font-size: var(--font-32);
-        line-height: 1.08;
-        font-weight: bold;
-      }
-      :nth-of-type(3) {
-        font-size: var(--font-20);
-        line-height: 1.4;
-      }
-    }
 
     @media (max-width: 1024px) {
       flex-direction: column;
@@ -93,9 +72,7 @@ const SessionsWrapper = styled.ul`
         padding-top: 0;
       }
       > p {
-        :nth-of-type(2) {
-          margin: 1rem 0 0;
-        }
+        :nth-of-type(2),
         :nth-of-type(3) {
           margin-top: 1rem;
         }
@@ -116,6 +93,60 @@ const SessionsWrapper = styled.ul`
       }
     }
   }
+`
+
+const SessionTitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 20%;
+  padding: 0 2.6rem 0 0;
+  > p {
+    font-size: var(--font-24);
+    font-weight: bold;
+    line-height: 1.9;
+    font-family: Diagramm;
+  }
+`
+
+const SessionTitleBoldWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 42.5%;
+  padding: 0 2.6rem;
+  > p {
+    font-family: Diagramm;
+    font-size: var(--font-32);
+    line-height: 1.08;
+    font-weight: bold;
+
+    @media (max-width: 1024px) {
+      margin-top: 1rem;
+    }
+  }
+`
+const SessionQuestionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 37.5%;
+  padding: 0 0 0 2.6rem;
+  > p {
+    font-size: var(--font-20);
+    line-height: 1.4;
+    @media (max-width: 1024px) {
+      margin-top: 1rem;
+    }
+    + ul {
+      margin: 1.25rem 0 0;
+    }
+  }
+`
+
+const LecturersList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  font-size: var(--font-16);
+  line-height: 1.375;
+  color: var(--color-dark-gray);
 `
 
 const AdditionalInfoWrapper = styled.div`
@@ -176,12 +207,41 @@ const ProgramSection = ({
       <SessionsWrapper>
         {meetingSessions.map((session, iterator) => (
           <li key={`session-${iterator}`}>
-            <p>Sesja {iterator + 1}</p>
-            <StructuredText data={session.sessionTitle} />
-            <StructuredText
-              className="question"
-              data={session.sessionQuestion}
-            />
+            <SessionTitleWrapper>
+              {session?.sessionTitleFirstColumn?.value !== null && (
+                <StructuredText
+                  className="title-first"
+                  data={session?.sessionTitleFirstColumn}
+                />
+              )}
+              {session?.sessionTime?.value !== null && (
+                <StructuredText className="time" data={session?.sessionTime} />
+              )}
+            </SessionTitleWrapper>
+            <SessionTitleBoldWrapper>
+              {session?.sessionTitleBold?.value !== null && (
+                <StructuredText
+                  className="title-bold"
+                  data={session?.sessionTitleBold}
+                />
+              )}
+            </SessionTitleBoldWrapper>
+            <SessionQuestionWrapper>
+              {session?.sessionQuestion?.value !== null && (
+                <StructuredText
+                  className="question"
+                  data={session?.sessionQuestion}
+                />
+              )}
+              {session?.sessionLecturersList?.value !== null && (
+                <LecturersList>
+                  <StructuredText
+                    className="list"
+                    data={session?.sessionLecturersList}
+                  />
+                </LecturersList>
+              )}
+            </SessionQuestionWrapper>
           </li>
         ))}
       </SessionsWrapper>

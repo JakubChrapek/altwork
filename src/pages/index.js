@@ -71,7 +71,7 @@ const IndexPage = ({ data }) => {
         whyWorthItTitle={whyWorthItTitle}
         whyWorthItAnswers={whyWorthItAnswers}
       />
-      {/* <LecturersSection lecturersTitle={lecturersTitle} lecturers={lecturers} /> */}
+      <LecturersSection lecturersTitle={lecturersTitle} lecturers={lecturers} />
       <ProgramSection
         programTitle={programTitle}
         programDescription={programDescription}
@@ -161,10 +161,19 @@ export const homeQuery = graphql`
         value
       }
       meetingSessions {
-        sessionTitle {
+        sessionTitleFirstColumn {
+          value
+        }
+        sessionTime {
+          value
+        }
+        sessionTitleBold {
           value
         }
         sessionQuestion {
+          value
+        }
+        sessionLecturersList {
           value
         }
       }
