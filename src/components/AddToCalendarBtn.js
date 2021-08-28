@@ -7,7 +7,7 @@ import moment from "moment"
 
 const Dropdown = ({ children }) => <ul>{children}</ul>
 
-const AddToCalendarBtn = ({ buttonText }) => {
+const AddToCalendarBtn = ({ buttonText, location }) => {
   const AddToCalendarDropdown = AddToCalendarHOC(LinkWithDot, CalendarModal)
 
   const startDatetime = moment({
@@ -25,7 +25,7 @@ const AddToCalendarBtn = ({ buttonText }) => {
     description: siteConfig.description,
     duration,
     endDatetime: endDatetime.format("YYYYMMDDTHHmmssZ"),
-    location: siteConfig.location,
+    location: location || siteConfig.location,
     startDatetime: startDatetime.format("YYYYMMDDTHHmmssZ"),
     title: siteConfig.title,
   }
@@ -35,6 +35,7 @@ const AddToCalendarBtn = ({ buttonText }) => {
       buttonText={buttonText}
       event={event}
       className="modal-container"
+      filename="altwork-zapis-w-kalendarzu"
     />
   )
 }

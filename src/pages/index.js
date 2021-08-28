@@ -31,6 +31,7 @@ const IndexPage = ({ data }) => {
       whyWorthItAnswers,
       lecturersTitle,
       lecturersSeeMoreButtonText,
+      lecturersBackButtonText,
       lecturers,
       programTitle,
       programDescription,
@@ -74,6 +75,7 @@ const IndexPage = ({ data }) => {
       />
       <LecturersSection
         buttonText={lecturersSeeMoreButtonText}
+        lecturersBackButtonText={lecturersBackButtonText}
         lecturersTitle={lecturersTitle}
         lecturers={lecturers}
       />
@@ -150,6 +152,7 @@ export const homeQuery = graphql`
       }
       lecturersTitle
       lecturersSeeMoreButtonText
+      lecturersBackButtonText
       lecturers {
         lecturerPhoto {
           gatsbyImageData

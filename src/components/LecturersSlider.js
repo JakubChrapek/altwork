@@ -116,7 +116,7 @@ const ReadMoreLink = styled(Link)`
   line-height: 1.7;
 `
 
-const Slide = ({ buttonText, slide, index }) => {
+const Slide = ({ buttonText, backButtonText, slide, index }) => {
   const { lecturerPhoto, lecturerHeader, lecturerShortBio, lecturerSlug } =
     slide
 
@@ -194,7 +194,7 @@ const SliderStyles = styled(Slider)`
   }
 `
 
-const LecturersSlider = ({ buttonText, lecturers }) => {
+const LecturersSlider = ({ buttonText, backButtonText, lecturers }) => {
   const sliderRef = useRef()
 
   const handleNext = () => {
@@ -274,6 +274,7 @@ const LecturersSlider = ({ buttonText, lecturers }) => {
           <Slide
             key={`slide-${index}`}
             buttonText={buttonText}
+            backButtonText={backButtonText}
             slide={slide}
             index={index}
           />

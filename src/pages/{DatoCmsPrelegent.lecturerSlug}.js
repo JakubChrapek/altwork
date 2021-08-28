@@ -139,7 +139,7 @@ const PartnerPage = ({ data }) => {
                 data={data.datoCmsPrelegent.lecturerLongBiography.value}
               />
               <BackToLecturers to="/#prelegenci">
-                Powrót do partnerów
+                {data.datoCmsPageHome.lecturersBackButtonText || "Powrót"}
               </BackToLecturers>
             </ContentWrapper>
           </PartnerInfoWrapper>
@@ -173,6 +173,7 @@ export const query = graphql`
       }
     }
     datoCmsPageHome {
+      lecturersBackButtonText
       filledCircleContent {
         value
       }

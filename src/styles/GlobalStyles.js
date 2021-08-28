@@ -31,6 +31,10 @@ const GlobalStyles = createGlobalStyle`
       --color-light-gray: #D9D9D9;
       --color-gray: #707070;
       --color-dark-gray: #282828;
+      --color-apple: #555;
+      --color-google: #0F9D58;
+      --color-yahoo: #4A00A0;
+      --color-outlook: #F25022;
       --font-16: 1rem;
       --font-18: 1.13rem;
       --font-20: 1.25rem;

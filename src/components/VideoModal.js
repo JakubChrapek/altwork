@@ -6,7 +6,7 @@ import { GrClose } from "react-icons/gr"
 import VideoPlayer from "./VideoPlayer"
 import { gsap } from "gsap"
 
-const ExitButtonStyles = styled(motion.button)`
+export const ExitButtonStyles = styled(motion.button)`
   background-color: transparent;
   border: 0;
   align-self: flex-end;
