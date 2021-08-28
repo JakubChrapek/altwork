@@ -7,6 +7,7 @@ import Seo from "../components/Seo"
 import styled from "styled-components"
 import LinkWithDot from "../components/LinkWithDot"
 import { RichArrowDown } from "../components/Icons"
+import AddToCalendarLink from "../components/AddToCalendarLink"
 
 const ContentWrapper = styled.div`
   padding: 5.25rem 0 5.5rem;
@@ -40,12 +41,12 @@ const HowToTakePartPage = ({ data }) => {
     onlineTitle,
     onlineDateTime,
     onlineAttendName,
-    onlineTekstLinku,
+    onlineCtaText,
     onlineTextWithAnAsterisk,
     personalTitle,
     personalDateTime,
     personalAttendName,
-    personalTekstLinku,
+    personalCtaText,
     personalTextWithAnAsterisk,
   } = data.datoCmsPageConference
   return (
@@ -66,14 +67,14 @@ const HowToTakePartPage = ({ data }) => {
           title={onlineTitle}
           attendName={onlineAttendName}
           date={onlineDateTime}
-          ctaText={onlineTekstLinku}
+          ctaText={onlineCtaText}
           asteriskText={onlineTextWithAnAsterisk}
         />
         <AttendSection
           title={personalTitle}
           attendName={personalAttendName}
           date={personalDateTime}
-          ctaText={personalTekstLinku}
+          ctaText={personalCtaText}
           asteriskText={personalTextWithAnAsterisk}
         />
       </ContentWrapper>
@@ -142,7 +143,7 @@ const AttendSection = ({ title, attendName, date, ctaText, asteriskText }) => (
       </div>
       <div className="link">
         <LinkWithDot href="https://google.com">
-          <StructuredText data={ctaText} />
+          <AddToCalendarLink btnText={ctaText} />
         </LinkWithDot>
       </div>
     </Row>
@@ -170,9 +171,7 @@ export const privacyQuery = graphql`
       onlineAttendName {
         value
       }
-      onlineTekstLinku {
-        value
-      }
+      onlineCtaText
       onlineTextWithAnAsterisk {
         value
       }
@@ -185,9 +184,7 @@ export const privacyQuery = graphql`
       personalAttendName {
         value
       }
-      personalTekstLinku {
-        value
-      }
+      personalCtaText
       personalTextWithAnAsterisk {
         value
       }
