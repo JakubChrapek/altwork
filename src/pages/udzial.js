@@ -6,6 +6,7 @@ import siteConfig from "../../config/site-config"
 import Seo from "../components/Seo"
 import styled from "styled-components"
 import LinkWithDot from "../components/LinkWithDot"
+import { RichArrowDown } from "../components/Icons"
 
 const ContentWrapper = styled.div`
   padding: 5.25rem 0 5.5rem;
@@ -16,21 +17,21 @@ const ContentWrapper = styled.div`
     font-size: var(--font-80);
     font-family: Diagramm;
     font-weight: bold;
-    margin: 0 0 5rem;
     > p {
       font-size: var(--font-80);
       font-family: Diagramm;
       font-weight: bold;
-      margin: 0 0 5rem;
       line-height: 1.2;
     }
-    @media (max-width: 767px) {
-      margin: 0 0 3.75rem;
-      > p {
-        margin: 0 0 3.75rem;
-      }
-    }
   }
+`
+
+const ArrowWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -7.5%;
+  padding-right: 12.5%;
 `
 
 const HowToTakePartPage = ({ data }) => {
@@ -58,7 +59,9 @@ const HowToTakePartPage = ({ data }) => {
         <h1>
           <StructuredText data={heroTitle} />
         </h1>
-        {/* <StructuredText data={data.datoCmsPagePrivacyPolicy.privacyText} /> */}
+        <ArrowWrapper>
+          <RichArrowDown />
+        </ArrowWrapper>
         <AttendSection
           title={onlineTitle}
           attendName={onlineAttendName}
@@ -78,13 +81,52 @@ const HowToTakePartPage = ({ data }) => {
   )
 }
 
-const Wrapper = styled.section``
+const Wrapper = styled.section`
+  + section {
+    margin-top: 7.375rem;
+  }
+`
 const AttendHeader = styled.h2`
   font-size: var(--font-50);
+  line-height: 1.2;
   color: var(--color-black);
 `
 
-const Row = styled.div``
+const Row = styled.div`
+  margin-top: 5.375rem;
+  display: grid;
+  grid-template-columns: 2fr 4fr 6fr;
+  grid-gap: 2.25rem;
+  padding: 0 0.75rem 2.75rem;
+  border-bottom: 1px solid var(--color-gray);
+  align-items: center;
+  .title p {
+    font-size: var(--font-24);
+    font-weight: bold;
+    line-height: 1.41;
+    font-family: Diagramm;
+  }
+  .date p {
+    font-family: Diagramm;
+    font-size: var(--font-32);
+    line-height: 1.08;
+    font-weight: bold;
+
+    @media (max-width: 1024px) {
+      margin-top: 1rem;
+    }
+    @media (max-width: 767px) {
+      margin: 1.5rem 0 0;
+      font-size: var(--font-28);
+    }
+  }
+
+  + p {
+    font-size: var(--font-20);
+    line-height: 1.4;
+    margin: 2.25rem 0 0 0.75rem;
+  }
+`
 
 const AttendSection = ({ title, attendName, date, ctaText, asteriskText }) => (
   <Wrapper>
@@ -92,13 +134,13 @@ const AttendSection = ({ title, attendName, date, ctaText, asteriskText }) => (
       <StructuredText data={title} />
     </AttendHeader>
     <Row>
-      <div>
+      <div className="title">
         <StructuredText data={attendName} />
       </div>
-      <div>
+      <div className="date">
         <StructuredText data={date} />
       </div>
-      <div>
+      <div className="link">
         <LinkWithDot href="https://google.com">
           <StructuredText data={ctaText} />
         </LinkWithDot>

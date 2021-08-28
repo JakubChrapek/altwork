@@ -4,8 +4,9 @@ const LinkWithDot = styled.a`
   position: relative;
   font-family: Poppins;
   font-size: var(--font-20);
+  display: inline-block;
   font-weight: 700;
-  line-height: 0.95;
+  line-height: 1.2;
   padding: 0.8rem 0 0.4rem 2.688rem;
   text-decoration: none;
   color: currentColor;
@@ -26,7 +27,8 @@ const LinkWithDot = styled.a`
     z-index: -1;
   }
   p {
-    display: inline;
+    display: inline-block;
+    line-height: 1.2;
   }
 `
 

@@ -149,7 +149,7 @@ const SessionQuestionWrapper = styled.div`
       font-size: var(--font-18);
     }
     + ul {
-      margin: 1.25rem 0 0;
+      margin: 1rem 0 0;
     }
   }
   @media (max-width: 1024px) {
@@ -163,6 +163,7 @@ const LecturersList = styled.ul`
   list-style-type: none;
   padding: 0;
   font-size: var(--font-16);
+  font-weight: 400;
   line-height: 1.375;
   color: var(--color-dark-gray);
 `
