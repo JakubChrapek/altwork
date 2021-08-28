@@ -3,5 +3,7 @@ module.exports = {
   sitemapPath: '/sitemap.xml',
   title: 'Alt:work - porozmawiajmy o pracy przyszłości, 12 września 2021r.',
   description: 'Alt:work to spotkanie służące wymianie myśli, doświadczeń i refleksji na temat zmieniającej się na naszych oczach podstawowej formy aktywności człowieka: pracy. Spotkajmy się podczas Igrzysk Wolności 2021, 12 września 2021r. Zapraszamy!',
+  location: 'Planetarium EC1 w Łodzi',
+  timezone: 'Europe/London',
   author: '@kuba.chrapek',
 };

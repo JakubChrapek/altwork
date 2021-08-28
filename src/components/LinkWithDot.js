@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 
 const LinkWithDot = styled.a`
@@ -10,6 +11,7 @@ const LinkWithDot = styled.a`
   padding: 0.8rem 0 0.4rem 2.688rem;
   text-decoration: none;
   color: currentColor;
+  cursor: pointer;
   &:hover:after {
     transform: translate(2.5rem, calc(-50% + 0.2rem)) scale(1.4);
   }
@@ -31,5 +33,9 @@ const LinkWithDot = styled.a`
     line-height: 1.2;
   }
 `
+
+// const LinkWithDot = ({ children }) => (
+//   <LinkWithDotStyles>{children}</LinkWithDotStyles>
+// )
 
 export default LinkWithDot

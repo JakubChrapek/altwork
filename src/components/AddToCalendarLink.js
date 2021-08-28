@@ -10,9 +10,10 @@ const AddToCalendarLink = ({ btnText }) => {
     endTime: "2016-09-16T21:45:00-04:00",
   }
   return (
-    <AddToCalendar buttonLabel={btnText || "Dodaj do kalendarza"} event={event}>
-      Test
-    </AddToCalendar>
+    <AddToCalendar
+      buttonLabel={btnText || "Dodaj do kalendarza"}
+      event={event}
+    />
   )
 }
 

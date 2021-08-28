@@ -5,9 +5,8 @@ import Layout from "../components/Layout"
 import siteConfig from "../../config/site-config"
 import Seo from "../components/Seo"
 import styled from "styled-components"
-import LinkWithDot from "../components/LinkWithDot"
 import { RichArrowDown } from "../components/Icons"
-import AddToCalendarLink from "../components/AddToCalendarLink"
+import AddToCalendarBtn from "../components/AddToCalendarBtn"
 
 const ContentWrapper = styled.div`
   padding: 5.25rem 0 5.5rem;
@@ -49,6 +48,7 @@ const HowToTakePartPage = ({ data }) => {
     personalCtaText,
     personalTextWithAnAsterisk,
   } = data.datoCmsPageConference
+
   return (
     <Layout>
       <Seo
@@ -127,29 +127,36 @@ const Row = styled.div`
     line-height: 1.4;
     margin: 2.25rem 0 0 0.75rem;
   }
+  .link {
+    position: relative;
+  }
 `
 
-const AttendSection = ({ title, attendName, date, ctaText, asteriskText }) => (
-  <Wrapper>
-    <AttendHeader>
-      <StructuredText data={title} />
-    </AttendHeader>
-    <Row>
-      <div className="title">
-        <StructuredText data={attendName} />
-      </div>
-      <div className="date">
-        <StructuredText data={date} />
-      </div>
-      <div className="link">
-        <LinkWithDot href="https://google.com">
-          <AddToCalendarLink btnText={ctaText} />
-        </LinkWithDot>
-      </div>
-    </Row>
-    <StructuredText data={asteriskText} />
-  </Wrapper>
-)
+const AttendSection = ({ title, attendName, date, ctaText, asteriskText }) => {
+  return (
+    <Wrapper>
+      <AttendHeader>
+        <StructuredText data={title} />
+      </AttendHeader>
+      <Row>
+        <div className="title">
+          <StructuredText data={attendName} />
+        </div>
+        <div className="date">
+          <StructuredText data={date} />
+        </div>
+        <div className="link">
+          <AddToCalendarBtn buttonText={ctaText} />
+          {/* <LinkWithDot as="span"> */}
+          {/* <AddToCalendarLink btnText={ctaText} /> */}
+          {/* <AddToCalendar event={event} /> */}
+          {/* </LinkWithDot> */}
+        </div>
+      </Row>
+      <StructuredText data={asteriskText} />
+    </Wrapper>
+  )
+}
 
 export const privacyQuery = graphql`
   {
