@@ -7,6 +7,7 @@ import Seo from "../components/Seo"
 import styled from "styled-components"
 import { RichArrowDown } from "../components/Icons"
 import AddToCalendarBtn from "../components/AddToCalendarBtn"
+import LinkWithDot from "../components/LinkWithDot"
 
 const ContentWrapper = styled.div`
   padding: 5.25rem 0 5.5rem;
@@ -96,6 +97,7 @@ const HowToTakePartPage = ({ data }) => {
           asteriskText={onlineTextWithAnAsterisk}
         />
         <AttendSection
+          type="buyTicket"
           title={personalTitle}
           attendName={personalAttendName}
           date={personalDateTime}
@@ -187,7 +189,14 @@ const Row = styled.div`
   }
 `
 
-const AttendSection = ({ title, attendName, date, ctaText, asteriskText }) => {
+const AttendSection = ({
+  type,
+  title,
+  attendName,
+  date,
+  ctaText,
+  asteriskText,
+}) => {
   return (
     <Wrapper>
       <AttendHeader>
@@ -201,10 +210,20 @@ const AttendSection = ({ title, attendName, date, ctaText, asteriskText }) => {
           <StructuredText data={date} />
         </div>
         <div className="link">
-          <AddToCalendarBtn
-            buttonText={ctaText}
-            location={attendName.value.document.children[0].children[0].value}
-          />
+          {type === "buyTicket" ? (
+            <LinkWithDot
+              href="https://sklep.liberte.pl/bilety/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {ctaText}
+            </LinkWithDot>
+          ) : (
+            <AddToCalendarBtn
+              buttonText={ctaText}
+              location={attendName.value.document.children[0].children[0].value}
+            />
+          )}
         </div>
       </Row>
       <StructuredText data={asteriskText} />
