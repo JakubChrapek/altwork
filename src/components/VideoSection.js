@@ -39,6 +39,16 @@ const VideoPreview = styled.div`
     border-radius: 100%;
     max-width: 27.75rem;
     max-height: 27.75rem;
+    overflow: unset;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+
+    > div,
+    img {
+      border-radius: 100%;
+    }
     &:hover ~ .circle-border {
       transform: translate(-50%, -50%) scale(1.55);
     }
