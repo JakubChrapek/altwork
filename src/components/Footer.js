@@ -1,9 +1,9 @@
 import { graphql, Link, StaticQuery } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { IconFB, IconYT, Logo } from "./Icons"
-import { BlueRankLogo } from "./Logos"
 import { Wrapper } from "./Wrapper"
 
 const FooterStyles = styled.footer`
@@ -303,7 +303,18 @@ const Footer = ({ data }) => {
             {partnersLogos.map(logo => (
               <li key={`${logo.partnerPageSlug}-ContentPartners`}>
                 <Link to={`/${logo.partnerPageSlug}`}>
-                  <span dangerouslySetInnerHTML={{ __html: logo.grafikaSvg }} />
+                  {logo?.logoGraphic?.gatsbyImageData == null ? (
+                    <span
+                      dangerouslySetInnerHTML={{ __html: logo.grafikaSvg }}
+                    />
+                  ) : (
+                    <span>
+                      <GatsbyImage
+                        image={logo?.logoGraphic?.gatsbyImageData}
+                        alt={`Logo ${logo?.partnerName}`}
+                      />
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}
@@ -367,6 +378,7 @@ const MyFooter = () => {
                 gatsbyImageData
               }
               partnerPageSlug
+              partnerName
               grafikaSvg
             }
             contentPartnersLogos {

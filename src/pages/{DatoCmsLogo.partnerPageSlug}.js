@@ -7,6 +7,7 @@ import Circles from "../components/Circles"
 import { StructuredText } from "react-datocms"
 import siteConfig from "../../config/site-config"
 import Seo from "../components/Seo"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const PartnerBio = styled.section`
   display: flex;
@@ -98,12 +99,27 @@ const PartnerPage = ({ data }) => {
         </h1>
         <PartnerBio>
           <PartnerLogoWrapper>
-            <a
-              href={data.datoCmsLogo?.partnerWebsiteLink}
-              dangerouslySetInnerHTML={{ __html: data.datoCmsLogo.grafikaSvg }}
-              target="_blank"
-              rel="noopener noreferrer"
-            />
+            {data.datoCmsLogo.logoGraphic?.gatsbyImageData != null ? (
+              <a
+                href={data.datoCmsLogo?.partnerWebsiteLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GatsbyImage
+                  image={data.datoCmsLogo.logoGraphic.gatsbyImageData}
+                  alt={`Logo ${data.datoCmsLogo.partnerName}`}
+                />
+              </a>
+            ) : (
+              <a
+                href={data.datoCmsLogo?.partnerWebsiteLink}
+                dangerouslySetInnerHTML={{
+                  __html: data.datoCmsLogo.grafikaSvg,
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            )}
           </PartnerLogoWrapper>
           <PartnerInfoWrapper>
             <h2>{data.datoCmsLogo.partnerName}</h2>
@@ -131,6 +147,9 @@ export const query = graphql`
       partnerName
       partnerWebsiteLink
       grafikaSvg
+      logoGraphic {
+        gatsbyImageData
+      }
       partnerRichInformation {
         value
       }
