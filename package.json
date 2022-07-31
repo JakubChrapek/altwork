@@ -10,7 +10,7 @@
     "add": "^2.0.6",
     "babel-plugin-styled-components": "^1.12.0",
     "framer-motion": "^4.1.17",
-    "gatsby": "^4.19.2",
+    "gatsby": "^3.7.1",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-canonical-urls": "^3.6.0",
     "gatsby-plugin-google-analytics": "^3.6.0",
