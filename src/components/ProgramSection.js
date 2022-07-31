@@ -245,14 +245,20 @@ const ProgramSection = ({
                 />
               )}
             </SessionTitleBoldWrapper>
+
             <SessionQuestionWrapper>
-              {session?.sessionQuestion?.value.document.children[0].children[0]
-                .value !== "" && (
-                <StructuredText
-                  className="question"
-                  data={session?.sessionQuestion}
-                />
-              )}
+              {session?.sessionQuestion?.value
+                ?
+                <>
+                  {session?.sessionQuestion?.value.document.children[0].children[0]
+                    .value !== "" && (
+                      <StructuredText
+                        className="question"
+                        data={session?.sessionQuestion}
+                      />
+                    )}
+                </>
+                : null}
               {session?.sessionLecturersList && (
                 <LecturersList>
                   <StructuredText

@@ -12,38 +12,38 @@ import ProgramSection from "../components/ProgramSection"
 import siteConfig from "../../config/site-config"
 
 const IndexPage = ({ data }) => {
-  const {
-    datoCmsPageHome: {
-      emptyCircleContent,
-      filledCircleContent,
-      heroClaim,
-      previewImage,
-      firstContentColumn,
-      secondContentColumn,
-      aboutWhatTitle,
-      shortQuestions,
-      longerQuestions,
-      armchairon,
-      armchairoff,
-      chairon,
-      chairoff,
-      whyWorthItTitle,
-      whyWorthItAnswers,
-      lecturersTitle,
-      lecturersSeeMoreButtonText,
-      lecturersBackButtonText,
-      lecturers,
-      programTitle,
-      programDescription,
-      meetingSessions,
-      additionalFirstColText,
-      additionalSecondColText,
-      additionalInfoCtaText,
-    },
-  } = data
+  // const {
+  //   datoCmsPageHome: {
+  //     emptyCircleContent,
+  //     filledCircleContent,
+  //     heroClaim,
+  //     previewImage,
+  //     firstContentColumn,
+  //     secondContentColumn,
+  //     aboutWhatTitle,
+  //     shortQuestions,
+  //     longerQuestions,
+  //     armchairon,
+  //     armchairoff,
+  //     chairon,
+  //     chairoff,
+  //     whyWorthItTitle,
+  //     whyWorthItAnswers,
+  //     lecturersTitle,
+  //     lecturersSeeMoreButtonText,
+  //     lecturersBackButtonText,
+  //     lecturers,
+  //     programTitle,
+  //     programDescription,
+  //     meetingSessions,
+  //     additionalFirstColText,
+  //     additionalSecondColText,
+  //     additionalInfoCtaText,
+  //   },
+  // } = data
   return (
     <Layout>
-      <Seo
+      {/* <Seo
         title={siteConfig.title}
         description={siteConfig.description}
         meta={data.datoCmsPageHome.seoMetaTags}
@@ -87,118 +87,118 @@ const IndexPage = ({ data }) => {
         additionalFirstColText={additionalFirstColText}
         additionalSecondColText={additionalSecondColText}
         additionalInfoCtaText={additionalInfoCtaText}
-      />
+      /> */}
     </Layout>
   )
 }
 
-export const homeQuery = graphql`
-  {
-    datoCmsPageHome {
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
-      }
-      emptyCircleContent {
-        value
-      }
-      filledCircleContent {
-        value
-      }
-      heroClaim {
-        value
-      }
-      previewImage {
-        alt
-        gatsbyImageData
-      }
-      firstContentColumn {
-        value
-      }
-      secondContentColumn {
-        value
-      }
-      aboutWhatTitle {
-        value
-      }
-      shortQuestions {
-        questionText {
-          value
-        }
-      }
-      longerQuestions {
-        questionText {
-          value
-        }
-      }
-      armchairoff {
-        gatsbyImageData(placeholder: NONE)
-      }
-      armchairon {
-        gatsbyImageData(placeholder: NONE)
-      }
-      chairon {
-        gatsbyImageData(placeholder: NONE)
-      }
-      chairoff {
-        gatsbyImageData(placeholder: NONE)
-      }
-      whyWorthItTitle {
-        value
-      }
-      whyWorthItAnswers {
-        paragraphText {
-          value
-        }
-      }
-      lecturersTitle
-      lecturersSeeMoreButtonText
-      lecturersBackButtonText
-      lecturers {
-        lecturerPhoto {
-          gatsbyImageData
-          alt
-        }
-        lecturerHeader {
-          value
-        }
-        lecturerShortBio {
-          value
-        }
-        lecturerSlug
-      }
-      programTitle
-      programDescription {
-        value
-      }
-      meetingSessions {
-        sessionTitleFirstColumn {
-          value
-        }
-        sessionTime {
-          value
-        }
-        sessionTitleBold {
-          value
-        }
-        sessionQuestion {
-          value
-        }
-        sessionLecturersList {
-          value
-        }
-      }
+// export const homeQuery = graphql`
+//   {
+//     datoCmsPageHome {
+//       seoMetaTags {
+//         ...GatsbyDatoCmsSeoMetaTags
+//       }
+//       emptyCircleContent {
+//         value
+//       }
+//       filledCircleContent {
+//         value
+//       }
+//       heroClaim {
+//         value
+//       }
+//       previewImage {
+//         alt
+//         gatsbyImageData
+//       }
+//       firstContentColumn {
+//         value
+//       }
+//       secondContentColumn {
+//         value
+//       }
+//       aboutWhatTitle {
+//         value
+//       }
+//       shortQuestions {
+//         questionText {
+//           value
+//         }
+//       }
+//       longerQuestions {
+//         questionText {
+//           value
+//         }
+//       }
+//       armchairoff {
+//         gatsbyImageData(placeholder: NONE)
+//       }
+//       armchairon {
+//         gatsbyImageData(placeholder: NONE)
+//       }
+//       chairon {
+//         gatsbyImageData(placeholder: NONE)
+//       }
+//       chairoff {
+//         gatsbyImageData(placeholder: NONE)
+//       }
+//       whyWorthItTitle {
+//         value
+//       }
+//       whyWorthItAnswers {
+//         paragraphText {
+//           value
+//         }
+//       }
+//       lecturersTitle
+//       lecturersSeeMoreButtonText
+//       lecturersBackButtonText
+//       lecturers {
+//         lecturerPhoto {
+//           gatsbyImageData
+//           alt
+//         }
+//         lecturerHeader {
+//           value
+//         }
+//         lecturerShortBio {
+//           value
+//         }
+//         lecturerSlug
+//       }
+//       programTitle
+//       programDescription {
+//         value
+//       }
+//       meetingSessions {
+//         sessionTitleFirstColumn {
+//           value
+//         }
+//         sessionTime {
+//           value
+//         }
+//         sessionTitleBold {
+//           value
+//         }
+//         sessionQuestion {
+//           value
+//         }
+//         sessionLecturersList {
+//           value
+//         }
+//       }
 
-      additionalFirstColText {
-        value
-      }
-      additionalSecondColText {
-        value
-      }
-      additionalInfoCtaText {
-        value
-      }
-    }
-  }
-`
+//       additionalFirstColText {
+//         value
+//       }
+//       additionalSecondColText {
+//         value
+//       }
+//       additionalInfoCtaText {
+//         value
+//       }
+//     }
+//   }
+// `
 
 export default IndexPage

@@ -1,8 +1,8 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+
+
+const fs = require('fs');
+const { resolve } = require('path');
+const { get } = require('https');
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html" || stage === "develop-html") {
@@ -17,4 +17,30 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       },
     })
   }
+}
+
+exports.createPages = async ({
+  graphql,
+  actions: { createPage },
+}) => {
+  const { data: { allDatoCmsPageHome: { nodes } } } = await graphql(`
+  query {
+    allDatoCmsPageHome {
+      nodes {
+        rok
+        id
+      }
+    }
+  }
+`);
+
+nodes.forEach(({ id, rok }) => {
+    createPage({
+      path: rok,
+      component: resolve('src/templates/homepage.jsx'),
+      context: {
+        id
+      },
+    });
+  });
 }
