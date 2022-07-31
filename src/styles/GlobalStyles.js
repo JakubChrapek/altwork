@@ -5,10 +5,12 @@ import fontBold from "../fonts/Diagramm-Bold.woff"
 const GlobalStyles = createGlobalStyle`
     @font-face {
       font-family: Diagramm;
+      font-display: swap;
       src: url(${font});
     }
     @font-face {
       font-family: Diagramm;
+      font-display: swap;
       src: url(${fontBold});
       font-weight: bold;
     }
