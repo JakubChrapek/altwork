@@ -23,6 +23,7 @@ exports.createPages = async ({
   graphql,
   actions: { createPage },
 }) => {
+
   const { data: { allDatoCmsPageHome: { nodes } } } = await graphql(`
   query {
     allDatoCmsPageHome {
