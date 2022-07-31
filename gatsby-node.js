@@ -21,21 +21,33 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
 exports.createPages = async ({
   graphql,
-  actions: { createPage },
+  actions: { createPage, createRedirect },
 }) => {
+
 
   const { data: { allDatoCmsPageHome: { nodes } } } = await graphql(`
   query {
     allDatoCmsPageHome {
       nodes {
         rok
+        isActual
         id
       }
     }
   }
 `);
 
-nodes.forEach(({ id, rok }) => {
+  nodes.forEach(({ id, rok, isActual }) => {
+    if (isActual) {
+      createRedirect({
+        fromPath: '/',
+        toPath: '/' + rok,
+        statusCode: 302,
+        isPermanent: false,
+        redirectInBrowser: true,
+      })
+    }
+
     createPage({
       path: rok,
       component: resolve('src/templates/homepage.jsx'),
