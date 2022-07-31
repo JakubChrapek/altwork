@@ -41,7 +41,7 @@ exports.createPages = async ({
     if (isActual) {
       createRedirect({
         fromPath: '/',
-        toPath: '/' + rok,
+        toPath: '/' + rok + '/',
         statusCode: 302,
         isPermanent: false,
         redirectInBrowser: true,

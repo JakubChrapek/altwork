@@ -253,12 +253,10 @@ const LinksList = styled.ul`
 const Footer = ({ data }) => {
   const {
     datoCmsFooter: {
-      footerContentPartnersTitle,
       footerOrganisersTitle,
       footerPartnersTitle,
       organisersLogos,
       partnersLogos,
-      contentPartnersLogos,
     },
     datoCmsHeader: { headerSocialLinks },
   } = data
@@ -379,13 +377,6 @@ const MyFooter = () => {
               }
               partnerPageSlug
               partnerName
-              grafikaSvg
-            }
-            contentPartnersLogos {
-              logoGraphic {
-                gatsbyImageData
-              }
-              partnerPageSlug
               grafikaSvg
             }
           }
