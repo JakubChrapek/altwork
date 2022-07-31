@@ -30,24 +30,13 @@ exports.createPages = async ({
     allDatoCmsPageHome {
       nodes {
         rok
-        isActual
         id
       }
     }
   }
 `);
 
-  nodes.forEach(({ id, rok, isActual }) => {
-    if (isActual) {
-      createRedirect({
-        fromPath: '/',
-        toPath: '/' + rok + '/',
-        statusCode: 302,
-        isPermanent: false,
-        redirectInBrowser: true,
-      })
-    }
-
+  nodes.forEach(({ id, rok }) => {
     createPage({
       path: rok,
       component: resolve('src/templates/homepage.jsx'),
