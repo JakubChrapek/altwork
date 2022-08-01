@@ -170,6 +170,7 @@ const Header = ({ data }) => {
                       rel="noopener noreferrer"
                       target="_blank"
                       href={headerSocialLink.socialLink}
+                      aria-label='social media'
                     >
                       {i === 0 ? (
                         <IconFB variant="dark" />
