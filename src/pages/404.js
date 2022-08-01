@@ -31,14 +31,6 @@ const NotFoundPage = ({ data }) => {
 
 export const cookiesQuery = graphql`
   {
-    datoCmsPageCookie {
-      cookiesTitle {
-        value
-      }
-      cookiesText {
-        value
-      }
-    }
     datoCmsPageHome {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

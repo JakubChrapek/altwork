@@ -173,40 +173,6 @@ const PartnersRow = styled(BrandingRow)`
     }
   }
 `
-const ContentPartnersRow = styled(BrandingRow)`
-  > ul {
-    border-bottom: 0;
-    > li {
-      margin-right: 2rem;
-      max-width: 7.5rem;
-      svg {
-        max-width: 7.5rem;
-      }
-      @media (max-width: 840px) {
-        max-width: 7.5rem;
-        svg {
-          max-width: 5rem;
-        }
-      }
-      &:last-of-type {
-        margin-right: 0;
-      }
-    }
-  }
-  @media (max-width: 767px) {
-    margin-top: 1.5rem;
-    > ul > li {
-      margin-right: 1rem;
-      &:last-of-type {
-        margin-right: 0;
-      }
-      flex: unset;
-      svg {
-        height: 1.25rem;
-      }
-    }
-  }
-`
 
 const CopyrightsRow = styled.div`
   display: flex;

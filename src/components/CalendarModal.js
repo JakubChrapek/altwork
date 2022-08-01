@@ -1,6 +1,4 @@
-import { motion } from "framer-motion"
-import { gsap } from "gsap"
-import React, { useEffect, useRef } from "react"
+import React, { useRef } from "react"
 import { GrClose } from "react-icons/gr"
 import Modal from "react-modal"
 import styled from "styled-components"
@@ -81,9 +79,7 @@ const CalendarList = styled.ul`
 export default function CalendarModal({ children, isOpen, onRequestClose }) {
   const modalRef = useRef()
 
-  useEffect(() => {
-    gsap.to(modalRef.current, { rotation: "+=360" })
-  })
+  
   return (
     <CalendarModalStyles
       ref={modalRef}

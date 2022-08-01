@@ -5,8 +5,6 @@ import CalendarModal from "./CalendarModal"
 import siteConfig from "../../config/site-config"
 import moment from "moment"
 
-const Dropdown = ({ children }) => <ul>{children}</ul>
-
 const AddToCalendarBtn = ({ buttonText, location }) => {
   const AddToCalendarDropdown = AddToCalendarHOC(LinkWithDot, CalendarModal)
 

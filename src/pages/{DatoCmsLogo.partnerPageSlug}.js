@@ -112,6 +112,7 @@ const PartnerPage = ({ data }) => {
               </a>
             ) : (
               <a
+                aria-label='logo'
                 href={data.datoCmsLogo?.partnerWebsiteLink}
                 dangerouslySetInnerHTML={{
                   __html: data.datoCmsLogo.grafikaSvg,

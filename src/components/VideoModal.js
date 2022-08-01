@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from "react"
+import React, { useRef } from "react"
 import styled from "styled-components"
 import ReactModal from "react-modal"
 import { AnimatePresence, motion } from "framer-motion"
 import { GrClose } from "react-icons/gr"
 import VideoPlayer from "./VideoPlayer"
-import { gsap } from "gsap"
 
 export const ExitButtonStyles = styled(motion.button)`
   background-color: transparent;
@@ -29,14 +28,6 @@ export const ExitButtonStyles = styled(motion.button)`
 
 const VideoModal = ({ isModalOpened, handleCloseModal }) => {
   const modalRef = useRef()
-  useEffect(() => {
-    if (!isModalOpened) {
-      gsap.from(modalRef.current, {
-        autoAlpha: 0,
-      })
-      console.log("ANIM")
-    }
-  }, [isModalOpened])
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -28,7 +28,6 @@
     "gatsby-source-datocms": "4.0.4",
     "gatsby-source-filesystem": "4.19.0",
     "gatsby-transformer-sharp": "4.19.0",
-    "gsap": "3.10.4",
     "locomotive-scroll": "4.1.4",
     "luxon": "3.0.1",
     "moment": "2.29.4",

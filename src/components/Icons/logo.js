@@ -1,4 +1,3 @@
-import gsap from "gsap"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { motion } from "framer-motion"
@@ -26,6 +25,11 @@ const LogoStyles = styled.svg`
     path,
     rect {
     pointer-events: none;
+    transition: all .3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+
+    &.active{
+        transform: translateX(-31px);
+    }
     }
 `
 
@@ -40,20 +44,12 @@ export const Logo = ({
 
     const HandleMouseOver = () => {
         if (ref.current) {
-            gsap.to(ref.current, {
-                x: -31,
-                ease: "Power4.out",
-                duration: 0.3,
-            })
+            ref.current.classList.add('active')
         }
     }
     const HandleMouseOut = () => {
         if (ref.current) {
-            gsap.to(ref.current, {
-                x: 0,
-                ease: "Power4.out",
-                duration: 0.3,
-            })
+            ref.current.classList.remove('active')
         }
     }
 

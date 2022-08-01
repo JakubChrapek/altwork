@@ -253,26 +253,6 @@ const SocialWrapper = styled.ul`
     transform: scale(1.2);
   }
 `
-const PartnersWrapper = styled(SocialWrapper)`
-  margin-top: 6.25rem;
-  display: flex;
-  @media (max-width: 767px) {
-    display: none;
-  }
-  > li {
-    flex: 1 1 50%;
-    max-height: 4.75rem;
-    @media (max-width: 1024px) {
-      flex: unset;
-    }
-    &:first-of-type {
-      margin-right: 4.25rem;
-    }
-    svg {
-      width: 100%;
-    }
-  }
-`
 
 const HamburgerMenu = ({
   headerLinks,
