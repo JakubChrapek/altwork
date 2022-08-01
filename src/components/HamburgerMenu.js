@@ -259,7 +259,8 @@ const HamburgerMenu = ({
   headerSocialLinks,
   firstPartnerLogo,
   secondPartnerLogo,
-  aktualnyRok
+  aktualnyRok,
+  currentPageYear
 }) => {
   const [menuOpened, setMenuOpened] = useState(false)
 
@@ -310,7 +311,7 @@ const HamburgerMenu = ({
                       key={`${headerLink.linkText}-hamburger-variant`}
                       activeClassName="active"
                       className={isLast ? "link--accent" : undefined}
-                      to={'/' + aktualnyRok + headerLink.linkUrl}
+                      to={'/' + currentPageYear + headerLink.linkUrl}
                       target={isLast ? "_blank" : undefined}
                       onClick={() => setMenuOpened(false)}
                       tabIndex={!menuOpened ? "-1" : undefined}

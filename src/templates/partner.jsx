@@ -118,35 +118,45 @@ const ContentWrapper = styled.div`
   }
 `
 
-const PartnerPage = ({ data }) => {
+const PartnerPage = ({ data: {allDatoCmsPrelegent, allDatoCmsPageHome} }) => {
+  const prelegent = allDatoCmsPrelegent.nodes[0]
+  const home = allDatoCmsPageHome.nodes[0]
+
+  let currentPageYear
+  if (typeof window !== 'undefined') {
+    let result = window.location.pathname.match(/[0-9]+/)
+    if (result) {
+      currentPageYear = result[0]
+    }
+  }
   return (
     <Layout>
       <Seo
-        title={`Alt:work - porozmawiajmy o pracy przyszłości. Prelegent ${data.datoCmsPrelegent?.lecturerNameAndSurname}`}
+        title={`Alt:work - porozmawiajmy o pracy przyszłości. Prelegent ${prelegent.lecturerNameAndSurname}`}
         description={siteConfig.description}
-        meta={data.datoCmsPageHome.seoMetaTags}
+        meta={home.seoMetaTags}
       />
       <LecturerTextStyles>
         <PartnerBio>
           <PartnerInfoWrapper>
             <GatsbyImage
-              image={data.datoCmsPrelegent.lecturerPhoto.gatsbyImageData}
-              alt={`Portret ${data.datoCmsPrelegent.lecturerNameAndSurname}`}
+              image={prelegent.lecturerPhoto.gatsbyImageData}
+              alt={`Portret ${prelegent.lecturerNameAndSurname}`}
             />
             <ContentWrapper>
-              <h2>{data.datoCmsPrelegent.lecturerNameAndSurname}</h2>
+              <h2>{prelegent.lecturerNameAndSurname}</h2>
               <StructuredText
-                data={data.datoCmsPrelegent.lecturerLongBiography.value}
+                data={prelegent.lecturerLongBiography.value}
               />
-              <BackToLecturers to="/#prelegenci">
-                {data.datoCmsPageHome.lecturersBackButtonText || "Powrót"}
+              <BackToLecturers to={'/' + currentPageYear + '#prelegenci'}>
+                {home.lecturersBackButtonText || "Powrót"}
               </BackToLecturers>
             </ContentWrapper>
           </PartnerInfoWrapper>
         </PartnerBio>
         <Circles
-          plainText={data.datoCmsPageHome.additionalInfoCtaText}
-          filledCircleText={data.datoCmsPageHome.filledCircleContent}
+          plainText={home.additionalInfoCtaText}
+          filledCircleText={home.filledCircleContent}
           variant="plainText"
         />
       </LecturerTextStyles>
@@ -157,31 +167,36 @@ const PartnerPage = ({ data }) => {
 export default PartnerPage
 
 export const query = graphql`
-  query ($lecturerSlug: String) {
-    datoCmsPrelegent(lecturerSlug: { eq: $lecturerSlug }) {
-      lecturerSlug
-      lecturerPhoto {
-        gatsbyImageData
-        alt
-      }
-      lecturerHeader {
-        value
-      }
-      lecturerNameAndSurname
-      lecturerLongBiography {
-        value
+  query ($id: String!, $rok: String!) {
+    allDatoCmsPrelegent(filter: {id: { eq: $id }}) {
+      nodes{
+        lecturerSlug
+        lecturerPhoto {
+          gatsbyImageData
+          alt
+        }
+        lecturerHeader {
+          value
+        }
+        lecturerNameAndSurname
+        lecturerLongBiography {
+          value
+        }
       }
     }
-    datoCmsPageHome {
-      lecturersBackButtonText
-      filledCircleContent {
-        value
-      }
-      additionalInfoCtaText {
-        value
-      }
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
+    allDatoCmsPageHome(filter: {rok: { eq: $rok }}) {
+      nodes{
+        rok
+        lecturersBackButtonText
+        filledCircleContent {
+          value
+        }
+        additionalInfoCtaText {
+          value
+        }
+        seoMetaTags {
+          ...GatsbyDatoCmsSeoMetaTags
+        }
       }
     }
   }

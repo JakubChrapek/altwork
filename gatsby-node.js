@@ -25,6 +25,8 @@ exports.createPages = async ({
 }) => {
 
 
+  // HOME
+
   const { data: { allDatoCmsPageHome: { nodes } } } = await graphql(`
   query {
     allDatoCmsPageHome {
@@ -46,7 +48,8 @@ exports.createPages = async ({
     });
   });
 
-  
+  // UDZIAL
+
   const { data: { allDatoCmsPageConference: { nodes: nodesUdzial } } } = await graphql(`
   query {
     allDatoCmsPageConference {
@@ -58,7 +61,7 @@ exports.createPages = async ({
   }
 `);
 
-nodesUdzial.forEach(({ id, rok }) => {
+  nodesUdzial.forEach(({ id, rok }) => {
     createPage({
       path: rok + '/udzial/',
       component: resolve('src/templates/udzial.jsx'),
@@ -69,4 +72,33 @@ nodesUdzial.forEach(({ id, rok }) => {
     });
   });
 
+  // LOGO
+
+  const { data: { allDatoCmsPageHome: { nodes: nodesLogo } } } = await graphql(`
+  query {
+    allDatoCmsPageHome {
+      nodes {
+        rok
+        lecturers{
+          lecturerSlug
+          id
+        }
+      }
+    }
+  }
+`);
+
+  nodesLogo.forEach(({ lecturers, rok }) => {
+    lecturers.forEach(({ lecturerSlug, id }) => {
+      createPage({
+        path: '/' + rok + '/' + lecturerSlug,
+        component: resolve('src/templates/partner.jsx'),
+        context: {
+          id,
+          rok,
+          lecturerSlug
+        },
+      });
+    });
+  })
 }
