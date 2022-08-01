@@ -92,21 +92,26 @@ const AnchorColumn = styled(SocialColumn)`
   margin-right: 0;
   width: 16.25rem;
 
-  > a {
+   > li {
+
+    a{
+      padding: 0.8rem 0 0.4rem;
+    }
+
     position: relative;
     font-family: Poppins;
     font-size: var(--font-20);
     font-weight: 700;
     line-height: 0.95;
-    padding: 0.8rem 0 0.4rem;
     border-bottom: 1px solid var(--color-gray);
     &:first-of-type {
       margin-top: -0.8rem;
+      margin-bottom: 0;
     }
     &:last-of-type {
       border-bottom: 0;
     }
-    &.link--accent {
+    a.link--accent {
       padding-left: 2.688rem;
       &:hover:after {
         transform: translate(2.5rem, calc(-50% + 0.2rem)) scale(1.4);
@@ -152,7 +157,7 @@ const Header = ({ data }) => {
         <HeaderContainer className="header">
           <HeaderStyles>
             <h1>
-              <Logo aktualnyRok={aktualnyRok}/>
+              <Logo aktualnyRok={aktualnyRok} />
             </h1>
             <NavigationWrapper>
               <SocialColumn>
@@ -176,16 +181,18 @@ const Header = ({ data }) => {
                 {headerLinks.map((headerLink, iterator) => {
                   const isLast = iterator === headerLinks.length - 1
                   return (
-                    <Link
-                      key={headerLink.linkText}
-                      activeClassName="active"
-                      className={isLast ? "link--accent" : undefined}
-                      target={isLast ? "_blank" : undefined}
-                      rel="noreferrer noopener"
-                      to={'/' + aktualnyRok + headerLink.linkUrl}
-                    >
-                      <li>{headerLink.linkText}</li>
-                    </Link>
+                    <li>
+                      <Link
+                        key={headerLink.linkText}
+                        activeClassName="active"
+                        className={isLast ? "link--accent" : undefined}
+                        target={isLast ? "_blank" : undefined}
+                        rel="noreferrer noopener"
+                        to={'/' + aktualnyRok + headerLink.linkUrl}
+                      >
+                        {headerLink.linkText}
+                      </Link>
+                    </li>
                   )
                 })}
               </AnchorColumn>

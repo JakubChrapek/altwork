@@ -3,6 +3,7 @@ import Header from "./Header"
 import GlobalStyles from "../styles/GlobalStyles"
 import Footer from "./Footer"
 import { Wrapper } from "./Wrapper"
+import { Helmet } from "react-helmet"
 
 const Layout = ({ children }) => {
   const [hasMounted, setHasMounted] = useState(false)
@@ -19,6 +20,11 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyles />
       <div id="main-container" ref={ref}>
+        <Helmet
+          htmlAttributes={{
+            lang: 'pl',
+          }}
+        />
         <Header />
         <Wrapper>
           <main>{children}</main>

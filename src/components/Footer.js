@@ -275,6 +275,7 @@ const Footer = ({ data }) => {
                 rel="noopener noreferrer"
                 target="_blank"
                 href={headerSocialLink.socialLink}
+                aria-label='social media'
               >
                 {i === 0 ? (
                   <IconFB variant="light" />
@@ -290,7 +291,7 @@ const Footer = ({ data }) => {
           <ul>
             {organisersLogos.map(logo => (
               <li key={`${logo.partnerPageSlug}-organisersLogos`}>
-                <Link to={`/${logo.partnerPageSlug}`}>
+                <Link aria-label={logo.partnerPageSlug} to={`/${logo.partnerPageSlug}`}>
                   <span dangerouslySetInnerHTML={{ __html: logo.grafikaSvg }} />
                 </Link>
               </li>
@@ -302,7 +303,7 @@ const Footer = ({ data }) => {
           <ul>
             {partnersLogos.map(logo => (
               <li key={`${logo.partnerPageSlug}-ContentPartners`}>
-                <Link to={`/${logo.partnerPageSlug}`}>
+                <Link aria-label={logo.partnerName} to={`/${logo.partnerPageSlug}`}>
                   {logo?.logoGraphic?.gatsbyImageData == null ? (
                     <span
                       dangerouslySetInnerHTML={{ __html: logo.grafikaSvg }}
