@@ -75,10 +75,10 @@ export const Logo = ({
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 222.33 108.38"
             >
-                <title id="altworkTitle">
+                <title className="altworkTitle">
                     Alt:work - porozmawiajmy o pracy przyszłości, 12 września 2021r.
                 </title>
-                <desc id="altworkDescription">
+                <desc className="altworkDescription">
                     Alt:work to spotkanie służące wymianie myśli, doświadczeń i refleksji
                     na temat zmieniającej się na naszych oczach podstawowej formy
                     aktywności człowieka: pracy. Spotkajmy się podczas Igrzysk Wolności

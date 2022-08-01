@@ -159,7 +159,7 @@ const SessionQuestionWrapper = styled.div`
   }
 `
 
-const LecturersList = styled.ul`
+const LecturersList = styled.div`
   list-style-type: none;
   padding: 0;
   font-size: var(--font-16);
