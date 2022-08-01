@@ -2,7 +2,9 @@ import { graphql, Link, StaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import HamburgerMenu from "./HamburgerMenu"
-import { Logo, IconFB, IconYT } from "./Icons"
+import { Logo } from "./Icons/logo"
+import { IconFB } from "./Icons/facebook"
+import { IconYT } from "./Icons/youtube"
 
 const HeaderWrapper = styled.header`
   width: 100%;
@@ -152,6 +154,7 @@ const Header = ({ data }) => {
         headerSocialLinks={headerSocialLinks}
         firstPartnerLogo={headerPartner1Svg}
         secondPartnerLogo={headerPartner2Svg}
+        aktualnyRok={aktualnyRok}
       />
       <HeaderWrapper>
         <HeaderContainer className="header">

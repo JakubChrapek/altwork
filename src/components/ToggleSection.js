@@ -127,7 +127,7 @@ const ToggleSection = ({ chairoff, chairon, armchairoff, armchairon }) => {
             </ImageWrapper>
           )}
         </AnimatePresence>
-        <Toggler onClick={() => setToggleState(!toggleState)}>
+        <Toggler aria-label='toggle chair' onClick={() => setToggleState(!toggleState)}>
           <motion.span
             initial={{ x: 0 }}
             animate={

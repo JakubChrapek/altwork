@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import VideoModal from "./VideoModal"
-import { IconPlay } from "./Icons"
+import { IconPlay } from "./Icons/play"
 import { StructuredText } from "react-datocms"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -179,7 +179,7 @@ const VideoSection = ({
           image={previewImage.gatsbyImageData}
           alt={previewImage.alt}
         />
-        <button type="button" onClick={handleOpenModal}>
+        <button aria-label='play video' type="button" onClick={handleOpenModal}>
           <IconPlay />
         </button>
         <CircleBorder className="circle-border" />

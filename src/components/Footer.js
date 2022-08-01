@@ -3,8 +3,10 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
-import { IconFB, IconYT, Logo } from "./Icons"
 import { Wrapper } from "./Wrapper"
+import { Logo } from "./Icons/logo"
+import { IconFB } from "./Icons/facebook"
+import { IconYT } from "./Icons/youtube"
 
 const FooterStyles = styled.footer`
   background-color: var(--color-black);

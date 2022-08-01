@@ -3,7 +3,7 @@ import { StructuredText } from "react-datocms"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import { LeftArrow, RightArrow } from "./Icons"
+import { LeftArrow, RightArrow } from './Icons/arrow'
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
@@ -262,10 +262,10 @@ const LecturersSlider = ({ buttonText, backButtonText, lecturers }) => {
   return (
     <>
       <ButtonsWrapper>
-        <button onClick={handlePrev}>
+        <button aria-label='prev slide' onClick={handlePrev}>
           <LeftArrow />
         </button>
-        <button onClick={handleNext}>
+        <button aria-label='next slide' onClick={handleNext}>
           <RightArrow />
         </button>
       </ButtonsWrapper>

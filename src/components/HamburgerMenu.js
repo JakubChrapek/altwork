@@ -1,8 +1,10 @@
 import { Link } from "gatsby"
 import React, { useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
-import { IconFB, IconYT, Logo } from "./Icons"
 import { Wrapper } from "./Wrapper"
+import { Logo } from "./Icons/logo"
+import { IconFB } from "./Icons/facebook"
+import { IconYT } from "./Icons/youtube"
 
 const HamburgerButtonStyles = styled.button`
   position: absolute;
@@ -145,12 +147,13 @@ const LinksColumn = styled.ul`
     padding-right: 4.5rem;
   }
 
-  a {
-    text-decoration: none;
-    color: var(--color-black);
-    font-weight: bold;
+  li {
     border-bottom: 1px solid var(--color-black);
-    > li {
+    > a {
+      display: block;
+      text-decoration: none;
+      color: var(--color-black);
+      font-weight: bold;
       --minFontSize: var(--font-28);
       --maxFontSize: var(--font-60);
       --scaler: 3vw;
@@ -171,10 +174,10 @@ const LinksColumn = styled.ul`
     }
     &:last-of-type {
       border-bottom: 0;
-      &:hover > li:after {
+      &:hover > a:after {
         transform: translateX(4.75rem) scale(1.4);
       }
-      > li {
+      > a {
         padding-left: 4.8rem;
         position: relative;
         &:after {
@@ -276,6 +279,7 @@ const HamburgerMenu = ({
   headerSocialLinks,
   firstPartnerLogo,
   secondPartnerLogo,
+  aktualnyRok
 }) => {
   const [menuOpened, setMenuOpened] = useState(false)
 
@@ -303,6 +307,7 @@ const HamburgerMenu = ({
                 setMenuOpened(false)
               }}
               circleFillColor="white"
+              aktualnyRok={aktualnyRok}
             />
             <HamburgerButtonStyles
               ref={hamburgerRef}
@@ -320,17 +325,19 @@ const HamburgerMenu = ({
               {filteredLinks.map((headerLink, iterator) => {
                 const isLast = iterator === filteredLinks.length - 1
                 return (
-                  <Link
-                    key={`${headerLink.linkText}-hamburger-variant`}
-                    activeClassName="active"
-                    className={isLast ? "link--accent" : undefined}
-                    to={headerLink.linkUrl}
-                    target={isLast ? "_blank" : undefined}
-                    onClick={() => setMenuOpened(false)}
-                    tabIndex={!menuOpened ? "-1" : undefined}
-                  >
-                    <li>{headerLink.linkText}</li>
-                  </Link>
+                  <li>
+                    <Link
+                      key={`${headerLink.linkText}-hamburger-variant`}
+                      activeClassName="active"
+                      className={isLast ? "link--accent" : undefined}
+                      to={'/' + aktualnyRok + headerLink.linkUrl}
+                      target={isLast ? "_blank" : undefined}
+                      onClick={() => setMenuOpened(false)}
+                      tabIndex={!menuOpened ? "-1" : undefined}
+                    >
+                      {headerLink.linkText}
+                    </Link>
+                  </li>
                 )
               })}
             </LinksColumn>
@@ -350,6 +357,7 @@ const HamburgerMenu = ({
                       target="_blank"
                       href={headerSocialLink.socialLink}
                       tabIndex={!menuOpened ? "-1" : undefined}
+                      aria-label='social media'
                     >
                       {i === 0 ? (
                         <IconFB variant="dark" />

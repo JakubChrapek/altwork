@@ -2,7 +2,7 @@ import React from "react"
 import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { ClaimStyles } from "./Typography"
-import { RichArrowRight } from "./Icons"
+import { RichArrowRight } from "./Icons/rich-arrow"
 
 const WhyWorthItSectionStyles = styled.section`
   margin-top: 8.125rem;

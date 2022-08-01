@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 import siteConfig from "../../config/site-config"
 import Seo from "../components/Seo"
 import styled from "styled-components"
-import { RichArrowDown } from "../components/Icons"
+import { RichArrowDown } from "../components/Icons/rich-arrow"
 import AddToCalendarBtn from "../components/AddToCalendarBtn"
 import LinkWithDot from "../components/LinkWithDot"
 
