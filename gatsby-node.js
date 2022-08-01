@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
 exports.createPages = async ({
   graphql,
-  actions: { createPage, createRedirect },
+  actions: { createPage },
 }) => {
 
 
@@ -38,11 +38,35 @@ exports.createPages = async ({
 
   nodes.forEach(({ id, rok }) => {
     createPage({
-      path: rok,
+      path: '/' + rok + '/',
       component: resolve('src/templates/homepage.jsx'),
       context: {
         id
       },
     });
   });
+
+  
+  const { data: { allDatoCmsPageConference: { nodes: nodesUdzial } } } = await graphql(`
+  query {
+    allDatoCmsPageConference {
+      nodes {
+        rok
+        id
+      }
+    }
+  }
+`);
+
+nodesUdzial.forEach(({ id, rok }) => {
+    createPage({
+      path: rok + '/udzial/',
+      component: resolve('src/templates/udzial.jsx'),
+      context: {
+        id,
+        rok
+      },
+    });
+  });
+
 }

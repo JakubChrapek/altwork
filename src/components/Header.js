@@ -138,6 +138,8 @@ const Header = ({ data }) => {
     },
   } = data
 
+  const aktualnyRok = data.allDatoCmsPageHome.nodes.filter(el => el.isActual)[0].rok
+
   return (
     <>
       <HamburgerMenu
@@ -150,7 +152,7 @@ const Header = ({ data }) => {
         <HeaderContainer className="header">
           <HeaderStyles>
             <h1>
-              <Logo />
+              <Logo aktualnyRok={aktualnyRok}/>
             </h1>
             <NavigationWrapper>
               <SocialColumn>
@@ -180,7 +182,7 @@ const Header = ({ data }) => {
                       className={isLast ? "link--accent" : undefined}
                       target={isLast ? "_blank" : undefined}
                       rel="noreferrer noopener"
-                      to={headerLink.linkUrl}
+                      to={'/' + aktualnyRok + headerLink.linkUrl}
                     >
                       <li>{headerLink.linkText}</li>
                     </Link>
@@ -200,6 +202,12 @@ const MyHeader = () => {
     <StaticQuery
       query={graphql`
         query newQuery {
+          allDatoCmsPageHome{
+            nodes{
+              rok
+              isActual
+            }
+          }
           datoCmsHeader {
             logo {
               gatsbyImageData(width: 200, placeholder: BLURRED)

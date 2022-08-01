@@ -47,7 +47,7 @@ const CirclesWrapper = styled.div`
       @media (max-width: 767px) {
         margin: 2rem -2.25rem 7rem;
       }
-    `}
+    `}}
 `
 
 const Circle = styled.span`
@@ -161,6 +161,7 @@ const Circles = ({
   filledCircleText,
   variant,
 }) => {
+  debugger
   return (
     <CirclesWrapper cta={variant === "plainText"} hero={hero}>
       {variant === "plainText" ? (

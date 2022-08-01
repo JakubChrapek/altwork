@@ -61,52 +61,52 @@ const ArrowWrapper = styled.div`
 `
 
 const HowToTakePartPage = ({ data }) => {
-  const {
-    heroTitle,
-    onlineTitle,
-    onlineDateTime,
-    onlineAttendName,
-    onlineCtaText,
-    onlineTextWithAnAsterisk,
-    personalTitle,
-    personalDateTime,
-    personalAttendName,
-    personalCtaText,
-    personalTextWithAnAsterisk,
-  } = data.datoCmsPageConference
+    const {
+        heroTitle,
+        onlineTitle,
+        onlineDateTime,
+        onlineAttendName,
+        onlineCtaText,
+        onlineTextWithAnAsterisk,
+        personalTitle,
+        personalDateTime,
+        personalAttendName,
+        personalCtaText,
+        personalTextWithAnAsterisk,
+    } = data.allDatoCmsPageConference.nodes[0]
 
-  return (
-    <Layout>
-      <Seo
-        title={siteConfig.title}
-        description={siteConfig.description}
-        meta={data.datoCmsPageHome.seoMetaTags}
-      />
-      <ContentWrapper>
-        <h1>
-          <StructuredText data={heroTitle} />
-        </h1>
-        <ArrowWrapper>
-          <RichArrowDown />
-        </ArrowWrapper>
-        <AttendSection
-          title={onlineTitle}
-          attendName={onlineAttendName}
-          date={onlineDateTime}
-          ctaText={onlineCtaText}
-          asteriskText={onlineTextWithAnAsterisk}
-        />
-        <AttendSection
-          type="buyTicket"
-          title={personalTitle}
-          attendName={personalAttendName}
-          date={personalDateTime}
-          ctaText={personalCtaText}
-          asteriskText={personalTextWithAnAsterisk}
-        />
-      </ContentWrapper>
-    </Layout>
-  )
+    return (
+        <Layout>
+            <Seo
+                title={siteConfig.title}
+                description={siteConfig.description}
+                meta={data.allDatoCmsPageHome.nodes[0].seoMetaTags}
+            />
+            <ContentWrapper>
+                <h1>
+                    <StructuredText data={heroTitle} />
+                </h1>
+                <ArrowWrapper>
+                    <RichArrowDown />
+                </ArrowWrapper>
+                <AttendSection
+                    title={onlineTitle}
+                    attendName={onlineAttendName}
+                    date={onlineDateTime}
+                    ctaText={onlineCtaText}
+                    asteriskText={onlineTextWithAnAsterisk}
+                />
+                <AttendSection
+                    type="buyTicket"
+                    title={personalTitle}
+                    attendName={personalAttendName}
+                    date={personalDateTime}
+                    ctaText={personalCtaText}
+                    asteriskText={personalTextWithAnAsterisk}
+                />
+            </ContentWrapper>
+        </Layout>
+    )
 }
 
 const Wrapper = styled.section`
@@ -190,55 +190,58 @@ const Row = styled.div`
 `
 
 const AttendSection = ({
-  type,
-  title,
-  attendName,
-  date,
-  ctaText,
-  asteriskText,
+    type,
+    title,
+    attendName,
+    date,
+    ctaText,
+    asteriskText,
 }) => {
-  return (
-    <Wrapper>
-      <AttendHeader>
-        <StructuredText data={title} />
-      </AttendHeader>
-      <Row>
-        <div className="title">
-          <StructuredText data={attendName} />
-        </div>
-        <div className="date">
-          <StructuredText data={date} />
-        </div>
-        <div className="link">
-          {type === "buyTicket" ? (
-            <LinkWithDot
-              href="https://sklep.liberte.pl/bilety/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {ctaText}
-            </LinkWithDot>
-          ) : (
-            <AddToCalendarBtn
-              buttonText={ctaText}
-              location={attendName.value.document.children[0].children[0].value}
-            />
-          )}
-        </div>
-      </Row>
-      <StructuredText data={asteriskText} />
-    </Wrapper>
-  )
+    return (
+        <Wrapper>
+            <AttendHeader>
+                <StructuredText data={title} />
+            </AttendHeader>
+            <Row>
+                <div className="title">
+                    <StructuredText data={attendName} />
+                </div>
+                <div className="date">
+                    <StructuredText data={date} />
+                </div>
+                <div className="link">
+                    {type === "buyTicket" ? (
+                        <LinkWithDot
+                            href="https://sklep.liberte.pl/bilety/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {ctaText}
+                        </LinkWithDot>
+                    ) : (
+                        <AddToCalendarBtn
+                            buttonText={ctaText}
+                            location={attendName.value.document.children[0].children[0].value}
+                        />
+                    )}
+                </div>
+            </Row>
+            <StructuredText data={asteriskText} />
+        </Wrapper>
+    )
 }
 
 export const privacyQuery = graphql`
-  {
-    datoCmsPageHome {
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
-      }
+  query Udzial($id: String!, $rok: String!){
+    allDatoCmsPageHome(filter: {rok: {eq: $rok}}) {
+        nodes{
+            seoMetaTags {
+                ...GatsbyDatoCmsSeoMetaTags
+            }
+        }
     }
-    datoCmsPageConference {
+    allDatoCmsPageConference(filter: {id: {eq: $id}}) {
+        nodes {
       heroTitle {
         value
       }
@@ -268,6 +271,7 @@ export const privacyQuery = graphql`
       personalTextWithAnAsterisk {
         value
       }
+    }
     }
   }
 `

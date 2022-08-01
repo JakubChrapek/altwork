@@ -261,11 +261,13 @@ const Footer = ({ data }) => {
     datoCmsHeader: { headerSocialLinks },
   } = data
 
+  const aktualnyRok = data.allDatoCmsPageHome.nodes.filter(el => el.isActual)[0].rok
+
   return (
     <FooterStyles>
       <FooterWrapper>
         <LogoRow>
-          <Logo maxWidth="10.25rem" variant="light" />
+          <Logo aktualnyRok={aktualnyRok} maxWidth="10.25rem" variant="light" />
           <SocialWrapper>
             {headerSocialLinks.map((headerSocialLink, i) => (
               <a
@@ -354,6 +356,12 @@ const MyFooter = () => {
     <StaticQuery
       query={graphql`
         query footerQuery {
+          allDatoCmsPageHome{
+            nodes{
+              rok
+              isActual
+            }
+          }
           datoCmsFooter {
             footerContentPartnersTitle {
               value
