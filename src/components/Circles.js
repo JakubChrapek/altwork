@@ -161,7 +161,6 @@ const Circles = ({
   filledCircleText,
   variant,
 }) => {
-  debugger
   return (
     <CirclesWrapper cta={variant === "plainText"} hero={hero}>
       {variant === "plainText" ? (
