@@ -5,7 +5,7 @@ import Footer from "./Footer"
 import { Wrapper } from "./Wrapper"
 import { Helmet } from "react-helmet"
 
-const Layout = ({ children }) => {
+const Layout = ({ kolorRoku, children }) => {
   const [hasMounted, setHasMounted] = useState(false)
   const ref = useRef(null)
   useEffect(() => {
@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <GlobalStyles />
+      <GlobalStyles kolorRoku={kolorRoku} />
       <div id="main-container" ref={ref}>
         <Helmet
           htmlAttributes={{

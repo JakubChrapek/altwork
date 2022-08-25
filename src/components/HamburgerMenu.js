@@ -257,8 +257,6 @@ const SocialWrapper = styled.ul`
 const HamburgerMenu = ({
   headerLinks,
   headerSocialLinks,
-  firstPartnerLogo,
-  secondPartnerLogo,
   aktualnyRok,
   currentPageYear
 }) => {

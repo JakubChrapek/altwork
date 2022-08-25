@@ -162,6 +162,7 @@ const VideoSection = ({
   previewImage,
   firstContentColumn,
   secondContentColumn,
+  videoLink,
 }) => {
   const [isModalOpened, setIsModalOpened] = useState(false)
   const handleCloseModal = () => setIsModalOpened(false)
@@ -171,7 +172,7 @@ const VideoSection = ({
     <SectionStyles>
       <AnimatePresence>
         {isModalOpened && (
-          <VideoModal isModalOpened handleCloseModal={handleCloseModal} />
+          <VideoModal videoLink={videoLink} isModalOpened handleCloseModal={handleCloseModal} />
         )}
       </AnimatePresence>
       <VideoPreview>

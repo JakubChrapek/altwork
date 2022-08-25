@@ -29,7 +29,7 @@ export const RichArrowRight = () => {
                     height="184"
                     rx="90"
                     transform="translate(184) rotate(90)"
-                    fill="#03df07"
+                    fill="var(--color-accent)"
                     a
                 />
                 <g
@@ -114,7 +114,7 @@ export const RichArrowDown = () => {
                 height="184"
                 rx="90"
                 transform="translate(184) rotate(90)"
-                fill="#03df07"
+                fill="var(--color-accent)"
             />
             <g
                 id="Group_69"

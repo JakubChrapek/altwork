@@ -16,11 +16,11 @@ const LogoStyles = styled.svg`
     #toggle-bg,
     path {
     fill: ${({ variant }) =>
-            variant === "light" ? "var(--color-white)" : "var(--color-black)"};
+        variant === "light" ? "var(--color-white)" : "var(--color-black)"};
     }
     #toggle-circle {
     fill: ${({ circleFillColor }) =>
-            circleFillColor ? circleFillColor : "var(--color-accent)"};
+        circleFillColor ? circleFillColor : "var(--color-accent)"};
     }
     path,
     rect {

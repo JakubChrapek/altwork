@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
       -webkit-text-size-adjust: 100%;
       --color-black: #000;
       --color-white: #fff;
-      --color-accent: #03DF07;
+      --color-accent: ${props => props.kolorRoku ? props.kolorRoku : '#03DF07'};
       --color-accent-circle: #02E745;
       --color-light-gray: #D9D9D9;
       --color-gray: #707070;

@@ -129,7 +129,7 @@ const Slide = ({ buttonText, backButtonText, slide, index }) => {
           alt={lecturerPhoto.alt}
         />
         <svg
-          aria-labelledby="zielone dekoracyjne koło"
+          aria-labelledby="dekoracyjne koło"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 200 200"
@@ -139,7 +139,7 @@ const Slide = ({ buttonText, backButtonText, slide, index }) => {
             cx="100"
             cy={40 + 60 * circleVariant}
             r="100"
-            fill="#02E745"
+            fill="var(--color-accent)"
           />
         </svg>
       </ImageWrapper>

@@ -140,8 +140,6 @@ const Header = ({ data }) => {
     datoCmsHeader: {
       headerLinks,
       headerSocialLinks,
-      headerPartner1Svg,
-      headerPartner2Svg,
     },
   } = data
 
@@ -159,8 +157,6 @@ const Header = ({ data }) => {
       <HamburgerMenu
         headerLinks={headerLinks}
         headerSocialLinks={headerSocialLinks}
-        firstPartnerLogo={headerPartner1Svg}
-        secondPartnerLogo={headerPartner2Svg}
         aktualnyRok={aktualnyRok}
         currentPageYear={currentPageYear}
       />
@@ -242,8 +238,6 @@ const MyHeader = () => {
                 gatsbyImageData
               }
             }
-            headerPartner1Svg
-            headerPartner2Svg
           }
         }
       `}

@@ -26,7 +26,7 @@ export const ExitButtonStyles = styled(motion.button)`
   }
 `
 
-const VideoModal = ({ isModalOpened, handleCloseModal }) => {
+const VideoModal = ({ videoLink, isModalOpened, handleCloseModal }) => {
   const modalRef = useRef()
   return (
     <motion.div
@@ -74,7 +74,7 @@ const VideoModal = ({ isModalOpened, handleCloseModal }) => {
         >
           <GrClose size="32px" color="var(--white)" />
         </ExitButtonStyles>
-        <AnimatePresence>{isModalOpened && <VideoPlayer />}</AnimatePresence>
+        <AnimatePresence>{isModalOpened && <VideoPlayer videoLink={videoLink} />}</AnimatePresence>
       </ReactModal>
     </motion.div>
   )

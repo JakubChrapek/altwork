@@ -118,7 +118,7 @@ const ContentWrapper = styled.div`
   }
 `
 
-const PartnerPage = ({ data: {allDatoCmsPrelegent, allDatoCmsPageHome} }) => {
+const PartnerPage = ({ data: { allDatoCmsPrelegent, allDatoCmsPageHome } }) => {
   const prelegent = allDatoCmsPrelegent.nodes[0]
   const home = allDatoCmsPageHome.nodes[0]
 
@@ -130,7 +130,7 @@ const PartnerPage = ({ data: {allDatoCmsPrelegent, allDatoCmsPageHome} }) => {
     }
   }
   return (
-    <Layout>
+    <Layout kolorRoku={home.kolorRoku.hex}>
       <Seo
         title={`Alt:work - porozmawiajmy o pracy przyszłości. Prelegent ${prelegent.lecturerNameAndSurname}`}
         description={siteConfig.description}
@@ -187,6 +187,9 @@ export const query = graphql`
     allDatoCmsPageHome(filter: {rok: { eq: $rok }}) {
       nodes{
         rok
+        kolorRoku {
+          hex
+        }
         lecturersBackButtonText
         filledCircleContent {
           value

@@ -32,7 +32,7 @@ const VideoPlayerStyles = styled(motion.div)`
   }
 `
 
-const VideoPlayer = ({ url }) => {
+const VideoPlayer = ({ videoLink }) => {
   return (
     <VideoPlayerStyles
       initial={{ opacity: 0 }}
@@ -41,7 +41,7 @@ const VideoPlayer = ({ url }) => {
     >
       <ReactPlayer
         className="react-player"
-        url={url ? url : "https://www.youtube.com/watch?v=KHYDZ3G6lKo"}
+        url={videoLink ? videoLink : "https://www.youtube.com/watch?v=KHYDZ3G6lKo"}
         width="100%"
         height="100%"
         controls
