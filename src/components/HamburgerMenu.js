@@ -303,13 +303,17 @@ const HamburgerMenu = ({
             <LinksColumn>
               {filteredLinks.map((headerLink, iterator) => {
                 const isLast = iterator === filteredLinks.length - 1
+                let path = currentPageYear + headerLink.linkUrl
+                if(path[0] === '/' && path[1] === '/'){
+                  path = path.substring(1)
+                }
                 return (
                   <li>
                     <Link
                       key={`${headerLink.linkText}-hamburger-variant`}
                       activeClassName="active"
                       className={isLast ? "link--accent" : undefined}
-                      to={currentPageYear + headerLink.linkUrl}
+                      to={path}
                       target={isLast ? "_blank" : undefined}
                       onClick={() => setMenuOpened(false)}
                       tabIndex={!menuOpened ? "-1" : undefined}
