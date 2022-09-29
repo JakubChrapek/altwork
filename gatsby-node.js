@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
 exports.createPages = async ({
   graphql,
-  actions: { createPage, createRedirect  },
+  actions: { createPage  },
 }) => {
 
 
