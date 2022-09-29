@@ -38,7 +38,6 @@ export const Logo = ({
     variant = "dark",
     circleFillColor,
     onClick,
-    aktualnyRok
 }) => {
     const ref = useRef(null)
 
@@ -57,7 +56,7 @@ export const Logo = ({
         <Link
             style={{ display: "inline-block" }}
             variant={variant}
-            to={"/" + aktualnyRok + '/'}
+            to="/"
             onClick={onClick}
             onMouseOver={HandleMouseOver}
             onMouseOut={HandleMouseOut}

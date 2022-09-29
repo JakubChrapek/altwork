@@ -85,7 +85,7 @@ const PartnerInfoWrapper = styled.div`
 
 const PartnerPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout kolorRoku={data.datoCmsPageHome.kolorRoku.hex}>
       <Seo
         title={`${data.datoCmsLogo?.partnerName} - alt:work - porozmawiajmy o pracy przyszłości.`}
         description={siteConfig.description}
@@ -98,7 +98,7 @@ const PartnerPage = ({ data }) => {
           partnerzy
         </h1>
         <PartnerBio>
-          <PartnerLogoWrapper>
+          <PartnerLogoWrapper >
             {data.datoCmsLogo.logoGraphic?.gatsbyImageData != null ? (
               <a
                 href={data.datoCmsLogo?.partnerWebsiteLink}
@@ -155,7 +155,11 @@ export const query = graphql`
         value
       }
     }
-    datoCmsPageHome {
+    datoCmsPageHome (isActual: {eq: true}){
+      kolorRoku {
+        hex
+      }
+      rok
       filledCircleContent {
         value
       }

@@ -309,7 +309,7 @@ const HamburgerMenu = ({
                       key={`${headerLink.linkText}-hamburger-variant`}
                       activeClassName="active"
                       className={isLast ? "link--accent" : undefined}
-                      to={'/' + currentPageYear + headerLink.linkUrl}
+                      to={currentPageYear + headerLink.linkUrl}
                       target={isLast ? "_blank" : undefined}
                       onClick={() => setMenuOpened(false)}
                       tabIndex={!menuOpened ? "-1" : undefined}

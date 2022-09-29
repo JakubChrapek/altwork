@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
 exports.createPages = async ({
   graphql,
-  actions: { createPage },
+  actions: { createPage, createRedirect  },
 }) => {
 
 
@@ -31,6 +31,7 @@ exports.createPages = async ({
   query {
     allDatoCmsPageHome {
       nodes {
+        isActual
         rok
         id
       }
@@ -38,14 +39,26 @@ exports.createPages = async ({
   }
 `);
 
-  nodes.forEach(({ id, rok }) => {
+  let isHomepageCreated = false
+  let actualYear = 0
+
+  nodes.forEach(({ id, rok, isActual }) => {
+
+    let path = '/' + rok + '/'
+
+    if (isActual && !isHomepageCreated) {
+      path = '/'
+      actualYear = rok
+    } 
+
     createPage({
-      path: '/' + rok + '/',
+      path: path,
       component: resolve('src/templates/homepage.jsx'),
       context: {
         id
       },
     });
+
   });
 
   // UDZIAL
@@ -62,8 +75,15 @@ exports.createPages = async ({
 `);
 
   nodesUdzial.forEach(({ id, rok }) => {
+
+    let path = rok + '/udzial/'
+
+    if (rok === actualYear) {
+      path = '/udzial/'
+    }
+
     createPage({
-      path: rok + '/udzial/',
+      path: path,
       component: resolve('src/templates/udzial.jsx'),
       context: {
         id,
@@ -78,6 +98,7 @@ exports.createPages = async ({
   query {
     allDatoCmsPageHome {
       nodes {
+        isActual
         rok
         lecturers{
           lecturerSlug
@@ -88,10 +109,17 @@ exports.createPages = async ({
   }
 `);
 
-  nodesLogo.forEach(({ lecturers, rok }) => {
+  nodesLogo.forEach(({ lecturers, rok, isActual }) => {
     lecturers.forEach(({ lecturerSlug, id }) => {
+
+      let path = '/' + rok + '/' + lecturerSlug
+
+      if (isActual) {
+        path = '/' + lecturerSlug + '/'
+      }
+
       createPage({
-        path: '/' + rok + '/' + lecturerSlug,
+        path: path,
         component: resolve('src/templates/partner.jsx'),
         context: {
           id,

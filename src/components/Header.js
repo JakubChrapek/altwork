@@ -144,12 +144,18 @@ const Header = ({ data }) => {
   } = data
 
   const aktualnyRok = data.allDatoCmsPageHome.nodes.filter(el => el.isActual)[0].rok
-  let currentPageYear = aktualnyRok 
-  if(typeof window !== 'undefined'){
+  let currentPageYear = aktualnyRok
+  if (typeof window !== 'undefined') {
     let result = window.location.pathname.match(/[0-9]+/)
-    if(result){
+    if (result) {
       currentPageYear = result[0]
     }
+  }
+
+  if (currentPageYear === aktualnyRok) {
+    currentPageYear = '/'
+  } else {
+    currentPageYear = '/' + currentPageYear
   }
 
   return (
@@ -164,7 +170,7 @@ const Header = ({ data }) => {
         <HeaderContainer className="header">
           <HeaderStyles>
             <h1>
-              <Logo aktualnyRok={aktualnyRok} />
+              <Logo />
             </h1>
             <NavigationWrapper>
               <SocialColumn>
@@ -188,6 +194,11 @@ const Header = ({ data }) => {
               <AnchorColumn>
                 {headerLinks.map((headerLink, iterator) => {
                   const isLast = iterator === headerLinks.length - 1
+                  let path = currentPageYear + headerLink.linkUrl
+                  if(path[0] === '/' && path[1] === '/'){
+                    path = path.substring(1)
+                  }
+                  
                   return (
                     <li>
                       <Link
@@ -196,7 +207,7 @@ const Header = ({ data }) => {
                         className={isLast ? "link--accent" : undefined}
                         target={isLast ? "_blank" : undefined}
                         rel="noreferrer noopener"
-                        to={'/' + currentPageYear + headerLink.linkUrl}
+                        to={path}
                       >
                         {headerLink.linkText}
                       </Link>

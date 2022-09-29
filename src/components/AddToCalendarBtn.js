@@ -2,7 +2,6 @@ import React from "react"
 import AddToCalendarHOC from "react-add-to-calendar-hoc"
 import LinkWithDot from "./LinkWithDot"
 import CalendarModal from "./CalendarModal"
-import siteConfig from "../../config/site-config"
 import moment from "moment"
 
 const AddToCalendarBtn = ({
