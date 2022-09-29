@@ -70,7 +70,12 @@ const BrandingRow = styled.div`
     padding-bottom: 1.6rem;
   }
   > ul {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @media (max-width: 767px) {
+      display: flex;
+    }
     flex-wrap: wrap;
     flex: 1 1 80%;
     align-items: center;

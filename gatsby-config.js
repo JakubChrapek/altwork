@@ -61,7 +61,7 @@ module.exports = {
         background_color: `#03DF07`,
         theme_color: `#03DF07`,
         display: `minimal-ui`,
-        icon: `src/images/altwork-favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
