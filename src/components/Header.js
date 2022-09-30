@@ -145,13 +145,13 @@ const Header = ({ data }) => {
 
   const aktualnyRok = data.allDatoCmsPageHome.nodes.filter(el => el.isActual)[0].rok
   let currentPageYear = aktualnyRok
-  let currentPageUrl  = aktualnyRok
   if (typeof window !== 'undefined') {
     let result = window.location.pathname.match(/[0-9]+/)
     if (result) {
       currentPageYear = result[0]
     }
   }
+  let currentPageUrl  = currentPageYear
 
   if (currentPageYear === aktualnyRok) {
     currentPageUrl = '/'
