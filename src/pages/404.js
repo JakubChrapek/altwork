@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
 
 const NotFoundPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout kolorRoku={data.datoCmsPageHome.kolorRoku.hex}>
       <Seo
         title={siteConfig.title}
         description={siteConfig.description}
@@ -31,7 +31,12 @@ const NotFoundPage = ({ data }) => {
 
 export const cookiesQuery = graphql`
   {
-    datoCmsPageHome {
+    datoCmsPageHome (isActual: {eq: true}){
+      isActual
+      rok
+      kolorRoku {
+        hex
+      }
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }

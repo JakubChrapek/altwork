@@ -118,17 +118,23 @@ const ContentWrapper = styled.div`
   }
 `
 
-const PartnerPage = ({ data: { allDatoCmsPrelegent, allDatoCmsPageHome } }) => {
+const PartnerPage = ({ data: { allDatoCmsPrelegent, allDatoCmsPageHome }, pageContext }) => {
   const prelegent = allDatoCmsPrelegent.nodes[0]
-  const home = allDatoCmsPageHome.nodes[0]
+  const home = allDatoCmsPageHome.nodes.filter(el => el.rok === pageContext.rok)[0]
 
-  let currentPageYear
+  const aktualnyRok = allDatoCmsPageHome.nodes.filter(el => el.isActual)[0].rok
+  let currentPageYear = aktualnyRok
   if (typeof window !== 'undefined') {
     let result = window.location.pathname.match(/[0-9]+/)
     if (result) {
-      currentPageYear = result[0]
+      currentPageYear = '/' + result[0]
+    }
+
+    if (currentPageYear === aktualnyRok) {
+      currentPageYear = '/'
     }
   }
+
   return (
     <Layout kolorRoku={home.kolorRoku.hex}>
       <Seo
@@ -148,7 +154,7 @@ const PartnerPage = ({ data: { allDatoCmsPrelegent, allDatoCmsPageHome } }) => {
               <StructuredText
                 data={prelegent.lecturerLongBiography.value}
               />
-              <BackToLecturers to={'/' + currentPageYear + '#prelegenci'}>
+              <BackToLecturers to={currentPageYear + '#prelegenci'}>
                 {home.lecturersBackButtonText || "Powrót"}
               </BackToLecturers>
             </ContentWrapper>
@@ -167,7 +173,7 @@ const PartnerPage = ({ data: { allDatoCmsPrelegent, allDatoCmsPageHome } }) => {
 export default PartnerPage
 
 export const query = graphql`
-  query ($id: String!, $rok: String!) {
+  query ($id: String!) {
     allDatoCmsPrelegent(filter: {id: { eq: $id }}) {
       nodes{
         lecturerSlug
@@ -184,8 +190,9 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsPageHome(filter: {rok: { eq: $rok }}) {
+    allDatoCmsPageHome {
       nodes{
+        isActual
         rok
         kolorRoku {
           hex
