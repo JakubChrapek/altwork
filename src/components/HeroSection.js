@@ -7,10 +7,11 @@ import FilledMobileCircle from "./FilledMobileCircle"
 
 const SectionStyles = styled.section``
 
-const HeroSection = ({ emptyCircleText, filledCircleText, claimText }) => {
+const HeroSection = ({ isActual, emptyCircleText, filledCircleText, claimText }) => {
   return (
     <SectionStyles id="info">
       <Circles
+      isActual={isActual}
         emptyCircleText={emptyCircleText}
         filledCircleText={filledCircleText}
         variant="circles"

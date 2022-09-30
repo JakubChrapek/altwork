@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
 
 const NotFoundPage = ({ data }) => {
   return (
-    <Layout kolorRoku={data.datoCmsPageHome.kolorRoku.hex}>
+    <Layout rok={data.datoCmsPageHome.rok} kolorRoku={data.datoCmsPageHome.kolorRoku.hex}>
       <Seo
         title={siteConfig.title}
         description={siteConfig.description}

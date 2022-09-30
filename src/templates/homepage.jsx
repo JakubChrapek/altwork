@@ -40,9 +40,11 @@ const IndexPage = ({ data }) => {
     additionalFirstColText,
     additionalSecondColText,
     additionalInfoCtaText,
+    rok,
+    isActual
   } = data.allDatoCmsPageHome.nodes[0]
   return (
-    <Layout kolorRoku={kolorRoku.hex}>
+    <Layout rok={rok} kolorRoku={kolorRoku.hex}>
       <Seo
         title={siteConfig.title}
         description={siteConfig.description}
@@ -52,6 +54,7 @@ const IndexPage = ({ data }) => {
         emptyCircleText={emptyCircleContent}
         filledCircleText={filledCircleContent}
         claimText={heroClaim}
+        isActual={isActual}
       />
       <VideoSection
       videoLink={videoLink}
@@ -97,6 +100,8 @@ export const homeQuery = graphql`
   query homepageQuery($id: String!){
     allDatoCmsPageHome(filter: {id: {eq: $id}}) {
      nodes {
+      rok
+      isActual
       kolorRoku{
         hex
       }

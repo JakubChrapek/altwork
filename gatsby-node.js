@@ -76,20 +76,19 @@ exports.createPages = async ({
 
   nodesUdzial.forEach(({ id, rok }) => {
 
-    let path = rok + '/udzial/'
-
     if (rok === actualYear) {
-      path = '/udzial/'
+      let path = '/udzial/'
+      
+      createPage({
+        path: path,
+        component: resolve('src/templates/udzial.jsx'),
+        context: {
+          id,
+          rok
+        },
+      });
     }
 
-    createPage({
-      path: path,
-      component: resolve('src/templates/udzial.jsx'),
-      context: {
-        id,
-        rok
-      },
-    });
   });
 
   // LOGO

@@ -160,6 +160,7 @@ const Circles = ({
   plainText,
   filledCircleText,
   variant,
+  isActual
 }) => {
   return (
     <CirclesWrapper cta={variant === "plainText"} hero={hero}>
@@ -173,10 +174,15 @@ const Circles = ({
           <Circle variant="empty" />
         </EmptyCircleWrapper>
       )}
-      <FilledCircleWrapper cta={variant === "plainText"} hide={hero}>
-        <StructuredText data={filledCircleText} />
-        <Circle cta={variant === "plainText"} variant="accent" />
-      </FilledCircleWrapper>
+      {isActual
+        ? (
+          <FilledCircleWrapper cta={variant === "plainText"} hide={hero}>
+            <StructuredText data={filledCircleText} />
+            <Circle cta={variant === "plainText"} variant="accent" />
+          </FilledCircleWrapper>
+        )
+        : null}
+
     </CirclesWrapper>
   )
 }

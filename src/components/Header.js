@@ -145,6 +145,7 @@ const Header = ({ data }) => {
 
   const aktualnyRok = data.allDatoCmsPageHome.nodes.filter(el => el.isActual)[0].rok
   let currentPageYear = aktualnyRok
+  let currentPageUrl  = aktualnyRok
   if (typeof window !== 'undefined') {
     let result = window.location.pathname.match(/[0-9]+/)
     if (result) {
@@ -153,9 +154,9 @@ const Header = ({ data }) => {
   }
 
   if (currentPageYear === aktualnyRok) {
-    currentPageYear = '/'
+    currentPageUrl = '/'
   } else {
-    currentPageYear = '/' + currentPageYear
+    currentPageUrl = '/' + currentPageUrl
   }
 
   return (
@@ -165,6 +166,7 @@ const Header = ({ data }) => {
         headerSocialLinks={headerSocialLinks}
         aktualnyRok={aktualnyRok}
         currentPageYear={currentPageYear}
+        currentPageUrl={currentPageUrl}
       />
       <HeaderWrapper>
         <HeaderContainer className="header">
@@ -194,9 +196,13 @@ const Header = ({ data }) => {
               <AnchorColumn>
                 {headerLinks.map((headerLink, iterator) => {
                   const isLast = iterator === headerLinks.length - 1
-                  let path = currentPageYear + headerLink.linkUrl
+                  let path = currentPageUrl + headerLink.linkUrl
                   if(path[0] === '/' && path[1] === '/'){
                     path = path.substring(1)
+                  }
+
+                  if(currentPageYear !== aktualnyRok && path.includes('udzial')){
+                    return null
                   }
                   
                   return (
@@ -223,7 +229,7 @@ const Header = ({ data }) => {
   )
 }
 
-const MyHeader = () => {
+const MyHeader = ({isActual}) => {
   return (
     <StaticQuery
       query={graphql`
@@ -252,7 +258,7 @@ const MyHeader = () => {
           }
         }
       `}
-      render={data => <Header data={data} />}
+      render={data => <Header data={data} isActual={isActual} />}
     />
   )
 }

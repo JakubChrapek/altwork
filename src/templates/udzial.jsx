@@ -84,7 +84,7 @@ const HowToTakePartPage = ({ data }) => {
   } = data.allDatoCmsPageConference.nodes[0]
 
   return (
-    <Layout kolorRoku={data.allDatoCmsPageHome.nodes[0].kolorRoku.hex}>
+    <Layout rok={data.allDatoCmsPageHome.nodes[0].rok} kolorRoku={data.allDatoCmsPageHome.nodes[0].kolorRoku.hex}>
       <Seo
         title={siteConfig.title}
         description={siteConfig.description}
@@ -267,6 +267,8 @@ export const privacyQuery = graphql`
   query Udzial($id: String!, $rok: String!){
     allDatoCmsPageHome(filter: {rok: {eq: $rok}}) {
         nodes{
+          rok
+          isActual
           kolorRoku {
             hex
           }

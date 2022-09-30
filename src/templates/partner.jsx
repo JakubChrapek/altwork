@@ -136,7 +136,7 @@ const PartnerPage = ({ data: { allDatoCmsPrelegent, allDatoCmsPageHome }, pageCo
   }
 
   return (
-    <Layout kolorRoku={home.kolorRoku.hex}>
+    <Layout rok={home.rok} kolorRoku={home.kolorRoku.hex}>
       <Seo
         title={`Alt:work - porozmawiajmy o pracy przyszłości. Prelegent ${prelegent.lecturerNameAndSurname}`}
         description={siteConfig.description}

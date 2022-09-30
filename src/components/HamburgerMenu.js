@@ -103,8 +103,12 @@ const HamburgerMenuContainer = styled.div`
 
 const MenuOpenedWrapper = styled(Wrapper)`
   padding-top: 3.75rem;
+  overflow: auto;
+  max-height: 100%;
+      padding-bottom: 1rem;
   @media (max-width: 767px) {
     padding-top: 1.813rem;
+    padding-bottom: 6rem;
   }
   position: relative;
   ${HamburgerButtonStyles} {
@@ -172,7 +176,7 @@ const LinksColumn = styled.ul`
         padding: 0 0 0.5rem;
       }
     }
-    &:last-of-type {
+    &.link--accent {
       border-bottom: 0;
       &:hover > a:after {
         transform: translateX(4.75rem) scale(1.4);
@@ -258,7 +262,8 @@ const HamburgerMenu = ({
   headerLinks,
   headerSocialLinks,
   aktualnyRok,
-  currentPageYear
+  currentPageYear,
+  currentPageUrl
 }) => {
   const [menuOpened, setMenuOpened] = useState(false)
 
@@ -303,12 +308,16 @@ const HamburgerMenu = ({
             <LinksColumn>
               {filteredLinks.map((headerLink, iterator) => {
                 const isLast = iterator === filteredLinks.length - 1
-                let path = currentPageYear + headerLink.linkUrl
+                let path = currentPageUrl + headerLink.linkUrl
                 if(path[0] === '/' && path[1] === '/'){
                   path = path.substring(1)
                 }
+                if(currentPageYear !== aktualnyRok && path.includes('udzial')){
+                  return null
+                }
+
                 return (
-                  <li>
+                  <li className={isLast ? "link--accent" : undefined}>
                     <Link
                       key={`${headerLink.linkText}-hamburger-variant`}
                       activeClassName="active"

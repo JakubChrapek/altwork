@@ -85,7 +85,7 @@ const PartnerInfoWrapper = styled.div`
 
 const PartnerPage = ({ data }) => {
   return (
-    <Layout kolorRoku={data.datoCmsPageHome.kolorRoku.hex}>
+    <Layout rok={data.datoCmsPageHome.rok} kolorRoku={data.datoCmsPageHome.kolorRoku.hex}>
       <Seo
         title={`${data.datoCmsLogo?.partnerName} - alt:work - porozmawiajmy o pracy przyszłości.`}
         description={siteConfig.description}
@@ -159,6 +159,7 @@ export const query = graphql`
       kolorRoku {
         hex
       }
+      isActual
       rok
       filledCircleContent {
         value
